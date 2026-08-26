@@ -7,7 +7,6 @@
 <title>DESIRE LIVING — 02K Grunge Collection</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
 <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=JetBrains+Mono:wght@400;500;700&family=Archivo:wght@400;500;600;700;900&display=swap" rel="stylesheet">
 
 <style>
@@ -52,15 +51,21 @@ body{
     min-height:100vh;
 }
 
-body.cart-open{
+body.no-scroll{
     overflow:hidden;
 }
 
 @media (prefers-reduced-motion:reduce){
     *{
-        animation-duration:0.01ms !important;
-        transition-duration:0.01ms !important;
+        animation-duration:.01ms !important;
+        transition-duration:.01ms !important;
     }
+}
+
+a,
+button{
+    font-family:inherit;
+    color:inherit;
 }
 
 
@@ -73,22 +78,15 @@ body.cart-open{
     inset:0;
     z-index:999;
     pointer-events:none;
-    opacity:0.05;
+    opacity:.05;
     mix-blend-mode:overlay;
 }
 
-a,
-button{
-    font-family:inherit;
-    color:inherit;
-}
 
 .chrome-text{
     background:var(--chrome-grad);
-
     -webkit-background-clip:text;
     background-clip:text;
-
     color:transparent;
 
     filter:
@@ -104,12 +102,10 @@ button{
 #gate{
     position:fixed;
     inset:0;
-
     z-index:100;
 
     display:flex;
     flex-direction:column;
-
     align-items:center;
     justify-content:center;
 
@@ -136,12 +132,11 @@ button{
     pointer-events:none;
 }
 
+
 .gate-line{
     position:absolute;
-
     left:0;
     right:0;
-
     height:1px;
 
     background:
@@ -161,17 +156,13 @@ button{
     bottom:12%;
 }
 
+
 .gate-eyebrow{
     font-family:'JetBrains Mono',monospace;
-
     font-size:11px;
-
     letter-spacing:.35em;
-
     text-transform:uppercase;
-
     color:var(--steel-dim);
-
     margin-bottom:22px;
 }
 
@@ -179,9 +170,9 @@ button{
     color:var(--ice);
 }
 
+
 .gate-logo{
     width:clamp(140px,20vw,240px);
-
     height:auto;
 
     filter:
@@ -190,17 +181,13 @@ button{
         );
 }
 
+
 .gate-sub{
     font-family:'JetBrains Mono',monospace;
-
     font-size:12px;
-
     letter-spacing:.25em;
-
     text-transform:uppercase;
-
     color:var(--steel-dim);
-
     margin-top:20px;
 }
 
@@ -211,23 +198,16 @@ button{
 
 .enter-btn{
     margin-top:52px;
-
     padding:16px 46px;
 
     background:var(--void-2);
-
     border:1px solid var(--steel);
-
     color:var(--bone);
 
     font-family:'JetBrains Mono',monospace;
-
     font-weight:700;
-
     font-size:14px;
-
     letter-spacing:.3em;
-
     text-transform:uppercase;
 
     cursor:pointer;
@@ -242,11 +222,8 @@ button{
 
 .enter-btn:hover{
     background:var(--chrome-grad);
-
     border-color:var(--bone);
-
     color:var(--void);
-
     transform:translateY(-2px);
 
     box-shadow:
@@ -257,12 +234,6 @@ button{
     transform:translateY(1px);
 }
 
-.enter-btn:focus-visible{
-    outline:2px solid var(--ice);
-
-    outline-offset:4px;
-}
-
 
 /* =========================
    PASSWORD PANEL
@@ -270,17 +241,12 @@ button{
 
 .pw-panel{
     margin-top:52px;
-
     display:flex;
-
     flex-direction:column;
-
     align-items:center;
 
     opacity:0;
-
     max-height:0;
-
     overflow:hidden;
 
     transition:
@@ -290,21 +256,21 @@ button{
 
 .pw-panel.open{
     opacity:1;
-
     max-height:220px;
 }
 
+
 .pw-row{
     display:flex;
-
     border:1px solid var(--steel);
 }
 
+
 .pw-row.shake{
     animation:shake .4s ease;
-
     border-color:#c0392b;
 }
+
 
 @keyframes shake{
 
@@ -330,89 +296,68 @@ button{
 
 }
 
+
 .pw-input{
     background:var(--void-2);
-
     border:none;
-
     outline:none;
-
     color:var(--bone);
 
     font-family:'JetBrains Mono',monospace;
-
     font-size:13px;
-
     letter-spacing:.2em;
 
     padding:14px 16px;
-
     width:200px;
 }
 
 .pw-input::placeholder{
     color:var(--steel-dim);
-
-    letter-spacing:.15em;
 }
+
 
 .pw-submit{
     background:var(--chrome-grad);
-
     border:none;
-
     color:var(--void);
 
     font-family:'JetBrains Mono',monospace;
-
     font-weight:700;
-
     font-size:12px;
-
     letter-spacing:.2em;
-
     text-transform:uppercase;
 
     padding:0 20px;
-
     cursor:pointer;
 }
+
 
 .pw-error{
     margin-top:14px;
 
     font-family:'JetBrains Mono',monospace;
-
     font-size:10px;
-
     letter-spacing:.15em;
-
     text-transform:uppercase;
 
     color:#c0392b;
-
     height:14px;
 }
+
 
 .pw-back{
     margin-top:16px;
 
     background:none;
-
     border:none;
-
     color:var(--steel-dim);
 
     font-family:'JetBrains Mono',monospace;
-
     font-size:10px;
-
     letter-spacing:.15em;
-
     text-transform:uppercase;
 
     cursor:pointer;
-
     text-decoration:underline;
 }
 
@@ -426,27 +371,23 @@ button{
 }
 
 
-/* =========================
-   TOP BAR
-========================= */
-
 .chrome-strip{
     height:3px;
-
     background:var(--chrome-grad);
 }
 
+
+/* =========================
+   TOPBAR
+========================= */
+
 .topbar{
     position:sticky;
-
     top:0;
-
     z-index:50;
 
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
 
     padding:
@@ -462,70 +403,52 @@ button{
 }
 
 
-/* LOGO IMAGE */
-
 .brand-mark{
     display:flex;
-
     align-items:center;
 }
 
+
 .brand-mark img{
     display:block;
-
     width:auto;
-
     height:42px;
-
     max-width:min(240px,48vw);
-
     object-fit:contain;
 }
 
 
-/* CART TOP RIGHT */
-
 .topbar-right{
+    display:flex;
+    align-items:center;
+    gap:6px;
+
     font-family:'JetBrains Mono',monospace;
-
     font-size:11px;
-
     letter-spacing:.15em;
-
     text-transform:uppercase;
-
     color:var(--steel-dim);
 }
 
+
 .cart-btn{
     background:none;
-
     border:0;
-
     padding:10px 0;
 
     color:var(--steel-dim);
 
     font:inherit;
-
     letter-spacing:inherit;
-
     text-transform:inherit;
 
     cursor:pointer;
 
-    transition:color .2s ease;
+    transition:
+        color .2s ease;
 }
 
 .cart-btn:hover{
-    color:var(--bone);
-}
-
-.cart-btn:focus-visible{
-    outline:2px solid var(--ice);
-
-    outline-offset:4px;
-
     color:var(--bone);
 }
 
@@ -539,11 +462,8 @@ button{
         56px clamp(20px,4vw,48px) 28px;
 
     display:flex;
-
     flex-wrap:wrap;
-
     align-items:flex-end;
-
     justify-content:space-between;
 
     gap:20px;
@@ -552,26 +472,20 @@ button{
         1px solid var(--line);
 }
 
+
 .shop-head h1{
     font-family:'Metal Mania',cursive;
-
-    font-size:
-        clamp(34px,5.5vw,64px);
-
+    font-size:clamp(34px,5.5vw,64px);
     text-transform:uppercase;
-
     line-height:.95;
-
     font-weight:400;
 }
 
+
 .drop-tag{
     font-family:'JetBrains Mono',monospace;
-
     font-size:12px;
-
     letter-spacing:.2em;
-
     text-transform:uppercase;
 
     border:
@@ -584,13 +498,14 @@ button{
     white-space:nowrap;
 }
 
+
 .drop-tag b{
     color:var(--ice);
 }
 
 
 /* =========================
-   PRODUCT IMAGE
+   PRODUCT
 ========================= */
 
 .feature{
@@ -598,9 +513,7 @@ button{
         1px solid var(--line);
 
     display:flex;
-
     align-items:center;
-
     justify-content:center;
 
     background:var(--void-2);
@@ -609,11 +522,27 @@ button{
         clamp(24px,5vw,64px);
 }
 
-.feature img{
-    width:100%;
 
+/* clickable product */
+
+.product-image-btn{
+    display:block;
+    width:100%;
     max-width:1100px;
 
+    padding:0;
+
+    border:none;
+    background:none;
+
+    cursor:pointer;
+}
+
+
+.product-image-btn img{
+    display:block;
+
+    width:100%;
     height:auto;
 
     object-fit:contain;
@@ -621,6 +550,19 @@ button{
     filter:
         contrast(1.04)
         saturate(.96);
+
+    transition:
+        transform .3s ease,
+        filter .3s ease;
+}
+
+
+.product-image-btn:hover img{
+    transform:scale(1.018);
+
+    filter:
+        contrast(1.07)
+        brightness(1.05);
 }
 
 
@@ -636,27 +578,23 @@ button{
         1px solid var(--line);
 
     display:flex;
-
     flex-wrap:wrap;
-
     gap:18px;
 
     align-items:center;
-
     justify-content:space-between;
 
     background:var(--void);
 }
 
+
 .product-meta h2{
     font-family:'Metal Mania',cursive;
-
     font-size:30px;
-
     font-weight:400;
-
     text-transform:uppercase;
 }
+
 
 .product-meta p{
     margin-top:6px;
@@ -664,31 +602,51 @@ button{
     color:var(--steel-dim);
 
     font-family:'JetBrains Mono',monospace;
-
     font-size:11px;
-
     letter-spacing:.08em;
+    text-transform:uppercase;
+}
+
+
+.view-hint{
+    display:block;
+
+    margin-top:10px;
+
+    color:var(--steel);
+
+    font-family:'JetBrains Mono',monospace;
+
+    font-size:9px;
+
+    letter-spacing:.15em;
 
     text-transform:uppercase;
 }
 
 
-/* ADD TO CART BUTTON */
+/* =========================
+   ADD CART BUTTON
+========================= */
 
 .add-cart-btn{
     min-height:46px;
 
-    padding:13px 28px;
+    padding:
+        13px 28px;
 
-    border:1px solid var(--steel);
+    border:
+        1px solid var(--steel);
 
-    background:var(--chrome-grad);
+    background:
+        var(--chrome-grad);
 
     color:var(--void);
 
     cursor:pointer;
 
-    font-family:'JetBrains Mono',monospace;
+    font-family:
+        'JetBrains Mono',monospace;
 
     font-weight:700;
 
@@ -703,21 +661,223 @@ button{
         filter .2s ease;
 }
 
-.add-cart-btn:hover{
-    filter:brightness(1.08);
 
-    transform:translateY(-1px);
+.add-cart-btn:hover{
+    filter:
+        brightness(1.08);
+
+    transform:
+        translateY(-1px);
 }
+
 
 .add-cart-btn:active{
-    transform:translateY(1px);
+    transform:
+        translateY(1px);
 }
 
-.add-cart-btn:focus-visible{
-    outline:
-        2px solid var(--ice);
 
-    outline-offset:4px;
+/* =========================
+   PRODUCT IMAGE POPUP
+========================= */
+
+.product-modal-backdrop{
+    position:fixed;
+    inset:0;
+
+    z-index:150;
+
+    background:
+        rgba(0,0,0,.82);
+
+    backdrop-filter:
+        blur(9px);
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:
+        opacity .3s ease;
+}
+
+
+.product-modal-backdrop.open{
+    opacity:1;
+
+    pointer-events:auto;
+}
+
+
+.product-modal{
+    position:fixed;
+    inset:0;
+
+    z-index:151;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:24px;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transform:
+        scale(.94);
+
+    transition:
+        opacity .3s ease,
+        transform .35s cubic-bezier(.16,1,.3,1);
+}
+
+
+.product-modal.open{
+    opacity:1;
+
+    pointer-events:auto;
+
+    transform:
+        scale(1);
+}
+
+
+.product-modal-box{
+    position:relative;
+
+    width:
+        min(950px,94vw);
+
+    max-height:
+        90vh;
+
+    background:
+        #101010;
+
+    padding:18px;
+
+    border:
+        1px solid rgba(255,255,255,.13);
+
+    border-radius:
+        30px;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 30px 100px rgba(0,0,0,.8);
+}
+
+
+.product-modal-box::before{
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+    border-radius:
+        inherit;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.05),
+            transparent 35%
+        );
+}
+
+
+.product-modal-image-wrap{
+    width:100%;
+
+    border-radius:
+        21px;
+
+    overflow:hidden;
+
+    background:
+        var(--void-2);
+}
+
+
+.product-modal-image-wrap img{
+    display:block;
+
+    width:100%;
+
+    max-height:
+        80vh;
+
+    object-fit:contain;
+
+    border-radius:
+        21px;
+}
+
+
+/* ROUND CLOSE BUTTON */
+
+.product-modal-close{
+    position:absolute;
+
+    top:28px;
+
+    right:28px;
+
+    z-index:5;
+
+    width:46px;
+
+    height:46px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border:
+        1px solid rgba(255,255,255,.22);
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(6,6,6,.82);
+
+    backdrop-filter:
+        blur(10px);
+
+    color:
+        var(--bone);
+
+    font-size:26px;
+
+    line-height:1;
+
+    cursor:pointer;
+
+    transition:
+        background .2s ease,
+        color .2s ease,
+        transform .2s ease;
+}
+
+
+.product-modal-close:hover{
+    background:
+        var(--bone);
+
+    color:
+        var(--void);
+
+    transform:
+        rotate(90deg);
 }
 
 
@@ -743,6 +903,7 @@ button{
         opacity .28s ease;
 }
 
+
 .cart-backdrop.open{
     opacity:1;
 
@@ -765,9 +926,11 @@ button{
 
     z-index:80;
 
-    width:min(430px,100%);
+    width:
+        min(430px,100%);
 
-    background:var(--void);
+    background:
+        var(--void);
 
     border-left:
         1px solid var(--line);
@@ -783,13 +946,16 @@ button{
     flex-direction:column;
 }
 
+
 .cart-drawer.open{
     transform:
         translateX(0);
 }
 
 
-/* CART HEADER */
+/* =========================
+   CART HEADER
+========================= */
 
 .cart-head{
     display:flex;
@@ -806,8 +972,10 @@ button{
         1px solid var(--line);
 }
 
+
 .cart-head h2{
-    font-family:'Metal Mania',cursive;
+    font-family:
+        'Metal Mania',cursive;
 
     font-size:34px;
 
@@ -816,6 +984,7 @@ button{
     text-transform:uppercase;
 }
 
+
 .cart-close{
     width:44px;
 
@@ -823,6 +992,8 @@ button{
 
     border:
         1px solid var(--line);
+
+    border-radius:50%;
 
     background:
         var(--void-2);
@@ -836,7 +1007,9 @@ button{
 }
 
 
-/* CART ITEMS */
+/* =========================
+   CART PRODUCTS
+========================= */
 
 .cart-items{
     padding:
@@ -846,6 +1019,7 @@ button{
 
     flex:1;
 }
+
 
 .cart-empty{
     padding:
@@ -868,6 +1042,7 @@ button{
     text-align:center;
 }
 
+
 .cart-item{
     display:grid;
 
@@ -883,6 +1058,7 @@ button{
         1px solid var(--line);
 }
 
+
 .cart-thumb{
     width:82px;
 
@@ -895,13 +1071,17 @@ button{
 
     border:
         1px solid var(--line);
+
+    border-radius:10px;
 }
+
 
 .cart-item h3{
     font-size:14px;
 
     text-transform:uppercase;
 }
+
 
 .cart-item-note{
     margin-top:5px;
@@ -920,7 +1100,9 @@ button{
 }
 
 
-/* QUANTITY CONTROLS */
+/* =========================
+   QUANTITY
+========================= */
 
 .qty-row{
     display:flex;
@@ -933,6 +1115,7 @@ button{
 
     margin-top:13px;
 }
+
 
 .qty-btn{
     width:32px;
@@ -951,10 +1134,12 @@ button{
     cursor:pointer;
 }
 
+
 .qty-btn:hover{
     border-color:
         var(--steel);
 }
+
 
 .qty-value{
     min-width:24px;
@@ -966,6 +1151,7 @@ button{
 
     font-size:12px;
 }
+
 
 .remove-btn{
     margin-left:auto;
@@ -991,16 +1177,14 @@ button{
     cursor:pointer;
 }
 
-.remove-btn:hover{
-    color:
-        var(--bone);
-}
 
-
-/* CART BOTTOM */
+/* =========================
+   CART FOOTER
+========================= */
 
 .cart-foot{
-    padding:20px 24px 28px;
+    padding:
+        20px 24px 28px;
 
     border-top:
         1px solid var(--line);
@@ -1008,6 +1192,7 @@ button{
     background:
         var(--void-2);
 }
+
 
 .cart-status{
     font-family:
@@ -1026,6 +1211,7 @@ button{
 
     margin-bottom:16px;
 }
+
 
 .clear-cart{
     width:100%;
@@ -1051,14 +1237,6 @@ button{
     text-transform:uppercase;
 
     cursor:pointer;
-}
-
-.clear-cart:hover{
-    color:
-        var(--bone);
-
-    border-color:
-        var(--steel);
 }
 
 
@@ -1089,8 +1267,10 @@ footer{
         var(--steel-dim);
 }
 
+
 footer .fmark{
-    color:var(--steel);
+    color:
+        var(--steel);
 }
 
 
@@ -1135,6 +1315,34 @@ footer .fmark{
         width:100%;
     }
 
+    .product-modal{
+        padding:12px;
+    }
+
+    .product-modal-box{
+        padding:9px;
+
+        border-radius:23px;
+    }
+
+    .product-modal-image-wrap{
+        border-radius:16px;
+    }
+
+    .product-modal-image-wrap img{
+        border-radius:16px;
+    }
+
+    .product-modal-close{
+        top:20px;
+
+        right:20px;
+
+        width:42px;
+
+        height:42px;
+    }
+
 }
 
 </style>
@@ -1148,10 +1356,7 @@ footer .fmark{
      GRAIN
 ========================= -->
 
-<svg
-    class="grain"
-    xmlns="http://www.w3.org/2000/svg"
->
+<svg class="grain" xmlns="http://www.w3.org/2000/svg">
 
     <filter id="noiseFilter">
 
@@ -1185,7 +1390,9 @@ footer .fmark{
 
 <div id="gate">
 
+
     <div class="gate-line top"></div>
+
 
     <div class="gate-eyebrow">
 
@@ -1198,6 +1405,7 @@ footer .fmark{
     </div>
 
 
+
     <img
         class="gate-logo"
 
@@ -1207,11 +1415,13 @@ footer .fmark{
     >
 
 
+
     <div class="gate-sub">
 
         Made to Desire
 
     </div>
+
 
 
     <button
@@ -1230,10 +1440,12 @@ footer .fmark{
         id="pwPanel"
     >
 
+
         <div
             class="pw-row"
             id="pwRow"
         >
+
 
             <input
                 class="pw-input"
@@ -1242,6 +1454,7 @@ footer .fmark{
                 placeholder="password"
                 autocomplete="off"
             >
+
 
             <button
                 class="pw-submit"
@@ -1252,13 +1465,16 @@ footer .fmark{
 
             </button>
 
+
         </div>
+
 
 
         <div
             class="pw-error"
             id="pwError"
         ></div>
+
 
 
         <button
@@ -1270,10 +1486,12 @@ footer .fmark{
 
         </button>
 
+
     </div>
 
 
     <div class="gate-line bottom"></div>
+
 
 </div>
 
@@ -1289,17 +1507,16 @@ footer .fmark{
     <div class="chrome-strip"></div>
 
 
+
     <!-- TOP BAR -->
 
     <div class="topbar">
 
 
-        <!-- YOUR IMAGE LOGO -->
-
         <div class="brand-mark">
 
             <img
-                src="https://media.discordapp.net/attachments/1540060798947164190/1542300651789230131/0B81F985-E9F6-41CF-99AB-C002DABBD76B.png?ex=6a90bae9&is=6a8f6969&hm=6441d7ddafe001669b522d1c5074c2dd700766204c2ed5d8f122d9223d5edb07&=&format=webp&quality=lossless&width=1280&height=1066"
+                src="desire-living-logo.png"
                 alt="Desire Living"
             >
 
@@ -1307,17 +1524,13 @@ footer .fmark{
 
 
 
-        <!-- WORKING CART BUTTON -->
-
         <div class="topbar-right">
 
-            Lot 001 —
+            <span>Lot 001 —</span>
 
             <button
                 class="cart-btn"
                 id="cartBtn"
-                aria-haspopup="dialog"
-                aria-controls="cartDrawer"
             >
 
                 Cart (
@@ -1335,15 +1548,17 @@ footer .fmark{
 
 
 
-    <!-- COLLECTION TITLE -->
+    <!-- DROP TITLE -->
 
     <div class="shop-head">
+
 
         <h1 class="chrome-text">
 
             Sample
 
         </h1>
+
 
 
         <div class="drop-tag">
@@ -1356,32 +1571,46 @@ footer .fmark{
 
         </div>
 
+
     </div>
 
 
 
-    <!-- PRODUCT IMAGE -->
+    <!-- =========================
+         CLICKABLE PRODUCT IMAGE
+    ========================= -->
 
     <div class="feature">
 
-        <img
 
-            src="https://media.discordapp.net/attachments/1540060830291202158/1540063981006360586/CE4F7360-402B-416A-A9F7-CF2C27CF24E0.png?ex=6a9080da&is=6a8f2f5a&hm=99bb9f4ff38de5bc8a597ef31fd95afab80467a3dbdc90b96a0ec4f5a4b3df8c&=&format=webp&quality=lossless&width=1280&height=1024"
-
-            alt="Desire Living oversized graphic tee"
-
+        <button
+            class="product-image-btn"
+            id="productImageBtn"
+            aria-label="View product image"
         >
+
+
+            <img
+                src="https://media.discordapp.net/attachments/1540060830291202158/1540063981006360586/CE4F7360-402B-416A-A9F7-CF2C27CF24E0.png?ex=6a9080da&is=6a8f2f5a&hm=99bb9f4ff38de5bc8a597ef31fd95afab80467a3dbdc90b96a0ec4f5a4b3df8c&=&format=webp&quality=lossless&width=1280&height=1024"
+
+                alt="Desire Living oversized graphic tee"
+            >
+
+
+        </button>
+
 
     </div>
 
 
 
-    <!-- PRODUCT INFO / ADD TO CART -->
+    <!-- PRODUCT INFO -->
 
     <div class="product-actions">
 
 
         <div class="product-meta">
+
 
             <h2>
 
@@ -1392,9 +1621,17 @@ footer .fmark{
 
             <p>
 
-                Drop 001 · Price & size options added at launch
+                Drop 001 · Price & sizes added at launch
 
             </p>
+
+
+            <span class="view-hint">
+
+                Click image to enlarge
+
+            </span>
+
 
         </div>
 
@@ -1415,7 +1652,66 @@ footer .fmark{
 
 
     <!-- =========================
-         CART DARK BACKGROUND
+         IMAGE POPUP BACKGROUND
+    ========================= -->
+
+    <div
+        class="product-modal-backdrop"
+        id="productModalBackdrop"
+    ></div>
+
+
+
+    <!-- =========================
+         IMAGE POPUP
+    ========================= -->
+
+    <div
+        class="product-modal"
+        id="productModal"
+        aria-hidden="true"
+    >
+
+
+        <div class="product-modal-box">
+
+
+            <button
+                class="product-modal-close"
+                id="productModalClose"
+                aria-label="Close product image"
+            >
+
+                ×
+
+            </button>
+
+
+
+            <div class="product-modal-image-wrap">
+
+
+                <img
+
+                    src="https://media.discordapp.net/attachments/1540060830291202158/1540063981006360586/CE4F7360-402B-416A-A9F7-CF2C27CF24E0.png?ex=6a9080da&is=6a8f2f5a&hm=99bb9f4ff38de5bc8a597ef31fd95afab80467a3dbdc90b96a0ec4f5a4b3df8c&=&format=webp&quality=lossless&width=1280&height=1024"
+
+                    alt="Desire Living oversized graphic tee enlarged"
+
+                >
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =========================
+         CART BACKGROUND
     ========================= -->
 
     <div
@@ -1426,33 +1722,25 @@ footer .fmark{
 
 
     <!-- =========================
-         CART DRAWER
+         CART
     ========================= -->
 
     <aside
         class="cart-drawer"
         id="cartDrawer"
-
-        role="dialog"
-
-        aria-modal="true"
-
-        aria-labelledby="cartTitle"
-
         aria-hidden="true"
     >
 
 
-        <!-- CART HEADER -->
-
         <div class="cart-head">
 
 
-            <h2 id="cartTitle">
+            <h2>
 
                 Your Cart
 
             </h2>
+
 
 
             <button
@@ -1470,16 +1758,12 @@ footer .fmark{
 
 
 
-        <!-- CART PRODUCTS -->
-
         <div
             class="cart-items"
             id="cartItems"
         ></div>
 
 
-
-        <!-- CART BOTTOM -->
 
         <div class="cart-foot">
 
@@ -1488,7 +1772,7 @@ footer .fmark{
 
                 Checkout is disabled in this test build.
 
-                Prices, sizes, inventory and payment checkout
+                Prices, sizing, inventory and payments
                 can be connected when the store launches.
 
             </div>
@@ -1516,6 +1800,7 @@ footer .fmark{
 
     <footer>
 
+
         <div class="fmark">
 
             DESIRE LIVING — TEST BUILD
@@ -1523,11 +1808,13 @@ footer .fmark{
         </div>
 
 
+
         <div>
 
             Made to Desire.
 
         </div>
+
 
     </footer>
 
@@ -1540,42 +1827,42 @@ footer .fmark{
 
 
 /* =========================
-   PASSWORD
+   PASSWORD GATE
 ========================= */
 
 
-const SITE_PASSWORD = "desire";
+const SITE_PASSWORD="desire";
 
 
-const gate =
+const gate=
 document.getElementById("gate");
 
 
-const enterBtn =
+const enterBtn=
 document.getElementById("enterBtn");
 
 
-const pwPanel =
+const pwPanel=
 document.getElementById("pwPanel");
 
 
-const pwRow =
+const pwRow=
 document.getElementById("pwRow");
 
 
-const pwInput =
+const pwInput=
 document.getElementById("pwInput");
 
 
-const pwSubmit =
+const pwSubmit=
 document.getElementById("pwSubmit");
 
 
-const pwError =
+const pwError=
 document.getElementById("pwError");
 
 
-const pwBack =
+const pwBack=
 document.getElementById("pwBack");
 
 
@@ -1584,7 +1871,7 @@ function unlockSite(){
 
     gate.classList.add("torn");
 
-    setTimeout(() => {
+    setTimeout(function(){
 
         gate.style.display="none";
 
@@ -1600,7 +1887,7 @@ function showPwPanel(){
 
     pwPanel.classList.add("open");
 
-    setTimeout(() => {
+    setTimeout(function(){
 
         pwInput.focus();
 
@@ -1641,18 +1928,13 @@ function checkPassword(){
         pwError.textContent=
         "incorrect password";
 
-
         pwRow.classList.remove("shake");
-
 
         void pwRow.offsetWidth;
 
-
         pwRow.classList.add("shake");
 
-
         pwInput.value="";
-
 
         pwInput.focus();
 
@@ -1682,9 +1964,9 @@ pwBack.addEventListener(
 
 pwInput.addEventListener(
     "keydown",
-    function(e){
+    function(event){
 
-        if(e.key==="Enter"){
+        if(event.key==="Enter"){
 
             checkPassword();
 
@@ -1695,30 +1977,110 @@ pwInput.addEventListener(
 
 
 
-
-
 /* =========================
-   SHOPPING CART
+   PRODUCT IMAGE POPUP
 ========================= */
 
 
-/*
-This is the name used to save
-the cart in the customer's browser.
-*/
+const productImageBtn=
+document.getElementById(
+    "productImageBtn"
+);
 
-const CART_KEY =
+
+const productModal=
+document.getElementById(
+    "productModal"
+);
+
+
+const productModalBackdrop=
+document.getElementById(
+    "productModalBackdrop"
+);
+
+
+const productModalClose=
+document.getElementById(
+    "productModalClose"
+);
+
+
+
+function openProductModal(){
+
+    productModal.classList.add(
+        "open"
+    );
+
+    productModalBackdrop.classList.add(
+        "open"
+    );
+
+    productModal.setAttribute(
+        "aria-hidden",
+        "false"
+    );
+
+    document.body.classList.add(
+        "no-scroll"
+    );
+
+}
+
+
+
+function closeProductModal(){
+
+    productModal.classList.remove(
+        "open"
+    );
+
+    productModalBackdrop.classList.remove(
+        "open"
+    );
+
+    productModal.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+    document.body.classList.remove(
+        "no-scroll"
+    );
+
+}
+
+
+
+productImageBtn.addEventListener(
+    "click",
+    openProductModal
+);
+
+
+productModalClose.addEventListener(
+    "click",
+    closeProductModal
+);
+
+
+productModalBackdrop.addEventListener(
+    "click",
+    closeProductModal
+);
+
+
+
+/* =========================
+   CART
+========================= */
+
+
+const CART_KEY=
 "desireLivingCart";
 
 
-
-/*
-CURRENT PRODUCT
-
-When we add more products later,
-each one will get its own ID,
-name, price, size, image, etc.
-*/
 
 const PRODUCT={
 
@@ -1735,45 +2097,37 @@ const PRODUCT={
 
 
 
-/* CART ELEMENTS */
-
-
-const cartBtn =
+const cartBtn=
 document.getElementById("cartBtn");
 
 
-const cartCount =
+const cartCount=
 document.getElementById("cartCount");
 
 
-const addCartBtn =
+const addCartBtn=
 document.getElementById("addCartBtn");
 
 
-const cartDrawer =
+const cartDrawer=
 document.getElementById("cartDrawer");
 
 
-const cartBackdrop =
+const cartBackdrop=
 document.getElementById("cartBackdrop");
 
 
-const cartClose =
+const cartClose=
 document.getElementById("cartClose");
 
 
-const cartItems =
+const cartItems=
 document.getElementById("cartItems");
 
 
-const clearCart =
+const clearCart=
 document.getElementById("clearCart");
 
-
-
-/* =========================
-   LOAD SAVED CART
-========================= */
 
 
 let cart=[];
@@ -1835,7 +2189,7 @@ function saveCart(){
 
 
 /* =========================
-   TOTAL CART QUANTITY
+   TOTAL ITEMS
 ========================= */
 
 
@@ -1858,27 +2212,17 @@ function totalItems(){
 
 
 /* =========================
-   DRAW CART
+   RENDER CART
 ========================= */
 
 
 function renderCart(){
 
 
-    /*
-    Updates Cart (0)
-    at the top of the page
-    */
-
     cartCount.textContent=
     totalItems();
 
 
-
-    /*
-    Disable clear button
-    when cart is empty
-    */
 
     clearCart.disabled=
     cart.length===0;
@@ -1892,10 +2236,6 @@ function renderCart(){
     "1";
 
 
-
-    /*
-    Empty cart message
-    */
 
     if(cart.length===0){
 
@@ -1915,16 +2255,11 @@ function renderCart(){
 
         `;
 
-
         return;
 
     }
 
 
-
-    /*
-    Product inside cart
-    */
 
     cartItems.innerHTML=
 
@@ -1970,7 +2305,6 @@ function renderCart(){
                     <button
                         class="qty-btn"
                         data-action="decrease"
-                        aria-label="Decrease quantity"
                     >
 
                         −
@@ -1990,7 +2324,6 @@ function renderCart(){
                     <button
                         class="qty-btn"
                         data-action="increase"
-                        aria-label="Increase quantity"
                     >
 
                         +
@@ -2032,28 +2365,24 @@ function renderCart(){
 
 function openCart(){
 
+    closeProductModal();
+
     cartDrawer.classList.add(
         "open"
     );
 
-
     cartBackdrop.classList.add(
         "open"
     );
-
 
     cartDrawer.setAttribute(
         "aria-hidden",
         "false"
     );
 
-
     document.body.classList.add(
-        "cart-open"
+        "no-scroll"
     );
-
-
-    cartClose.focus();
 
 }
 
@@ -2070,24 +2399,18 @@ function closeCart(){
         "open"
     );
 
-
     cartBackdrop.classList.remove(
         "open"
     );
-
 
     cartDrawer.setAttribute(
         "aria-hidden",
         "true"
     );
 
-
     document.body.classList.remove(
-        "cart-open"
+        "no-scroll"
     );
-
-
-    cartBtn.focus();
 
 }
 
@@ -2100,25 +2423,15 @@ function closeCart(){
 
 function addProduct(){
 
-
-    /*
-    Check whether the same
-    product is already inside cart
-    */
-
     const existing=
-    cart.find(function(item){
+    cart.find(
+        function(item){
 
-        return item.id===PRODUCT.id;
+            return item.id===PRODUCT.id;
 
-    });
+        }
+    );
 
-
-
-    /*
-    If yes, increase quantity.
-    If not, add a new item.
-    */
 
     if(existing){
 
@@ -2139,12 +2452,9 @@ function addProduct(){
     }
 
 
-
     saveCart();
 
-
     renderCart();
-
 
     openCart();
 
@@ -2153,7 +2463,7 @@ function addProduct(){
 
 
 /* =========================
-   CART BUTTON EVENTS
+   CART EVENTS
 ========================= */
 
 
@@ -2163,19 +2473,16 @@ addCartBtn.addEventListener(
 );
 
 
-
 cartBtn.addEventListener(
     "click",
     openCart
 );
 
 
-
 cartClose.addEventListener(
     "click",
     closeCart
 );
-
 
 
 cartBackdrop.addEventListener(
@@ -2206,7 +2513,7 @@ clearCart.addEventListener(
 
 
 /* =========================
-   QUANTITY + / -
+   QUANTITY BUTTONS
 ========================= */
 
 
@@ -2228,7 +2535,6 @@ cartItems.addEventListener(
         }
 
 
-
         const itemElement=
         button.closest(
             ".cart-item"
@@ -2242,15 +2548,16 @@ cartItems.addEventListener(
         }
 
 
-
         const item=
-        cart.find(function(entry){
+        cart.find(
+            function(entry){
 
-            return entry.id
-            ===
-            itemElement.dataset.id;
+                return entry.id
+                ===
+                itemElement.dataset.id;
 
-        });
+            }
+        );
 
 
         if(!item){
@@ -2260,10 +2567,6 @@ cartItems.addEventListener(
         }
 
 
-
-        /*
-        PLUS BUTTON
-        */
 
         if(
             button.dataset.action
@@ -2277,10 +2580,6 @@ cartItems.addEventListener(
 
 
 
-        /*
-        MINUS BUTTON
-        */
-
         if(
             button.dataset.action
             ===
@@ -2292,10 +2591,6 @@ cartItems.addEventListener(
         }
 
 
-
-        /*
-        REMOVE PRODUCT
-        */
 
         if(
             button.dataset.action
@@ -2322,7 +2617,6 @@ cartItems.addEventListener(
 
         saveCart();
 
-
         renderCart();
 
     }
@@ -2331,7 +2625,7 @@ cartItems.addEventListener(
 
 
 /* =========================
-   ESC KEY CLOSES CART
+   ESC KEY
 ========================= */
 
 
@@ -2339,9 +2633,28 @@ document.addEventListener(
     "keydown",
     function(event){
 
+
+        if(event.key!=="Escape"){
+
+            return;
+
+        }
+
+
         if(
-            event.key==="Escape"
-            &&
+            productModal.classList.contains(
+                "open"
+            )
+        ){
+
+            closeProductModal();
+
+            return;
+
+        }
+
+
+        if(
             cartDrawer.classList.contains(
                 "open"
             )
@@ -2357,7 +2670,7 @@ document.addEventListener(
 
 
 /* =========================
-   INITIALIZE CART
+   START CART
 ========================= */
 
 
