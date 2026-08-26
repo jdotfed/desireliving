@@ -3,11 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>DESIRE LIVING — 02K Grunge Collection</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
+
 <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=JetBrains+Mono:wght@400;500;700&family=Archivo:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+
 <style>
-  :root{
+
+:root{
     --void:#0a0a0a;
     --void-2:#141414;
     --void-3:#1c1c1c;
@@ -15,379 +20,2352 @@
     --steel-dim:#57595c;
     --bone:#eceef0;
     --ice:#c7d3de;
-    --line: rgba(236,238,240,0.14);
-    --chrome-grad: linear-gradient(180deg, #ffffff 0%, #d7dade 22%, #6c6f73 48%, #f5f6f7 62%, #8a8d90 78%, #f0f1f2 100%);
-  }
+    --line:rgba(236,238,240,0.14);
 
-  *{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
+    --chrome-grad:
+    linear-gradient(
+        180deg,
+        #ffffff 0%,
+        #d7dade 22%,
+        #6c6f73 48%,
+        #f5f6f7 62%,
+        #8a8d90 78%,
+        #f0f1f2 100%
+    );
+}
 
-  body{
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
     background:var(--void);
     color:var(--bone);
-    font-family:'Archivo', sans-serif;
+    font-family:'Archivo',sans-serif;
     overflow-x:hidden;
     min-height:100vh;
-  }
+}
 
-  @media (prefers-reduced-motion: reduce){
-    *{animation-duration:0.01ms !important; transition-duration:0.01ms !important;}
-  }
+body.cart-open{
+    overflow:hidden;
+}
 
-  .grain{
-    position:fixed; inset:0; z-index:999; pointer-events:none;
-    opacity:0.05; mix-blend-mode:overlay;
-  }
+@media (prefers-reduced-motion:reduce){
+    *{
+        animation-duration:0.01ms !important;
+        transition-duration:0.01ms !important;
+    }
+}
 
-  a, button{font-family:inherit; color:inherit;}
 
-  .chrome-text{
+/* =========================
+   GRAIN
+========================= */
+
+.grain{
+    position:fixed;
+    inset:0;
+    z-index:999;
+    pointer-events:none;
+    opacity:0.05;
+    mix-blend-mode:overlay;
+}
+
+a,
+button{
+    font-family:inherit;
+    color:inherit;
+}
+
+.chrome-text{
     background:var(--chrome-grad);
+
     -webkit-background-clip:text;
     background-clip:text;
+
     color:transparent;
-    filter: drop-shadow(0 1px 0 rgba(0,0,0,0.9)) drop-shadow(0 0 22px rgba(200,210,220,0.12));
-  }
 
-  /* ============ GATE ============ */
-  #gate{
-    position:fixed; inset:0; z-index:100;
-    display:flex; flex-direction:column; align-items:center; justify-content:center;
-    background:
-      linear-gradient(180deg, rgba(6,6,7,0.72) 0%, rgba(8,8,8,0.55) 45%, rgba(6,6,7,0.82) 100%),
-      url('a7645233ebafcb23c2f3de9b538788d5.gif') center center / cover no-repeat;
-    text-align:center;
-    transition: transform 0.9s cubic-bezier(.76,0,.24,1), opacity 0.7s ease 0.15s;
-  }
+    filter:
+        drop-shadow(0 1px 0 rgba(0,0,0,.9))
+        drop-shadow(0 0 22px rgba(200,210,220,.12));
+}
 
-  #gate.torn{
-    transform: translateY(-100%);
-    opacity:0;
-    pointer-events:none;
-  }
 
-  .gate-line{
-    position:absolute; left:0; right:0; height:1px;
-    background: linear-gradient(90deg, transparent, var(--steel) 50%, transparent);
-  }
-  .gate-line.top{top:12%;}
-  .gate-line.bottom{bottom:12%;}
+/* =========================
+   PASSWORD GATE
+========================= */
 
-  .gate-eyebrow{
-    font-family:'JetBrains Mono', monospace;
-    font-size:11px; letter-spacing:0.35em; text-transform:uppercase;
-    color:var(--steel-dim); margin-bottom:22px;
-  }
-  .gate-eyebrow span{color:var(--ice);}
+#gate{
+    position:fixed;
+    inset:0;
 
-  .gate-title{
-    font-family:'Metal Mania', cursive;
-    font-size:clamp(56px, 13vw, 148px);
-    line-height:0.92;
-    letter-spacing:0.01em;
-    text-transform:uppercase;
-  }
+    z-index:100;
 
-  .gate-logo{
-    width:clamp(140px, 20vw, 240px);
-    height:auto;
-    filter: drop-shadow(0 0 30px rgba(200,210,220,0.12));
-  }
-  .gate-sub{
-    font-family:'JetBrains Mono', monospace;
-    font-size:12px; letter-spacing:0.25em; text-transform:uppercase;
-    color:var(--steel-dim); margin-top:20px;
-  }
-
-  .enter-btn{
-    margin-top:52px;
-    position:relative;
-    padding:16px 46px;
-    background:var(--void-2);
-    border:1px solid var(--steel);
-    color:var(--bone);
-    font-family:'JetBrains Mono', monospace;
-    font-weight:700;
-    font-size:14px;
-    letter-spacing:0.3em;
-    text-transform:uppercase;
-    cursor:pointer;
-    transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-  }
-  .enter-btn:hover{
-    background:var(--chrome-grad);
-    border-color:var(--bone);
-    color:var(--void);
-    transform: translateY(-2px);
-    box-shadow:0 10px 26px rgba(200,210,220,0.15);
-  }
-  .enter-btn:active{ transform: translateY(1px); }
-  .enter-btn:focus-visible{ outline:2px solid var(--ice); outline-offset:4px; }
-
-  .gate-hint{
-    margin-top:20px;
-    font-family:'JetBrains Mono', monospace;
-    font-size:10px; letter-spacing:0.2em; text-transform:uppercase;
-    color:var(--steel-dim);
-    animation: pulse 2.4s ease-in-out infinite;
-  }
-  @keyframes pulse{ 0%,100%{opacity:0.4;} 50%{opacity:1;} }
-
-  /* ---- password panel ---- */
-  .pw-panel{
-    margin-top:52px;
     display:flex;
     flex-direction:column;
-    align-items:center;
-    opacity:0;
-    max-height:0;
-    overflow:hidden;
-    transition: opacity 0.35s ease, max-height 0.35s ease;
-  }
-  .pw-panel.open{
-    opacity:1;
-    max-height:220px;
-  }
-  .pw-row{
-    display:flex;
-    gap:0;
-    border:1px solid var(--steel);
-  }
-  .pw-row.shake{ animation: shake 0.4s ease; border-color:#c0392b; }
-  @keyframes shake{
-    0%,100%{ transform:translateX(0); }
-    20%{ transform:translateX(-6px); }
-    40%{ transform:translateX(6px); }
-    60%{ transform:translateX(-4px); }
-    80%{ transform:translateX(4px); }
-  }
-  .pw-input{
-    background:var(--void-2);
-    border:none;
-    outline:none;
-    color:var(--bone);
-    font-family:'JetBrains Mono', monospace;
-    font-size:13px;
-    letter-spacing:0.2em;
-    padding:14px 16px;
-    width:200px;
-  }
-  .pw-input::placeholder{ color:var(--steel-dim); letter-spacing:0.15em; }
-  .pw-submit{
-    background:var(--chrome-grad);
-    border:none;
-    color:var(--void);
-    font-family:'JetBrains Mono', monospace;
-    font-weight:700;
-    font-size:12px;
-    letter-spacing:0.2em;
-    text-transform:uppercase;
-    padding:0 20px;
-    cursor:pointer;
-    transition: filter 0.2s ease;
-  }
-  .pw-submit:hover{ filter:brightness(1.1); }
-  .pw-submit:focus-visible, .pw-input:focus-visible{ outline:2px solid var(--ice); outline-offset:2px; }
-  .pw-error{
-    margin-top:14px;
-    font-family:'JetBrains Mono', monospace;
-    font-size:10px; letter-spacing:0.15em; text-transform:uppercase;
-    color:#c0392b;
-    height:14px;
-  }
-  .pw-back{
-    margin-top:16px;
-    background:none;
-    border:none;
-    color:var(--steel-dim);
-    font-family:'JetBrains Mono', monospace;
-    font-size:10px; letter-spacing:0.15em; text-transform:uppercase;
-    cursor:pointer;
-    text-decoration:underline;
-  }
 
-  /* ============ SHOP ============ */
-  #shop{ min-height:100vh; }
-
-  .topbar{
-    position:sticky; top:0; z-index:50;
-    display:flex; align-items:center; justify-content:space-between;
-    padding:20px clamp(20px,4vw,48px);
-    background:rgba(10,10,10,0.88);
-    backdrop-filter:blur(6px);
-    border-bottom:1px solid var(--line);
-  }
-  .brand-mark{
-    font-family:'Metal Mania', cursive;
-    font-size:24px; letter-spacing:0.02em;
-    text-transform:uppercase;
-  }
-  .topbar-right{
-    font-family:'JetBrains Mono', monospace;
-    font-size:11px; letter-spacing:0.15em; text-transform:uppercase;
-    color:var(--steel-dim);
-  }
-
-  .chrome-strip{
-    height:3px;
-    background:var(--chrome-grad);
-  }
-
-  .shop-head{
-    padding:56px clamp(20px,4vw,48px) 28px;
-    display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:20px;
-    border-bottom:1px solid var(--line);
-  }
-  .shop-head h1{
-    font-family:'Metal Mania', cursive;
-    font-size:clamp(34px,5.5vw,64px);
-    text-transform:uppercase; line-height:0.95; font-weight:400;
-  }
-  .shop-head p{
-    font-family:'JetBrains Mono', monospace;
-    font-size:12px; color:var(--steel-dim); letter-spacing:0.08em;
-    max-width:360px; margin-top:12px;
-  }
-  .drop-tag{
-    font-family:'JetBrains Mono', monospace;
-    font-size:12px; letter-spacing:0.2em; text-transform:uppercase;
-    border:1px solid var(--line); padding:8px 14px; color:var(--steel-dim);
-    white-space:nowrap;
-  }
-  .drop-tag b{color:var(--ice);}
-
-  /* ---- single product feature ---- */
-  .feature{
-    border-bottom:1px solid var(--line);
-    display:flex;
     align-items:center;
     justify-content:center;
-    background:var(--void-2);
-    padding:clamp(24px,5vw,64px);
-  }
 
-  .feature img{
-    width:100%;
-    max-width:1100px;
+    background:
+        linear-gradient(
+            180deg,
+            rgba(6,6,7,.72) 0%,
+            rgba(8,8,8,.55) 45%,
+            rgba(6,6,7,.82) 100%
+        ),
+        url('a7645233ebafcb23c2f3de9b538788d5.gif')
+        center center / cover no-repeat;
+
+    text-align:center;
+
+    transition:
+        transform .9s cubic-bezier(.76,0,.24,1),
+        opacity .7s ease .15s;
+}
+
+#gate.torn{
+    transform:translateY(-100%);
+    opacity:0;
+    pointer-events:none;
+}
+
+.gate-line{
+    position:absolute;
+
+    left:0;
+    right:0;
+
+    height:1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--steel) 50%,
+            transparent
+        );
+}
+
+.gate-line.top{
+    top:12%;
+}
+
+.gate-line.bottom{
+    bottom:12%;
+}
+
+.gate-eyebrow{
+    font-family:'JetBrains Mono',monospace;
+
+    font-size:11px;
+
+    letter-spacing:.35em;
+
+    text-transform:uppercase;
+
+    color:var(--steel-dim);
+
+    margin-bottom:22px;
+}
+
+.gate-eyebrow span{
+    color:var(--ice);
+}
+
+.gate-logo{
+    width:clamp(140px,20vw,240px);
+
     height:auto;
-    object-fit:contain;
-    filter: contrast(1.04) saturate(0.96);
-  }
 
-  footer{
-    padding:40px clamp(20px,4vw,48px) 60px;
-    display:flex; flex-wrap:wrap; justify-content:space-between; gap:20px;
-    font-family:'JetBrains Mono', monospace;
-    font-size:11px; letter-spacing:0.1em; color:var(--steel-dim);
-  }
-  footer .fmark{ color:var(--steel); }
+    filter:
+        drop-shadow(
+            0 0 30px rgba(200,210,220,.12)
+        );
+}
+
+.gate-sub{
+    font-family:'JetBrains Mono',monospace;
+
+    font-size:12px;
+
+    letter-spacing:.25em;
+
+    text-transform:uppercase;
+
+    color:var(--steel-dim);
+
+    margin-top:20px;
+}
+
+
+/* =========================
+   UNLOCK BUTTON
+========================= */
+
+.enter-btn{
+    margin-top:52px;
+
+    padding:16px 46px;
+
+    background:var(--void-2);
+
+    border:1px solid var(--steel);
+
+    color:var(--bone);
+
+    font-family:'JetBrains Mono',monospace;
+
+    font-weight:700;
+
+    font-size:14px;
+
+    letter-spacing:.3em;
+
+    text-transform:uppercase;
+
+    cursor:pointer;
+
+    transition:
+        background .25s ease,
+        color .25s ease,
+        transform .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease;
+}
+
+.enter-btn:hover{
+    background:var(--chrome-grad);
+
+    border-color:var(--bone);
+
+    color:var(--void);
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 10px 26px rgba(200,210,220,.15);
+}
+
+.enter-btn:active{
+    transform:translateY(1px);
+}
+
+.enter-btn:focus-visible{
+    outline:2px solid var(--ice);
+
+    outline-offset:4px;
+}
+
+
+/* =========================
+   PASSWORD PANEL
+========================= */
+
+.pw-panel{
+    margin-top:52px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    opacity:0;
+
+    max-height:0;
+
+    overflow:hidden;
+
+    transition:
+        opacity .35s ease,
+        max-height .35s ease;
+}
+
+.pw-panel.open{
+    opacity:1;
+
+    max-height:220px;
+}
+
+.pw-row{
+    display:flex;
+
+    border:1px solid var(--steel);
+}
+
+.pw-row.shake{
+    animation:shake .4s ease;
+
+    border-color:#c0392b;
+}
+
+@keyframes shake{
+
+    0%,100%{
+        transform:translateX(0);
+    }
+
+    20%{
+        transform:translateX(-6px);
+    }
+
+    40%{
+        transform:translateX(6px);
+    }
+
+    60%{
+        transform:translateX(-4px);
+    }
+
+    80%{
+        transform:translateX(4px);
+    }
+
+}
+
+.pw-input{
+    background:var(--void-2);
+
+    border:none;
+
+    outline:none;
+
+    color:var(--bone);
+
+    font-family:'JetBrains Mono',monospace;
+
+    font-size:13px;
+
+    letter-spacing:.2em;
+
+    padding:14px 16px;
+
+    width:200px;
+}
+
+.pw-input::placeholder{
+    color:var(--steel-dim);
+
+    letter-spacing:.15em;
+}
+
+.pw-submit{
+    background:var(--chrome-grad);
+
+    border:none;
+
+    color:var(--void);
+
+    font-family:'JetBrains Mono',monospace;
+
+    font-weight:700;
+
+    font-size:12px;
+
+    letter-spacing:.2em;
+
+    text-transform:uppercase;
+
+    padding:0 20px;
+
+    cursor:pointer;
+}
+
+.pw-error{
+    margin-top:14px;
+
+    font-family:'JetBrains Mono',monospace;
+
+    font-size:10px;
+
+    letter-spacing:.15em;
+
+    text-transform:uppercase;
+
+    color:#c0392b;
+
+    height:14px;
+}
+
+.pw-back{
+    margin-top:16px;
+
+    background:none;
+
+    border:none;
+
+    color:var(--steel-dim);
+
+    font-family:'JetBrains Mono',monospace;
+
+    font-size:10px;
+
+    letter-spacing:.15em;
+
+    text-transform:uppercase;
+
+    cursor:pointer;
+
+    text-decoration:underline;
+}
+
+
+/* =========================
+   SHOP
+========================= */
+
+#shop{
+    min-height:100vh;
+}
+
+
+/* =========================
+   TOP BAR
+========================= */
+
+.chrome-strip{
+    height:3px;
+
+    background:var(--chrome-grad);
+}
+
+.topbar{
+    position:sticky;
+
+    top:0;
+
+    z-index:50;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:
+        20px clamp(20px,4vw,48px);
+
+    background:
+        rgba(10,10,10,.88);
+
+    backdrop-filter:blur(6px);
+
+    border-bottom:
+        1px solid var(--line);
+}
+
+
+/* LOGO IMAGE */
+
+.brand-mark{
+    display:flex;
+
+    align-items:center;
+}
+
+.brand-mark img{
+    display:block;
+
+    width:auto;
+
+    height:42px;
+
+    max-width:min(240px,48vw);
+
+    object-fit:contain;
+}
+
+
+/* CART TOP RIGHT */
+
+.topbar-right{
+    font-family:'JetBrains Mono',monospace;
+
+    font-size:11px;
+
+    letter-spacing:.15em;
+
+    text-transform:uppercase;
+
+    color:var(--steel-dim);
+}
+
+.cart-btn{
+    background:none;
+
+    border:0;
+
+    padding:10px 0;
+
+    color:var(--steel-dim);
+
+    font:inherit;
+
+    letter-spacing:inherit;
+
+    text-transform:inherit;
+
+    cursor:pointer;
+
+    transition:color .2s ease;
+}
+
+.cart-btn:hover{
+    color:var(--bone);
+}
+
+.cart-btn:focus-visible{
+    outline:2px solid var(--ice);
+
+    outline-offset:4px;
+
+    color:var(--bone);
+}
+
+
+/* =========================
+   COLLECTION HEADER
+========================= */
+
+.shop-head{
+    padding:
+        56px clamp(20px,4vw,48px) 28px;
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    align-items:flex-end;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+    border-bottom:
+        1px solid var(--line);
+}
+
+.shop-head h1{
+    font-family:'Metal Mania',cursive;
+
+    font-size:
+        clamp(34px,5.5vw,64px);
+
+    text-transform:uppercase;
+
+    line-height:.95;
+
+    font-weight:400;
+}
+
+.drop-tag{
+    font-family:'JetBrains Mono',monospace;
+
+    font-size:12px;
+
+    letter-spacing:.2em;
+
+    text-transform:uppercase;
+
+    border:
+        1px solid var(--line);
+
+    padding:8px 14px;
+
+    color:var(--steel-dim);
+
+    white-space:nowrap;
+}
+
+.drop-tag b{
+    color:var(--ice);
+}
+
+
+/* =========================
+   PRODUCT IMAGE
+========================= */
+
+.feature{
+    border-bottom:
+        1px solid var(--line);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:var(--void-2);
+
+    padding:
+        clamp(24px,5vw,64px);
+}
+
+.feature img{
+    width:100%;
+
+    max-width:1100px;
+
+    height:auto;
+
+    object-fit:contain;
+
+    filter:
+        contrast(1.04)
+        saturate(.96);
+}
+
+
+/* =========================
+   PRODUCT INFORMATION
+========================= */
+
+.product-actions{
+    padding:
+        24px clamp(20px,4vw,48px) 38px;
+
+    border-bottom:
+        1px solid var(--line);
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:18px;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    background:var(--void);
+}
+
+.product-meta h2{
+    font-family:'Metal Mania',cursive;
+
+    font-size:30px;
+
+    font-weight:400;
+
+    text-transform:uppercase;
+}
+
+.product-meta p{
+    margin-top:6px;
+
+    color:var(--steel-dim);
+
+    font-family:'JetBrains Mono',monospace;
+
+    font-size:11px;
+
+    letter-spacing:.08em;
+
+    text-transform:uppercase;
+}
+
+
+/* ADD TO CART BUTTON */
+
+.add-cart-btn{
+    min-height:46px;
+
+    padding:13px 28px;
+
+    border:1px solid var(--steel);
+
+    background:var(--chrome-grad);
+
+    color:var(--void);
+
+    cursor:pointer;
+
+    font-family:'JetBrains Mono',monospace;
+
+    font-weight:700;
+
+    font-size:12px;
+
+    letter-spacing:.18em;
+
+    text-transform:uppercase;
+
+    transition:
+        transform .2s ease,
+        filter .2s ease;
+}
+
+.add-cart-btn:hover{
+    filter:brightness(1.08);
+
+    transform:translateY(-1px);
+}
+
+.add-cart-btn:active{
+    transform:translateY(1px);
+}
+
+.add-cart-btn:focus-visible{
+    outline:
+        2px solid var(--ice);
+
+    outline-offset:4px;
+}
+
+
+/* =========================
+   CART BACKDROP
+========================= */
+
+.cart-backdrop{
+    position:fixed;
+
+    inset:0;
+
+    z-index:79;
+
+    background:
+        rgba(0,0,0,.64);
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:
+        opacity .28s ease;
+}
+
+.cart-backdrop.open{
+    opacity:1;
+
+    pointer-events:auto;
+}
+
+
+/* =========================
+   CART DRAWER
+========================= */
+
+.cart-drawer{
+    position:fixed;
+
+    top:0;
+
+    right:0;
+
+    bottom:0;
+
+    z-index:80;
+
+    width:min(430px,100%);
+
+    background:var(--void);
+
+    border-left:
+        1px solid var(--line);
+
+    transform:
+        translateX(100%);
+
+    transition:
+        transform .34s cubic-bezier(.76,0,.24,1);
+
+    display:flex;
+
+    flex-direction:column;
+}
+
+.cart-drawer.open{
+    transform:
+        translateX(0);
+}
+
+
+/* CART HEADER */
+
+.cart-head{
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:16px;
+
+    padding:24px;
+
+    border-bottom:
+        1px solid var(--line);
+}
+
+.cart-head h2{
+    font-family:'Metal Mania',cursive;
+
+    font-size:34px;
+
+    font-weight:400;
+
+    text-transform:uppercase;
+}
+
+.cart-close{
+    width:44px;
+
+    height:44px;
+
+    border:
+        1px solid var(--line);
+
+    background:
+        var(--void-2);
+
+    color:
+        var(--bone);
+
+    font-size:22px;
+
+    cursor:pointer;
+}
+
+
+/* CART ITEMS */
+
+.cart-items{
+    padding:
+        20px 24px;
+
+    overflow:auto;
+
+    flex:1;
+}
+
+.cart-empty{
+    padding:
+        42px 0;
+
+    color:
+        var(--steel-dim);
+
+    font-family:
+        'JetBrains Mono',monospace;
+
+    font-size:11px;
+
+    line-height:1.8;
+
+    letter-spacing:.12em;
+
+    text-transform:uppercase;
+
+    text-align:center;
+}
+
+.cart-item{
+    display:grid;
+
+    grid-template-columns:
+        82px 1fr;
+
+    gap:16px;
+
+    padding:
+        16px 0;
+
+    border-bottom:
+        1px solid var(--line);
+}
+
+.cart-thumb{
+    width:82px;
+
+    height:82px;
+
+    object-fit:cover;
+
+    background:
+        var(--void-2);
+
+    border:
+        1px solid var(--line);
+}
+
+.cart-item h3{
+    font-size:14px;
+
+    text-transform:uppercase;
+}
+
+.cart-item-note{
+    margin-top:5px;
+
+    color:
+        var(--steel-dim);
+
+    font-family:
+        'JetBrains Mono',monospace;
+
+    font-size:10px;
+
+    letter-spacing:.08em;
+
+    text-transform:uppercase;
+}
+
+
+/* QUANTITY CONTROLS */
+
+.qty-row{
+    display:flex;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:8px;
+
+    margin-top:13px;
+}
+
+.qty-btn{
+    width:32px;
+
+    height:32px;
+
+    border:
+        1px solid var(--line);
+
+    background:
+        var(--void-2);
+
+    color:
+        var(--bone);
+
+    cursor:pointer;
+}
+
+.qty-btn:hover{
+    border-color:
+        var(--steel);
+}
+
+.qty-value{
+    min-width:24px;
+
+    text-align:center;
+
+    font-family:
+        'JetBrains Mono',monospace;
+
+    font-size:12px;
+}
+
+.remove-btn{
+    margin-left:auto;
+
+    border:0;
+
+    background:none;
+
+    color:
+        var(--steel-dim);
+
+    font-family:
+        'JetBrains Mono',monospace;
+
+    font-size:9px;
+
+    letter-spacing:.08em;
+
+    text-transform:uppercase;
+
+    text-decoration:underline;
+
+    cursor:pointer;
+}
+
+.remove-btn:hover{
+    color:
+        var(--bone);
+}
+
+
+/* CART BOTTOM */
+
+.cart-foot{
+    padding:20px 24px 28px;
+
+    border-top:
+        1px solid var(--line);
+
+    background:
+        var(--void-2);
+}
+
+.cart-status{
+    font-family:
+        'JetBrains Mono',monospace;
+
+    font-size:10px;
+
+    line-height:1.6;
+
+    letter-spacing:.07em;
+
+    text-transform:uppercase;
+
+    color:
+        var(--steel-dim);
+
+    margin-bottom:16px;
+}
+
+.clear-cart{
+    width:100%;
+
+    min-height:44px;
+
+    background:
+        transparent;
+
+    border:
+        1px solid var(--steel-dim);
+
+    color:
+        var(--steel);
+
+    font-family:
+        'JetBrains Mono',monospace;
+
+    font-size:10px;
+
+    letter-spacing:.15em;
+
+    text-transform:uppercase;
+
+    cursor:pointer;
+}
+
+.clear-cart:hover{
+    color:
+        var(--bone);
+
+    border-color:
+        var(--steel);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    padding:
+        40px clamp(20px,4vw,48px) 60px;
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+    font-family:
+        'JetBrains Mono',monospace;
+
+    font-size:11px;
+
+    letter-spacing:.1em;
+
+    color:
+        var(--steel-dim);
+}
+
+footer .fmark{
+    color:var(--steel);
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+    .topbar{
+        padding:
+            15px 18px;
+    }
+
+    .brand-mark img{
+        height:34px;
+
+        max-width:155px;
+    }
+
+    .topbar-right{
+        font-size:9px;
+
+        letter-spacing:.08em;
+    }
+
+    .shop-head{
+        padding:
+            40px 18px 24px;
+    }
+
+    .feature{
+        padding:20px;
+    }
+
+    .product-actions{
+        padding:
+            22px 18px 30px;
+    }
+
+    .add-cart-btn{
+        width:100%;
+    }
+
+}
+
 </style>
 </head>
+
+
 <body>
 
-<svg class="grain" xmlns="http://www.w3.org/2000/svg">
-  <filter id="noiseFilter">
-    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/>
-    <feColorMatrix type="saturate" values="0"/>
-  </filter>
-  <rect width="100%" height="100%" filter="url(#noiseFilter)"/>
+
+<!-- =========================
+     GRAIN
+========================= -->
+
+<svg
+    class="grain"
+    xmlns="http://www.w3.org/2000/svg"
+>
+
+    <filter id="noiseFilter">
+
+        <feTurbulence
+            type="fractalNoise"
+            baseFrequency="0.9"
+            numOctaves="2"
+            stitchTiles="stitch"
+        />
+
+        <feColorMatrix
+            type="saturate"
+            values="0"
+        />
+
+    </filter>
+
+    <rect
+        width="100%"
+        height="100%"
+        filter="url(#noiseFilter)"
+    />
+
 </svg>
 
-<!-- ============ GATE ============ -->
+
+
+<!-- =========================
+     PASSWORD GATE
+========================= -->
+
 <div id="gate">
-  <div class="gate-line top"></div>
-  <div class="gate-eyebrow">Restricted Access <span>/</span> 02K Grunge Collection</div>
-  <img class="gate-logo" src="https://cdn.discordapp.com/attachments/1540060798947164190/1542290704301035530/D53DD88E-5A89-4D1A-8225-D3BD94DD5FA9.png?ex=6a90b1a6&is=6a8f6026&hm=8084c4041f204a8dc029877b8d843496387d27aeef511ac88b9172debac74b56&">
-  <div class="gate-sub">Made to Desire</div>
-  <button class="enter-btn" id="enterBtn">unlock →</button>
 
-  <div class="pw-panel" id="pwPanel">
-    <div class="pw-row" id="pwRow">
-      <input class="pw-input" id="pwInput" type="password" placeholder="password" autocomplete="off">
-      <button class="pw-submit" id="pwSubmit">Go</button>
+    <div class="gate-line top"></div>
+
+    <div class="gate-eyebrow">
+
+        Restricted Access
+
+        <span>/</span>
+
+        02K Grunge Collection
+
     </div>
-    <div class="pw-error" id="pwError"></div>
-    <button class="pw-back" id="pwBack">back</button>
-  </div>
 
-  <div class="gate-hint"> </div>
-  <div class="gate-line bottom"></div>
+
+    <img
+        class="gate-logo"
+
+        src="https://cdn.discordapp.com/attachments/1540060798947164190/1542290704301035530/D53DD88E-5A89-4D1A-8225-D3BD94DD5FA9.png?ex=6a90b1a6&is=6a8f6026&hm=8084c4041f204a8dc029877b8d843496387d27aeef511ac88b9172debac74b56&"
+
+        alt="Desire Living"
+    >
+
+
+    <div class="gate-sub">
+
+        Made to Desire
+
+    </div>
+
+
+    <button
+        class="enter-btn"
+        id="enterBtn"
+    >
+
+        unlock →
+
+    </button>
+
+
+
+    <div
+        class="pw-panel"
+        id="pwPanel"
+    >
+
+        <div
+            class="pw-row"
+            id="pwRow"
+        >
+
+            <input
+                class="pw-input"
+                id="pwInput"
+                type="password"
+                placeholder="password"
+                autocomplete="off"
+            >
+
+            <button
+                class="pw-submit"
+                id="pwSubmit"
+            >
+
+                Go
+
+            </button>
+
+        </div>
+
+
+        <div
+            class="pw-error"
+            id="pwError"
+        ></div>
+
+
+        <button
+            class="pw-back"
+            id="pwBack"
+        >
+
+            back
+
+        </button>
+
+    </div>
+
+
+    <div class="gate-line bottom"></div>
+
 </div>
 
-<!-- ============ SHOP ============ -->
+
+
+<!-- =========================
+     STORE
+========================= -->
+
 <div id="shop">
-  <div class="chrome-strip"></div>
-  <div class="topbar">
-    <div class="brand-mark chrome-text">Desire Living</div>
-    <div class="topbar-right">Lot 001 — Cart (0)</div>
-  </div>
 
-  <div class="shop-head">
-    <h1 class="chrome-text">Sample</h1>
-    <div class="drop-tag">Drop <b>001</b> — 01 pc</div>
-  </div>
 
-  <div class="feature">
-    <img src="https://media.discordapp.net/attachments/1540060830291202158/1540063981006360586/CE4F7360-402B-416A-A9F7-CF2C27CF24E0.png?ex=6a9080da&is=6a8f2f5a&hm=99bb9f4ff38de5bc8a597ef31fd95afab80467a3dbdc90b96a0ec4f5a4b3df8c&=&format=webp&quality=lossless&width=1280&height=1024" alt="Desire Living oversized graphic tee mockup, front and back, Y2K grunge collection">
-  </div>
+    <div class="chrome-strip"></div>
 
-  <footer>
-    <div class="fmark">DESIRE LIVING — TEST BUILD</div>
-    <div>Made to Desire.</div>
-  </footer>
+
+    <!-- TOP BAR -->
+
+    <div class="topbar">
+
+
+        <!-- YOUR IMAGE LOGO -->
+
+        <div class="brand-mark">
+
+            <img
+                src="desire-living-logo.png"
+                alt="Desire Living"
+            >
+
+        </div>
+
+
+
+        <!-- WORKING CART BUTTON -->
+
+        <div class="topbar-right">
+
+            Lot 001 —
+
+            <button
+                class="cart-btn"
+                id="cartBtn"
+                aria-haspopup="dialog"
+                aria-controls="cartDrawer"
+            >
+
+                Cart (
+
+                <span id="cartCount">0</span>
+
+                )
+
+            </button>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- COLLECTION TITLE -->
+
+    <div class="shop-head">
+
+        <h1 class="chrome-text">
+
+            Sample
+
+        </h1>
+
+
+        <div class="drop-tag">
+
+            Drop
+
+            <b>001</b>
+
+            — 01 pc
+
+        </div>
+
+    </div>
+
+
+
+    <!-- PRODUCT IMAGE -->
+
+    <div class="feature">
+
+        <img
+
+            src="https://media.discordapp.net/attachments/1540060830291202158/1540063981006360586/CE4F7360-402B-416A-A9F7-CF2C27CF24E0.png?ex=6a9080da&is=6a8f2f5a&hm=99bb9f4ff38de5bc8a597ef31fd95afab80467a3dbdc90b96a0ec4f5a4b3df8c&=&format=webp&quality=lossless&width=1280&height=1024"
+
+            alt="Desire Living oversized graphic tee"
+
+        >
+
+    </div>
+
+
+
+    <!-- PRODUCT INFO / ADD TO CART -->
+
+    <div class="product-actions">
+
+
+        <div class="product-meta">
+
+            <h2>
+
+                Sample Tee
+
+            </h2>
+
+
+            <p>
+
+                Drop 001 · Price & size options added at launch
+
+            </p>
+
+        </div>
+
+
+
+        <button
+            class="add-cart-btn"
+            id="addCartBtn"
+        >
+
+            Add to Cart
+
+        </button>
+
+
+    </div>
+
+
+
+    <!-- =========================
+         CART DARK BACKGROUND
+    ========================= -->
+
+    <div
+        class="cart-backdrop"
+        id="cartBackdrop"
+    ></div>
+
+
+
+    <!-- =========================
+         CART DRAWER
+    ========================= -->
+
+    <aside
+        class="cart-drawer"
+        id="cartDrawer"
+
+        role="dialog"
+
+        aria-modal="true"
+
+        aria-labelledby="cartTitle"
+
+        aria-hidden="true"
+    >
+
+
+        <!-- CART HEADER -->
+
+        <div class="cart-head">
+
+
+            <h2 id="cartTitle">
+
+                Your Cart
+
+            </h2>
+
+
+            <button
+                class="cart-close"
+                id="cartClose"
+                aria-label="Close cart"
+            >
+
+                ×
+
+            </button>
+
+
+        </div>
+
+
+
+        <!-- CART PRODUCTS -->
+
+        <div
+            class="cart-items"
+            id="cartItems"
+        ></div>
+
+
+
+        <!-- CART BOTTOM -->
+
+        <div class="cart-foot">
+
+
+            <div class="cart-status">
+
+                Checkout is disabled in this test build.
+
+                Prices, sizes, inventory and payment checkout
+                can be connected when the store launches.
+
+            </div>
+
+
+
+            <button
+                class="clear-cart"
+                id="clearCart"
+            >
+
+                Clear Cart
+
+            </button>
+
+
+        </div>
+
+
+    </aside>
+
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="fmark">
+
+            DESIRE LIVING — TEST BUILD
+
+        </div>
+
+
+        <div>
+
+            Made to Desire.
+
+        </div>
+
+    </footer>
+
+
 </div>
+
+
 
 <script>
-  // ---- change this to set your site password ----
-  const SITE_PASSWORD = "desire";
 
-  const gate = document.getElementById('gate');
-  const enterBtn = document.getElementById('enterBtn');
-  const pwPanel = document.getElementById('pwPanel');
-  const pwRow = document.getElementById('pwRow');
-  const pwInput = document.getElementById('pwInput');
-  const pwSubmit = document.getElementById('pwSubmit');
-  const pwError = document.getElementById('pwError');
-  const pwBack = document.getElementById('pwBack');
 
-  function unlockSite(){
-    gate.classList.add('torn');
-    setTimeout(() => { gate.style.display = 'none'; }, 950);
-  }
+/* =========================
+   PASSWORD
+========================= */
 
-  function showPwPanel(){
-    enterBtn.style.display = 'none';
-    pwPanel.classList.add('open');
-    setTimeout(() => pwInput.focus(), 150);
-  }
 
-  function hidePwPanel(){
-    pwPanel.classList.remove('open');
-    pwError.textContent = '';
-    pwInput.value = '';
-    enterBtn.style.display = 'inline-block';
-  }
+const SITE_PASSWORD = "desire";
 
-  function checkPassword(){
-    if(pwInput.value.trim().toLowerCase() === SITE_PASSWORD.toLowerCase()){
-      unlockSite();
-    } else {
-      pwError.textContent = 'incorrect password';
-      pwRow.classList.remove('shake');
-      void pwRow.offsetWidth;
-      pwRow.classList.add('shake');
-      pwInput.value = '';
-      pwInput.focus();
+
+const gate =
+document.getElementById("gate");
+
+
+const enterBtn =
+document.getElementById("enterBtn");
+
+
+const pwPanel =
+document.getElementById("pwPanel");
+
+
+const pwRow =
+document.getElementById("pwRow");
+
+
+const pwInput =
+document.getElementById("pwInput");
+
+
+const pwSubmit =
+document.getElementById("pwSubmit");
+
+
+const pwError =
+document.getElementById("pwError");
+
+
+const pwBack =
+document.getElementById("pwBack");
+
+
+
+function unlockSite(){
+
+    gate.classList.add("torn");
+
+    setTimeout(() => {
+
+        gate.style.display="none";
+
+    },950);
+
+}
+
+
+
+function showPwPanel(){
+
+    enterBtn.style.display="none";
+
+    pwPanel.classList.add("open");
+
+    setTimeout(() => {
+
+        pwInput.focus();
+
+    },150);
+
+}
+
+
+
+function hidePwPanel(){
+
+    pwPanel.classList.remove("open");
+
+    pwError.textContent="";
+
+    pwInput.value="";
+
+    enterBtn.style.display="inline-block";
+
+}
+
+
+
+function checkPassword(){
+
+    if(
+        pwInput.value.trim().toLowerCase()
+        ===
+        SITE_PASSWORD.toLowerCase()
+    ){
+
+        unlockSite();
+
     }
-  }
 
-  enterBtn.addEventListener('click', showPwPanel);
-  pwSubmit.addEventListener('click', checkPassword);
-  pwBack.addEventListener('click', hidePwPanel);
-  pwInput.addEventListener('keydown', (e) => {
-    if(e.key === 'Enter') checkPassword();
-  });
+    else{
+
+        pwError.textContent=
+        "incorrect password";
+
+
+        pwRow.classList.remove("shake");
+
+
+        void pwRow.offsetWidth;
+
+
+        pwRow.classList.add("shake");
+
+
+        pwInput.value="";
+
+
+        pwInput.focus();
+
+    }
+
+}
+
+
+
+enterBtn.addEventListener(
+    "click",
+    showPwPanel
+);
+
+
+pwSubmit.addEventListener(
+    "click",
+    checkPassword
+);
+
+
+pwBack.addEventListener(
+    "click",
+    hidePwPanel
+);
+
+
+pwInput.addEventListener(
+    "keydown",
+    function(e){
+
+        if(e.key==="Enter"){
+
+            checkPassword();
+
+        }
+
+    }
+);
+
+
+
+
+
+/* =========================
+   SHOPPING CART
+========================= */
+
+
+/*
+This is the name used to save
+the cart in the customer's browser.
+*/
+
+const CART_KEY =
+"desireLivingCart";
+
+
+
+/*
+CURRENT PRODUCT
+
+When we add more products later,
+each one will get its own ID,
+name, price, size, image, etc.
+*/
+
+const PRODUCT={
+
+    id:
+    "drop-001-sample-tee",
+
+    name:
+    "Sample Tee",
+
+    image:
+    "https://media.discordapp.net/attachments/1540060830291202158/1540063981006360586/CE4F7360-402B-416A-A9F7-CF2C27CF24E0.png?ex=6a9080da&is=6a8f2f5a&hm=99bb9f4ff38de5bc8a597ef31fd95afab80467a3dbdc90b96a0ec4f5a4b3df8c&=&format=webp&quality=lossless&width=1280&height=1024"
+
+};
+
+
+
+/* CART ELEMENTS */
+
+
+const cartBtn =
+document.getElementById("cartBtn");
+
+
+const cartCount =
+document.getElementById("cartCount");
+
+
+const addCartBtn =
+document.getElementById("addCartBtn");
+
+
+const cartDrawer =
+document.getElementById("cartDrawer");
+
+
+const cartBackdrop =
+document.getElementById("cartBackdrop");
+
+
+const cartClose =
+document.getElementById("cartClose");
+
+
+const cartItems =
+document.getElementById("cartItems");
+
+
+const clearCart =
+document.getElementById("clearCart");
+
+
+
+/* =========================
+   LOAD SAVED CART
+========================= */
+
+
+let cart=[];
+
+
+try{
+
+    const savedCart=
+    JSON.parse(
+        localStorage.getItem(CART_KEY)
+        ||
+        "[]"
+    );
+
+
+    cart=
+    Array.isArray(savedCart)
+    ?
+    savedCart
+    :
+    [];
+
+}
+
+catch(error){
+
+    cart=[];
+
+}
+
+
+
+/* =========================
+   SAVE CART
+========================= */
+
+
+function saveCart(){
+
+    try{
+
+        localStorage.setItem(
+            CART_KEY,
+            JSON.stringify(cart)
+        );
+
+    }
+
+    catch(error){
+
+        console.log(
+            "Cart could not be saved."
+        );
+
+    }
+
+}
+
+
+
+/* =========================
+   TOTAL CART QUANTITY
+========================= */
+
+
+function totalItems(){
+
+    return cart.reduce(
+
+        function(total,item){
+
+            return total+item.qty;
+
+        },
+
+        0
+
+    );
+
+}
+
+
+
+/* =========================
+   DRAW CART
+========================= */
+
+
+function renderCart(){
+
+
+    /*
+    Updates Cart (0)
+    at the top of the page
+    */
+
+    cartCount.textContent=
+    totalItems();
+
+
+
+    /*
+    Disable clear button
+    when cart is empty
+    */
+
+    clearCart.disabled=
+    cart.length===0;
+
+
+    clearCart.style.opacity=
+    cart.length===0
+    ?
+    ".45"
+    :
+    "1";
+
+
+
+    /*
+    Empty cart message
+    */
+
+    if(cart.length===0){
+
+        cartItems.innerHTML=
+
+        `
+
+        <div class="cart-empty">
+
+            Your cart is empty.
+
+            <br>
+
+            Add Drop 001 when you're ready.
+
+        </div>
+
+        `;
+
+
+        return;
+
+    }
+
+
+
+    /*
+    Product inside cart
+    */
+
+    cartItems.innerHTML=
+
+    cart.map(function(item){
+
+        return `
+
+        <div
+            class="cart-item"
+            data-id="${item.id}"
+        >
+
+
+            <img
+                class="cart-thumb"
+                src="${item.image}"
+                alt="${item.name}"
+            >
+
+
+
+            <div>
+
+
+                <h3>
+
+                    ${item.name}
+
+                </h3>
+
+
+                <div class="cart-item-note">
+
+                    Drop 001 · price set at launch
+
+                </div>
+
+
+
+                <div class="qty-row">
+
+
+                    <button
+                        class="qty-btn"
+                        data-action="decrease"
+                        aria-label="Decrease quantity"
+                    >
+
+                        −
+
+                    </button>
+
+
+
+                    <span class="qty-value">
+
+                        ${item.qty}
+
+                    </span>
+
+
+
+                    <button
+                        class="qty-btn"
+                        data-action="increase"
+                        aria-label="Increase quantity"
+                    >
+
+                        +
+
+                    </button>
+
+
+
+                    <button
+                        class="remove-btn"
+                        data-action="remove"
+                    >
+
+                        Remove
+
+                    </button>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+        `;
+
+    }).join("");
+
+}
+
+
+
+/* =========================
+   OPEN CART
+========================= */
+
+
+function openCart(){
+
+    cartDrawer.classList.add(
+        "open"
+    );
+
+
+    cartBackdrop.classList.add(
+        "open"
+    );
+
+
+    cartDrawer.setAttribute(
+        "aria-hidden",
+        "false"
+    );
+
+
+    document.body.classList.add(
+        "cart-open"
+    );
+
+
+    cartClose.focus();
+
+}
+
+
+
+/* =========================
+   CLOSE CART
+========================= */
+
+
+function closeCart(){
+
+    cartDrawer.classList.remove(
+        "open"
+    );
+
+
+    cartBackdrop.classList.remove(
+        "open"
+    );
+
+
+    cartDrawer.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+
+    document.body.classList.remove(
+        "cart-open"
+    );
+
+
+    cartBtn.focus();
+
+}
+
+
+
+/* =========================
+   ADD PRODUCT
+========================= */
+
+
+function addProduct(){
+
+
+    /*
+    Check whether the same
+    product is already inside cart
+    */
+
+    const existing=
+    cart.find(function(item){
+
+        return item.id===PRODUCT.id;
+
+    });
+
+
+
+    /*
+    If yes, increase quantity.
+    If not, add a new item.
+    */
+
+    if(existing){
+
+        existing.qty+=1;
+
+    }
+
+    else{
+
+        cart.push({
+
+            ...PRODUCT,
+
+            qty:1
+
+        });
+
+    }
+
+
+
+    saveCart();
+
+
+    renderCart();
+
+
+    openCart();
+
+}
+
+
+
+/* =========================
+   CART BUTTON EVENTS
+========================= */
+
+
+addCartBtn.addEventListener(
+    "click",
+    addProduct
+);
+
+
+
+cartBtn.addEventListener(
+    "click",
+    openCart
+);
+
+
+
+cartClose.addEventListener(
+    "click",
+    closeCart
+);
+
+
+
+cartBackdrop.addEventListener(
+    "click",
+    closeCart
+);
+
+
+
+/* =========================
+   CLEAR CART
+========================= */
+
+
+clearCart.addEventListener(
+    "click",
+    function(){
+
+        cart=[];
+
+        saveCart();
+
+        renderCart();
+
+    }
+);
+
+
+
+/* =========================
+   QUANTITY + / -
+========================= */
+
+
+cartItems.addEventListener(
+    "click",
+    function(event){
+
+
+        const button=
+        event.target.closest(
+            "button[data-action]"
+        );
+
+
+        if(!button){
+
+            return;
+
+        }
+
+
+
+        const itemElement=
+        button.closest(
+            ".cart-item"
+        );
+
+
+        if(!itemElement){
+
+            return;
+
+        }
+
+
+
+        const item=
+        cart.find(function(entry){
+
+            return entry.id
+            ===
+            itemElement.dataset.id;
+
+        });
+
+
+        if(!item){
+
+            return;
+
+        }
+
+
+
+        /*
+        PLUS BUTTON
+        */
+
+        if(
+            button.dataset.action
+            ===
+            "increase"
+        ){
+
+            item.qty+=1;
+
+        }
+
+
+
+        /*
+        MINUS BUTTON
+        */
+
+        if(
+            button.dataset.action
+            ===
+            "decrease"
+        ){
+
+            item.qty-=1;
+
+        }
+
+
+
+        /*
+        REMOVE PRODUCT
+        */
+
+        if(
+            button.dataset.action
+            ===
+            "remove"
+            ||
+            item.qty<=0
+        ){
+
+            cart=
+            cart.filter(
+                function(entry){
+
+                    return entry.id
+                    !==
+                    item.id;
+
+                }
+            );
+
+        }
+
+
+
+        saveCart();
+
+
+        renderCart();
+
+    }
+);
+
+
+
+/* =========================
+   ESC KEY CLOSES CART
+========================= */
+
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(
+            event.key==="Escape"
+            &&
+            cartDrawer.classList.contains(
+                "open"
+            )
+        ){
+
+            closeCart();
+
+        }
+
+    }
+);
+
+
+
+/* =========================
+   INITIALIZE CART
+========================= */
+
+
+renderCart();
+
+
 </script>
+
 
 </body>
 </html>
