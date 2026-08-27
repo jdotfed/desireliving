@@ -394,6 +394,99 @@ button{
 
 
 /* =========================
+   TAB NAV
+========================= */
+
+.tab-nav{
+    display:flex;
+    justify-content:center;
+
+    padding:16px clamp(20px,4vw,48px);
+
+    border-bottom:1px solid var(--line);
+}
+
+.tab-nav-inner{
+    display:flex;
+    gap:6px;
+
+    padding:5px;
+
+    border:1px solid var(--line);
+    border-radius:999px;
+
+    background:rgba(255,255,255,.02);
+}
+
+.tab-btn{
+    min-width:96px;
+
+    padding:9px 20px;
+
+    border:none;
+    border-radius:999px;
+
+    background:transparent;
+    color:var(--steel);
+
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+
+    cursor:pointer;
+
+    transition:
+        background .25s ease,
+        color .25s ease;
+}
+
+.tab-btn:hover{
+    color:var(--bone);
+}
+
+.tab-btn.active{
+    background:var(--chrome-grad);
+    color:var(--void);
+}
+
+
+/* =========================
+   ABOUT
+========================= */
+
+.about-section{
+    padding:80px clamp(20px,4vw,48px);
+
+    max-width:680px;
+    margin:0 auto;
+
+    text-align:center;
+
+    border-bottom:1px solid var(--line);
+}
+
+.about-section h2{
+    font-family:'Metal Mania',cursive;
+    font-size:clamp(30px,4.5vw,46px);
+    font-weight:400;
+    text-transform:uppercase;
+
+    margin-bottom:20px;
+}
+
+.about-section p{
+    color:var(--steel);
+
+    font-size:14px;
+    line-height:1.85;
+
+    margin-bottom:14px;
+}
+
+
+/* =========================
    DROP HEADER
 ========================= */
 
@@ -1695,9 +1788,50 @@ button{
     </div>
 
 
+    <!-- TABS -->
+
+    <nav class="tab-nav">
+
+        <div class="tab-nav-inner">
+
+            <button class="tab-btn active" data-tab="shop">
+                Shop
+            </button>
+
+            <button class="tab-btn" data-tab="about">
+                About
+            </button>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ABOUT -->
+
+    <section class="about-section" id="aboutSection" style="display:none;">
+
+        <h2 class="chrome-text">
+            About Desire Living
+        </h2>
+
+        <p>
+            Placeholder text — this is where your brand story goes.
+            Talk about why Desire Living exists, what the 02K Grunge
+            Collection is about, and what makes the pieces worth wearing.
+        </p>
+
+        <p>
+            Placeholder text — swap this out for your real about copy
+            whenever it's ready.
+        </p>
+
+    </section>
+
+
     <!-- HEADER -->
 
-    <section class="shop-head">
+    <section class="shop-head" id="shopSection">
 
         <div>
 
@@ -1720,7 +1854,7 @@ button{
 
     <!-- PRODUCTS -->
 
-    <section class="products-section">
+    <section class="products-section" id="productsSection">
 
         <div class="product-grid">
 
@@ -2165,6 +2299,62 @@ button{
 
 const SITE_PASSWORD =
 "desire";
+
+/* =========================
+   TABS
+========================= */
+
+const tabButtons =
+document.querySelectorAll(".tab-btn");
+
+const shopSection =
+document.getElementById("shopSection");
+
+const productsSection =
+document.getElementById("productsSection");
+
+const aboutSection =
+document.getElementById("aboutSection");
+
+tabButtons.forEach(
+    button=>{
+
+        button.addEventListener(
+            "click",
+            ()=>{
+
+                tabButtons.forEach(
+                    item=>
+                    item.classList.remove("active")
+                );
+
+                button.classList.add("active");
+
+                const tab=
+                button.dataset.tab;
+
+                if(tab==="about"){
+
+                    shopSection.style.display="none";
+                    productsSection.style.display="none";
+                    aboutSection.style.display="block";
+
+                }
+
+                else{
+
+                    shopSection.style.display="";
+                    productsSection.style.display="";
+                    aboutSection.style.display="none";
+
+                }
+
+            }
+        );
+
+    }
+);
+
 
 const gate =
 document.getElementById("gate");
