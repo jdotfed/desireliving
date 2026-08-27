@@ -659,22 +659,15 @@ button{
 
     text-align:center;
 
-    opacity:0;
+    opacity:1;
     pointer-events:none;
 
     background:rgba(5,5,5,.42);
 
-    backdrop-filter:blur(0px);
-
-    transition:
-        opacity .3s ease,
-        backdrop-filter .35s ease;
+    backdrop-filter:blur(8px);
 }
 
 .product-status-overlay span{
-    transform:translateY(8px);
-    opacity:0;
-
     font-family:'JetBrains Mono',monospace;
 
     font-size:clamp(15px,2vw,24px);
@@ -687,17 +680,10 @@ button{
 
     text-shadow:
         0 3px 18px rgba(0,0,0,.9);
-
-    transition:
-        opacity .3s ease,
-        transform .3s ease;
 }
 
 .product-status-overlay small{
     margin-top:10px;
-
-    transform:translateY(8px);
-    opacity:0;
 
     font-family:'JetBrains Mono',monospace;
 
@@ -707,35 +693,16 @@ button{
     text-transform:uppercase;
 
     color:#c9c9c9;
-
-    transition:
-        opacity .3s ease .04s,
-        transform .3s ease .04s;
 }
 
-@media (hover:hover) and (pointer:fine){
+.front-image{
+    opacity:0;
+    transform:scale(1.04);
+}
 
-    .product-card:hover .product-status-overlay{
-        opacity:1;
-        backdrop-filter:blur(8px);
-    }
-
-    .product-card:hover .product-status-overlay span,
-    .product-card:hover .product-status-overlay small{
-        opacity:1;
-        transform:translateY(0);
-    }
-
-    .product-card:hover .front-image{
-        opacity:0;
-        transform:scale(1.04);
-    }
-
-    .product-card:hover .back-image{
-        opacity:1;
-        transform:scale(1.04);
-    }
-
+.back-image{
+    opacity:1;
+    transform:scale(1.04);
 }
 
 
