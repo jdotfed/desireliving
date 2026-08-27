@@ -1354,35 +1354,44 @@ button{
     margin-right:auto;
 }
 
-.contact-links{
-    margin-top:24px;
+.contact-stack{
+    margin-top:28px;
 
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:14px;
+    display:inline-flex;
+    flex-direction:column;
+    align-items:center;
+    gap:18px;
 }
 
-.contact-links a{
-    padding:12px 22px;
+.contact-row{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:4px;
+}
 
-    border:1px solid var(--steel);
+.contact-label{
+    color:var(--steel-dim);
+
+    font-family:'JetBrains Mono',monospace;
+    font-size:10px;
+    letter-spacing:.25em;
+    text-transform:uppercase;
+}
+
+.contact-value{
     color:var(--bone);
     text-decoration:none;
 
     font-family:'JetBrains Mono',monospace;
-    font-size:11px;
-    letter-spacing:.2em;
-    text-transform:uppercase;
+    font-size:14px;
+    letter-spacing:.05em;
 
-    transition:
-        background .25s ease,
-        color .25s ease;
+    transition:color .2s ease;
 }
 
-.contact-links a:hover{
-    background:var(--chrome-grad);
-    color:var(--void);
+.contact-value:hover{
+    color:var(--ice);
 }
 
 
@@ -2003,21 +2012,24 @@ footer .fmark{
         </h2>
 
         <p>
-            For any question or enquiries please contact us via
-
-            Instagram - @desireliving
-            Email-desireliving@protonmail.com
+            For any questions or enquiries, please reach out below.
         </p>
 
-        <div class="contact-links">
+        <div class="contact-stack">
 
-            <a href="mailto:contact@desireliving.com">
-                contact@desireliving.com
-            </a>
+            <div class="contact-row">
+                <div class="contact-label">Instagram</div>
+                <a class="contact-value" href="https://instagram.com/desireliving" target="_blank" rel="noopener">
+                    @desireliving
+                </a>
+            </div>
 
-            <a href="https://instagram.com/desireliving" target="_blank" rel="noopener">
-                @desireliving
-            </a>
+            <div class="contact-row">
+                <div class="contact-label">Email</div>
+                <a class="contact-value" href="mailto:desireliving@protonmail.com">
+                    desireliving@protonmail.com
+                </a>
+            </div>
 
         </div>
 
