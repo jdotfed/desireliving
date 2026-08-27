@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DESIRE LIVING — 02K Grunge Collection</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=JetBrains+Mono:wght@400;500;700&family=Archivo:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --void:#0a0a0a;
+  --void-2:#141414;
+  --void-3:#1c1c1c;
+  --steel:#8f9297;
+  --steel-dim:#57595c;
+  --bone:#eceef0;
+  --ice:#c7d3de;
+  --line:rgba(236,238,240,.14);
+  --chrome-grad:linear-gradient(180deg,#fff 0%,#d7dade 22%,#6c6f73 48%,#f5f6f7 62%,#8a8d90 78%,#f0f1f2 100%);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--void);color:var(--bone);font-family:'Archivo',sans-serif;overflow-x:hidden;min-height:100vh}
+body.no-scroll{overflow:hidden}
+button{font-family:inherit;color:inherit}
+button:focus-visible{outline:2px solid var(--ice);outline-offset:3px}
+.chrome-text{background:var(--chrome-grad);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 1px 0 rgba(0,0,0,.9)) drop-shadow(0 0 22px rgba(200,210,220,.12))}
+.grain{position:fixed;inset:0;z-index:999;pointer-events:none;opacity:.05;mix-blend-mode:overlay}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+/* GATE */
+#gate{position:fixed;inset:0;z-index:100;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:linear-gradient(180deg,rgba(6,6,7,.72),rgba(8,8,8,.55) 45%,rgba(6,6,7,.82)),url('a7645233ebafcb23c2f3de9b538788d5.gif') center/cover no-repeat;transition:transform .9s cubic-bezier(.76,0,.24,1),opacity .7s ease .15s}
+#gate.torn{transform:translateY(-100%);opacity:0;pointer-events:none}
+.gate-line{position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--steel) 50%,transparent)}
+.gate-line.top{top:12%}.gate-line.bottom{bottom:12%}
+.gate-eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.35em;text-transform:uppercase;color:var(--steel-dim);margin-bottom:22px}.gate-eyebrow span{color:var(--ice)}
+.gate-logo{width:clamp(140px,20vw,240px);height:auto;filter:drop-shadow(0 0 30px rgba(200,210,220,.12))}
+.gate-sub{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.25em;text-transform:uppercase;color:var(--steel-dim);margin-top:20px}
+.enter-btn{margin-top:52px;padding:16px 46px;background:var(--void-2);border:1px solid var(--steel);color:var(--bone);font-family:'JetBrains Mono',monospace;font-weight:700;font-size:14px;letter-spacing:.3em;text-transform:uppercase;cursor:pointer;transition:.25s}
+.enter-btn:hover{background:var(--chrome-grad);border-color:var(--bone);color:var(--void);transform:translateY(-2px);box-shadow:0 10px 26px rgba(200,210,220,.15)}
+.pw-panel{margin-top:52px;display:flex;flex-direction:column;align-items:center;opacity:0;max-height:0;overflow:hidden;transition:opacity .35s,max-height .35s}.pw-panel.open{opacity:1;max-height:220px}
+.pw-row{display:flex;border:1px solid var(--steel)}.pw-row.shake{animation:shake .4s;border-color:#c0392b}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
+.pw-input{background:var(--void-2);border:none;outline:none;color:var(--bone);font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.2em;padding:14px 16px;width:200px}.pw-input::placeholder{color:var(--steel-dim)}
+.pw-submit{background:var(--chrome-grad);border:none;color:var(--void);font-family:'JetBrains Mono',monospace;font-weight:700;font-size:12px;letter-spacing:.2em;text-transform:uppercase;padding:0 20px;cursor:pointer}
+.pw-error{margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:#c0392b;height:14px}.pw-back{margin-top:16px;background:none;border:none;color:var(--steel-dim);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;text-decoration:underline}
+
+/* TOPBAR */
+.chrome-strip{height:3px;background:var(--chrome-grad)}
+.topbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:18px clamp(20px,4vw,48px);background:rgba(10,10,10,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.brand-mark img{display:block;width:auto;height:42px;max-width:min(240px,48vw);object-fit:contain}
+.topbar-right{display:flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--steel-dim)}
+.cart-btn{background:none;border:0;padding:10px 0;color:var(--steel-dim);font:inherit;letter-spacing:inherit;text-transform:inherit;cursor:pointer;transition:color .2s}.cart-btn:hover{color:var(--bone)}
+
+/* COLLECTION */
+.shop-head{padding:54px clamp(20px,4vw,48px) 28px;display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px;border-bottom:1px solid var(--line)}
+.shop-head h1{font-family:'Metal Mania',cursive;font-size:clamp(38px,6vw,68px);text-transform:uppercase;line-height:.95;font-weight:400}
+.shop-head p{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--steel-dim);margin-top:12px}
+.drop-tag{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;border:1px solid var(--line);padding:8px 14px;color:var(--steel-dim);white-space:nowrap}.drop-tag b{color:var(--ice)}
+
+/* PRODUCT GRID */
+.products-section{padding:clamp(28px,5vw,64px);border-bottom:1px solid var(--line)}
+.product-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;max-width:1400px;margin:0 auto}
+.product-card{min-width:0;background:var(--void-2);border:1px solid var(--line);border-radius:20px;overflow:hidden;transition:transform .28s ease,border-color .28s ease,background .28s ease}
+.product-card:hover{transform:translateY(-4px);border-color:rgba(236,238,240,.28);background:#161616}
+.product-card-btn{display:block;width:100%;border:0;background:none;text-align:left;cursor:pointer}
+.product-image-shell{position:relative;aspect-ratio:1/1;background:radial-gradient(circle at center,#202020 0%,#121212 65%,#0e0e0e 100%);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.product-image-shell img{width:100%;height:100%;object-fit:contain;padding:18px;transition:transform .35s ease,filter .35s ease}.product-card:hover .product-image-shell img{transform:scale(1.035);filter:brightness(1.05)}
+.product-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;border-bottom:1px solid var(--line);font-family:'JetBrains Mono',monospace;text-transform:uppercase;color:var(--steel-dim)}
+.product-placeholder strong{font-family:'Metal Mania',cursive;font-size:clamp(42px,5vw,72px);font-weight:400;color:var(--steel);letter-spacing:.04em}.product-placeholder span{font-size:10px;letter-spacing:.22em}
+.product-badge{position:absolute;top:14px;left:14px;padding:7px 10px;border:1px solid rgba(255,255,255,.14);border-radius:999px;background:rgba(10,10,10,.72);backdrop-filter:blur(6px);font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--ice)}
+.product-card-info{padding:18px}.product-card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:14px}.product-name{font-family:'Metal Mania',cursive;font-size:26px;font-weight:400;text-transform:uppercase;line-height:1}.product-price{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;color:var(--steel);white-space:nowrap}.product-kicker{margin-top:9px;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--steel-dim)}
+.product-view{margin-top:16px;display:flex;align-items:center;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--bone)}
+
+/* PRODUCT MODAL */
+.product-modal-backdrop{position:fixed;inset:0;z-index:150;background:rgba(0,0,0,.82);backdrop-filter:blur(10px);opacity:0;pointer-events:none;transition:opacity .28s}.product-modal-backdrop.open{opacity:1;pointer-events:auto}
+.product-modal{position:fixed;inset:0;z-index:151;display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transform:scale(.95);transition:opacity .3s,transform .35s cubic-bezier(.16,1,.3,1)}.product-modal.open{opacity:1;pointer-events:auto;transform:scale(1)}
+.product-modal-box{position:relative;width:min(980px,96vw);max-height:92vh;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr);background:#101010;border:1px solid rgba(255,255,255,.13);border-radius:30px;overflow:hidden;box-shadow:0 32px 110px rgba(0,0,0,.82)}
+.modal-media{min-width:0;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at center,#202020 0%,#121212 70%);padding:24px;min-height:520px}.modal-media img{display:block;width:100%;height:100%;max-height:72vh;object-fit:contain;border-radius:20px}.modal-placeholder{width:100%;height:100%;min-height:440px;border:1px solid var(--line);border-radius:20px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--steel-dim);font-family:'JetBrains Mono',monospace;text-transform:uppercase}.modal-placeholder strong{font-family:'Metal Mania',cursive;font-size:84px;font-weight:400;color:var(--steel)}.modal-placeholder span{font-size:10px;letter-spacing:.2em}
+.modal-details{padding:34px;display:flex;flex-direction:column;min-width:0}.modal-eyebrow{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--steel-dim)}.modal-title{margin-top:10px;font-family:'Metal Mania',cursive;font-size:clamp(36px,4vw,54px);font-weight:400;text-transform:uppercase;line-height:.95}.modal-price{margin-top:12px;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.12em;color:var(--steel)}.modal-description{margin-top:20px;color:#b2b4b8;font-size:13px;line-height:1.7}.option-label{display:block;margin-bottom:10px;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--steel-dim)}
+.size-section{margin-top:26px}.size-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}.size-btn{min-height:44px;border:1px solid var(--line);border-radius:9px;background:var(--void-2);font-family:'JetBrains Mono',monospace;font-size:11px;cursor:pointer;transition:.2s}.size-btn:hover{border-color:var(--steel)}.size-btn.selected{background:var(--chrome-grad);color:var(--void);border-color:var(--bone);font-weight:700}.size-btn:disabled{opacity:.35;cursor:not-allowed}
+.qty-section{margin-top:22px}.qty-control{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:9px;overflow:hidden}.modal-qty-btn{width:44px;height:44px;border:0;background:var(--void-2);cursor:pointer;font-size:18px}.modal-qty-value{min-width:46px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:12px}.modal-qty-btn:disabled{opacity:.35;cursor:not-allowed}
+.modal-add{margin-top:auto;min-height:50px;border:1px solid var(--steel);border-radius:11px;background:var(--chrome-grad);color:var(--void);font-family:'JetBrains Mono',monospace;font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;transition:filter .2s,transform .2s}.modal-add:hover:not(:disabled){filter:brightness(1.08);transform:translateY(-1px)}.modal-add:disabled{background:var(--void-3);color:var(--steel-dim);border-color:var(--line);cursor:not-allowed}.modal-message{min-height:18px;margin-top:11px;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--steel-dim)}
+.product-modal-close{position:absolute;top:18px;right:18px;z-index:5;width:44px;height:44px;border:1px solid rgba(255,255,255,.2);border-radius:50%;background:rgba(6,6,6,.82);backdrop-filter:blur(10px);color:var(--bone);font-size:25px;cursor:pointer;transition:.2s}.product-modal-close:hover{background:var(--bone);color:var(--void);transform:rotate(90deg)}
+
+/* CART */
+.cart-backdrop{position:fixed;inset:0;z-index:79;background:rgba(0,0,0,.64);opacity:0;pointer-events:none;transition:opacity .28s}.cart-backdrop.open{opacity:1;pointer-events:auto}
+.cart-drawer{position:fixed;top:0;right:0;bottom:0;z-index:80;width:min(430px,100%);background:var(--void);border-left:1px solid var(--line);transform:translateX(100%);transition:transform .34s cubic-bezier(.76,0,.24,1);display:flex;flex-direction:column}.cart-drawer.open{transform:translateX(0)}
+.cart-head{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:24px;border-bottom:1px solid var(--line)}.cart-head h2{font-family:'Metal Mania',cursive;font-size:34px;font-weight:400;text-transform:uppercase}.cart-close{width:44px;height:44px;border:1px solid var(--line);border-radius:50%;background:var(--void-2);font-size:22px;cursor:pointer}
+.cart-items{padding:20px 24px;overflow:auto;flex:1}.cart-empty{padding:42px 0;color:var(--steel-dim);font-family:'JetBrains Mono',monospace;font-size:11px;line-height:1.8;letter-spacing:.12em;text-transform:uppercase;text-align:center}.cart-item{display:grid;grid-template-columns:82px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}.cart-thumb,.cart-thumb-placeholder{width:82px;height:82px;border:1px solid var(--line);border-radius:10px;background:var(--void-2);object-fit:cover}.cart-thumb-placeholder{display:flex;align-items:center;justify-content:center;font-family:'Metal Mania',cursive;font-size:28px;color:var(--steel)}.cart-item h3{font-size:14px;text-transform:uppercase}.cart-item-note{margin-top:5px;color:var(--steel-dim);font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.08em;text-transform:uppercase}.qty-row{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-top:13px}.qty-btn{width:32px;height:32px;border:1px solid var(--line);background:var(--void-2);cursor:pointer}.qty-value{min-width:24px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:12px}.remove-btn{margin-left:auto;border:0;background:none;color:var(--steel-dim);font-family:'JetBrains Mono',monospace;font-size:9px;text-transform:uppercase;text-decoration:underline;cursor:pointer}
+.cart-foot{padding:20px 24px 28px;border-top:1px solid var(--line);background:var(--void-2)}.cart-status{font-family:'JetBrains Mono',monospace;font-size:9px;line-height:1.6;letter-spacing:.07em;text-transform:uppercase;color:var(--steel-dim);margin-bottom:16px}.clear-cart{width:100%;min-height:44px;background:transparent;border:1px solid var(--steel-dim);color:var(--steel);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;cursor:pointer}
+
+footer{padding:40px clamp(20px,4vw,48px) 60px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:var(--steel-dim)}footer .fmark{color:var(--steel)}
+
+@media(max-width:900px){.product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.product-modal-box{grid-template-columns:1fr;overflow-y:auto}.modal-media{min-height:360px}.modal-media img{max-height:48vh}.modal-details{padding:26px}.modal-add{margin-top:28px}}
+@media(max-width:600px){.topbar{padding:15px 18px}.brand-mark img{height:34px;max-width:155px}.topbar-right{font-size:9px;letter-spacing:.08em}.shop-head{padding:40px 18px 24px}.products-section{padding:18px}.product-grid{grid-template-columns:1fr;gap:16px}.product-card{border-radius:16px}.product-image-shell img{padding:10px}.product-modal{padding:10px}.product-modal-box{border-radius:22px}.modal-media{padding:12px;min-height:300px}.modal-details{padding:22px}.product-modal-close{top:14px;right:14px}.size-grid{gap:6px}.size-btn{min-height:42px;font-size:10px}}
+</style>
+</head>
+<body>
+<svg class="grain" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#noiseFilter)"/></svg>
+
+<!-- GATE -->
+<div id="gate">
+  <div class="gate-line top"></div>
+  <div class="gate-eyebrow">Restricted Access <span>/</span> 02K Grunge Collection</div>
+  <img class="gate-logo" src="https://cdn.discordapp.com/attachments/1540060798947164190/1542290704301035530/D53DD88E-5A89-4D1A-8225-D3BD94DD5FA9.png?ex=6a90b1a6&is=6a8f6026&hm=8084c4041f204a8dc029877b8d843496387d27aeef511ac88b9172debac74b56&" alt="Desire Living">
+  <div class="gate-sub">Made to Desire</div>
+  <button class="enter-btn" id="enterBtn">unlock →</button>
+  <div class="pw-panel" id="pwPanel">
+    <div class="pw-row" id="pwRow"><input class="pw-input" id="pwInput" type="password" placeholder="password" autocomplete="off"><button class="pw-submit" id="pwSubmit">Go</button></div>
+    <div class="pw-error" id="pwError"></div>
+    <button class="pw-back" id="pwBack">back</button>
+  </div>
+  <div class="gate-line bottom"></div>
+</div>
+
+<!-- SHOP -->
+<div id="shop">
+  <div class="chrome-strip"></div>
+  <div class="topbar">
+    <div class="brand-mark"><img src="desire-living-logo.png" alt="Desire Living"></div>
+    <div class="topbar-right"><span>Lot 001 —</span><button class="cart-btn" id="cartBtn">Cart (<span id="cartCount">0</span>)</button></div>
+  </div>
+
+  <div class="shop-head">
+    <div><h1 class="chrome-text">Drop 001</h1><p>02K Grunge Collection / Made to Desire</p></div>
+    <div class="drop-tag">Drop <b>001</b> — 03 pcs</div>
+  </div>
+
+  <main class="products-section">
+    <div class="product-grid" id="productGrid"></div>
+  </main>
+
+  <footer><div class="fmark">DESIRE LIVING — TEST BUILD</div><div>Made to Desire.</div></footer>
+</div>
+
+<!-- PRODUCT POPUP -->
+<div class="product-modal-backdrop" id="productModalBackdrop"></div>
+<div class="product-modal" id="productModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
+  <div class="product-modal-box">
+    <button class="product-modal-close" id="productModalClose" aria-label="Close product">×</button>
+    <div class="modal-media" id="modalMedia"></div>
+    <div class="modal-details">
+      <div class="modal-eyebrow" id="modalEyebrow">Drop 001</div>
+      <h2 class="modal-title" id="modalTitle">Product</h2>
+      <div class="modal-price" id="modalPrice">PRICE TBA</div>
+      <p class="modal-description" id="modalDescription"></p>
+      <div class="size-section">
+        <span class="option-label">Select size</span>
+        <div class="size-grid" id="sizeGrid"></div>
+      </div>
+      <div class="qty-section">
+        <span class="option-label">Quantity</span>
+        <div class="qty-control"><button class="modal-qty-btn" id="modalQtyMinus" aria-label="Decrease quantity">−</button><span class="modal-qty-value" id="modalQtyValue">1</span><button class="modal-qty-btn" id="modalQtyPlus" aria-label="Increase quantity">+</button></div>
+      </div>
+      <button class="modal-add" id="modalAddBtn">Add to Cart</button>
+      <div class="modal-message" id="modalMessage" aria-live="polite"></div>
+    </div>
+  </div>
+</div>
+
+<!-- CART -->
+<div class="cart-backdrop" id="cartBackdrop"></div>
+<aside class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-labelledby="cartTitle" aria-hidden="true">
+  <div class="cart-head"><h2 id="cartTitle">Your Cart</h2><button class="cart-close" id="cartClose" aria-label="Close cart">×</button></div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-foot"><div class="cart-status">Checkout is disabled in this test build. Prices, inventory and payment checkout can be connected when the store launches.</div><button class="clear-cart" id="clearCart">Clear Cart</button></div>
+</aside>
+
+<script>
+const SITE_PASSWORD='desire';
+const gate=document.getElementById('gate'),enterBtn=document.getElementById('enterBtn'),pwPanel=document.getElementById('pwPanel'),pwRow=document.getElementById('pwRow'),pwInput=document.getElementById('pwInput'),pwSubmit=document.getElementById('pwSubmit'),pwError=document.getElementById('pwError'),pwBack=document.getElementById('pwBack');
+function unlockSite(){gate.classList.add('torn');setTimeout(()=>gate.style.display='none',950)}
+function showPwPanel(){enterBtn.style.display='none';pwPanel.classList.add('open');setTimeout(()=>pwInput.focus(),150)}
+function hidePwPanel(){pwPanel.classList.remove('open');pwError.textContent='';pwInput.value='';enterBtn.style.display='inline-block'}
+function checkPassword(){if(pwInput.value.trim().toLowerCase()===SITE_PASSWORD.toLowerCase()){unlockSite()}else{pwError.textContent='incorrect password';pwRow.classList.remove('shake');void pwRow.offsetWidth;pwRow.classList.add('shake');pwInput.value='';pwInput.focus()}}
+enterBtn.addEventListener('click',showPwPanel);pwSubmit.addEventListener('click',checkPassword);pwBack.addEventListener('click',hidePwPanel);pwInput.addEventListener('keydown',e=>{if(e.key==='Enter')checkPassword()});
+
+const CURRENT_IMAGE='https://media.discordapp.net/attachments/1540060830291202158/1540063981006360586/CE4F7360-402B-416A-A9F7-CF2C27CF24E0.png?ex=6a9080da&is=6a8f2f5a&hm=99bb9f4ff38de5bc8a597ef31fd95afab80467a3dbdc90b96a0ec4f5a4b3df8c&=&format=webp&quality=lossless&width=1280&height=1024';
+const PRODUCTS=[
+  {id:'drop-001-sample-tee',number:'01',name:'Sample Tee',price:'PRICE TBA',kicker:'Drop 001 · 02K Grunge',description:'First Desire Living piece in the current test build. Final product details, price and inventory can be added before launch.',image:CURRENT_IMAGE,available:true,sizes:['S','M','L','XL','XXL']},
+  {id:'drop-001-product-02',number:'02',name:'Product 02',price:'COMING SOON',kicker:'Drop 001 · Slot 02',description:'This product slot is ready for the next Desire Living design. Replace the placeholder image and details when the piece is ready.',image:'',available:false,sizes:['S','M','L','XL','XXL']},
+  {id:'drop-001-product-03',number:'03',name:'Product 03',price:'COMING SOON',kicker:'Drop 001 · Slot 03',description:'This product slot is ready for the third Desire Living design. The popup and cart structure are already wired in.',image:'',available:false,sizes:['S','M','L','XL','XXL']}
+];
+
+const productGrid=document.getElementById('productGrid');
+function renderProducts(){productGrid.innerHTML=PRODUCTS.map(p=>`<article class="product-card"><button class="product-card-btn" data-product-id="${p.id}" aria-label="View ${p.name}"><div class="product-image-shell">${p.image?`<img src="${p.image}" alt="${p.name}">`:`<div class="product-placeholder"><strong>${p.number}</strong><span>Image coming soon</span></div>`}<div class="product-badge">${p.available?'Available to preview':'Coming soon'}</div></div><div class="product-card-info"><div class="product-card-top"><h2 class="product-name">${p.name}</h2><div class="product-price">${p.price}</div></div><div class="product-kicker">${p.kicker}</div><div class="product-view"><span>View product</span><span>→</span></div></div></button></article>`).join('')}
+renderProducts();
+
+const productModal=document.getElementById('productModal'),productModalBackdrop=document.getElementById('productModalBackdrop'),productModalClose=document.getElementById('productModalClose'),modalMedia=document.getElementById('modalMedia'),modalTitle=document.getElementById('modalTitle'),modalPrice=document.getElementById('modalPrice'),modalDescription=document.getElementById('modalDescription'),modalEyebrow=document.getElementById('modalEyebrow'),sizeGrid=document.getElementById('sizeGrid'),modalQtyMinus=document.getElementById('modalQtyMinus'),modalQtyPlus=document.getElementById('modalQtyPlus'),modalQtyValue=document.getElementById('modalQtyValue'),modalAddBtn=document.getElementById('modalAddBtn'),modalMessage=document.getElementById('modalMessage');
+let activeProduct=null,selectedSize='',modalQty=1;
+function openProductModal(product){activeProduct=product;selectedSize='';modalQty=1;modalQtyValue.textContent='1';modalTitle.textContent=product.name;modalPrice.textContent=product.price;modalDescription.textContent=product.description;modalEyebrow.textContent=`Drop 001 / Product ${product.number}`;modalMedia.innerHTML=product.image?`<img src="${product.image}" alt="${product.name}">`:`<div class="modal-placeholder"><strong>${product.number}</strong><span>Product image coming soon</span></div>`;sizeGrid.innerHTML=product.sizes.map(size=>`<button class="size-btn" data-size="${size}" ${product.available?'':'disabled'}>${size}</button>`).join('');modalQtyMinus.disabled=!product.available;modalQtyPlus.disabled=!product.available;modalAddBtn.disabled=!product.available;modalAddBtn.textContent=product.available?'Add to Cart':'Coming Soon';modalMessage.textContent=product.available?'Select a size to continue.':'This product slot is not live yet.';productModal.classList.add('open');productModalBackdrop.classList.add('open');productModal.setAttribute('aria-hidden','false');document.body.classList.add('no-scroll')}
+function closeProductModal(){productModal.classList.remove('open');productModalBackdrop.classList.remove('open');productModal.setAttribute('aria-hidden','true');document.body.classList.remove('no-scroll')}
+productGrid.addEventListener('click',e=>{const btn=e.target.closest('[data-product-id]');if(!btn)return;const p=PRODUCTS.find(x=>x.id===btn.dataset.productId);if(p)openProductModal(p)});
+sizeGrid.addEventListener('click',e=>{const btn=e.target.closest('.size-btn');if(!btn||btn.disabled)return;selectedSize=btn.dataset.size;sizeGrid.querySelectorAll('.size-btn').forEach(b=>b.classList.toggle('selected',b===btn));modalMessage.textContent=`Size ${selectedSize} selected.`});
+modalQtyMinus.addEventListener('click',()=>{modalQty=Math.max(1,modalQty-1);modalQtyValue.textContent=modalQty});
+modalQtyPlus.addEventListener('click',()=>{modalQty=Math.min(10,modalQty+1);modalQtyValue.textContent=modalQty});
+productModalClose.addEventListener('click',closeProductModal);productModalBackdrop.addEventListener('click',closeProductModal);
+
+const CART_KEY='desireLivingCartV2';
+const cartBtn=document.getElementById('cartBtn'),cartCount=document.getElementById('cartCount'),cartDrawer=document.getElementById('cartDrawer'),cartBackdrop=document.getElementById('cartBackdrop'),cartClose=document.getElementById('cartClose'),cartItems=document.getElementById('cartItems'),clearCart=document.getElementById('clearCart');
+let cart=[];try{const saved=JSON.parse(localStorage.getItem(CART_KEY)||'[]');cart=Array.isArray(saved)?saved:[]}catch{cart=[]}
+function saveCart(){try{localStorage.setItem(CART_KEY,JSON.stringify(cart))}catch{}}
+function totalItems(){return cart.reduce((t,i)=>t+i.qty,0)}
+function renderCart(){cartCount.textContent=totalItems();clearCart.disabled=cart.length===0;clearCart.style.opacity=cart.length===0?'.45':'1';if(!cart.length){cartItems.innerHTML='<div class="cart-empty">Your cart is empty.<br>Choose a product from Drop 001.</div>';return}cartItems.innerHTML=cart.map(item=>`<div class="cart-item" data-cart-key="${item.cartKey}">${item.image?`<img class="cart-thumb" src="${item.image}" alt="${item.name}">`:`<div class="cart-thumb-placeholder">DL</div>`}<div><h3>${item.name}</h3><div class="cart-item-note">Size ${item.size} · ${item.price}</div><div class="qty-row"><button class="qty-btn" data-action="decrease" aria-label="Decrease quantity">−</button><span class="qty-value">${item.qty}</span><button class="qty-btn" data-action="increase" aria-label="Increase quantity">+</button><button class="remove-btn" data-action="remove">Remove</button></div></div></div>`).join('')}
+function openCart(){closeProductModal();cartDrawer.classList.add('open');cartBackdrop.classList.add('open');cartDrawer.setAttribute('aria-hidden','false');document.body.classList.add('no-scroll')}
+function closeCart(){cartDrawer.classList.remove('open');cartBackdrop.classList.remove('open');cartDrawer.setAttribute('aria-hidden','true');document.body.classList.remove('no-scroll')}
+modalAddBtn.addEventListener('click',()=>{if(!activeProduct||!activeProduct.available)return;if(!selectedSize){modalMessage.textContent='Pick a size first.';return}const cartKey=`${activeProduct.id}-${selectedSize}`;const existing=cart.find(i=>i.cartKey===cartKey);if(existing){existing.qty+=modalQty}else{cart.push({cartKey,id:activeProduct.id,name:activeProduct.name,size:selectedSize,price:activeProduct.price,image:activeProduct.image,qty:modalQty})}saveCart();renderCart();modalMessage.textContent='Added to cart.';setTimeout(openCart,180)});
+cartBtn.addEventListener('click',openCart);cartClose.addEventListener('click',closeCart);cartBackdrop.addEventListener('click',closeCart);clearCart.addEventListener('click',()=>{cart=[];saveCart();renderCart()});
+cartItems.addEventListener('click',e=>{const btn=e.target.closest('button[data-action]');if(!btn)return;const row=btn.closest('.cart-item');const item=cart.find(i=>i.cartKey===row.dataset.cartKey);if(!item)return;if(btn.dataset.action==='increase')item.qty++;if(btn.dataset.action==='decrease')item.qty--;if(btn.dataset.action==='remove'||item.qty<=0)cart=cart.filter(i=>i.cartKey!==item.cartKey);saveCart();renderCart()});
+document.addEventListener('keydown',e=>{if(e.key!=='Escape')return;if(productModal.classList.contains('open'))closeProductModal();else if(cartDrawer.classList.contains('open'))closeCart()});
+renderCart();
+</script>
+</body>
+</html>
