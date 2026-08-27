@@ -459,11 +459,11 @@ button{
 
 .product-grid{
     display:grid;
-    grid-template-columns:repeat(3,minmax(0,1fr));
+    grid-template-columns:repeat(2,minmax(0,1fr));
 
     gap:22px;
 
-    max-width:1400px;
+    max-width:950px;
     margin:0 auto;
 }
 
@@ -548,7 +548,7 @@ button{
 
 
 /* =========================
-   HOVER STATUS EFFECT
+   HOVER STATUS
 ========================= */
 
 .product-status-overlay{
@@ -755,7 +755,7 @@ button{
 
 
 /* =========================
-   COMING SOON PLACEHOLDERS
+   COMING SOON
 ========================= */
 
 .coming-placeholder{
@@ -870,9 +870,6 @@ button{
     min-height:500px;
 }
 
-
-/* MODAL IMAGE */
-
 .modal-image-side{
     display:flex;
     flex-direction:column;
@@ -895,9 +892,6 @@ button{
     max-height:66vh;
     object-fit:contain;
 }
-
-
-/* FRONT / BACK BUTTONS */
 
 .image-switcher{
     display:flex;
@@ -936,9 +930,6 @@ button{
     background:var(--chrome-grad);
     color:var(--void);
 }
-
-
-/* MODAL INFO */
 
 .modal-info-side{
     display:flex;
@@ -1020,9 +1011,6 @@ button{
     text-transform:uppercase;
 }
 
-
-/* SIZE */
-
 .size-section{
     margin-top:28px;
 }
@@ -1050,9 +1038,6 @@ button{
     background:var(--chrome-grad);
     color:var(--void);
 }
-
-
-/* QUANTITY */
 
 .quantity-section{
     margin-top:24px;
@@ -1086,9 +1071,6 @@ button{
     min-width:46px;
     text-align:center;
 }
-
-
-/* ADD CART */
 
 .modal-add-cart{
     width:100%;
@@ -1128,9 +1110,6 @@ button{
 
     text-transform:uppercase;
 }
-
-
-/* CLOSE */
 
 .product-modal-close{
     position:absolute;
@@ -1409,11 +1388,11 @@ footer .fmark{
    RESPONSIVE
 ========================= */
 
-@media(max-width:900px){
+@media(max-width:700px){
 
     .product-grid{
-        grid-template-columns:
-            repeat(2,minmax(0,1fr));
+        grid-template-columns:1fr;
+        max-width:500px;
     }
 
     .product-modal-content{
@@ -1447,10 +1426,6 @@ footer .fmark{
 
     .products-section{
         padding:24px 18px 55px;
-    }
-
-    .product-grid{
-        grid-template-columns:1fr;
     }
 
     .product-modal{
@@ -1626,9 +1601,7 @@ footer .fmark{
         </div>
 
         <div class="drop-tag">
-
-            Drop <b>001</b> — 03 pcs
-
+            Drop <b>001</b> — 02 pcs
         </div>
 
     </section>
@@ -1772,69 +1745,6 @@ footer .fmark{
             </article>
 
 
-            <!-- PRODUCT 3 -->
-
-            <article
-                class="product-card"
-                data-product="coming003"
-                tabindex="0"
-            >
-
-                <div class="product-card-image">
-
-                    <div class="coming-placeholder">
-
-                        <strong>
-                            03
-                        </strong>
-
-                        <span>
-                            Coming Soon
-                        </span>
-
-                    </div>
-
-                    <div class="product-status-overlay">
-
-                        <span>
-                            COMING SOON
-                        </span>
-
-                        <small>
-                            Drop 001
-                        </small>
-
-                    </div>
-
-                </div>
-
-                <div class="product-card-info">
-
-                    <div class="product-card-top">
-
-                        <h3>
-                            Product 03
-                        </h3>
-
-                        <div class="product-price">
-                            —
-                        </div>
-
-                    </div>
-
-                    <div class="product-card-meta">
-                        Drop 001 · Coming Soon
-                    </div>
-
-                    <div class="product-view">
-                        Preview →
-                    </div>
-
-                </div>
-
-            </article>
-
-
         </div>
 
     </section>
@@ -1846,7 +1756,6 @@ footer .fmark{
         class="product-modal-backdrop"
         id="productModalBackdrop"
     ></div>
-
 
     <div
         class="product-modal"
@@ -1862,11 +1771,7 @@ footer .fmark{
                 ×
             </button>
 
-
             <div class="product-modal-content">
-
-
-                <!-- IMAGE -->
 
                 <div class="modal-image-side">
 
@@ -1900,8 +1805,6 @@ footer .fmark{
                 </div>
 
 
-                <!-- INFO -->
-
                 <div class="modal-info-side">
 
                     <div
@@ -1930,8 +1833,6 @@ footer .fmark{
                     ></p>
 
 
-                    <!-- SIZE -->
-
                     <div
                         class="size-section"
                         id="sizeSection"
@@ -1943,47 +1844,16 @@ footer .fmark{
 
                         <div class="size-options">
 
-                            <button
-                                class="size-btn"
-                                data-size="S"
-                            >
-                                S
-                            </button>
-
-                            <button
-                                class="size-btn"
-                                data-size="M"
-                            >
-                                M
-                            </button>
-
-                            <button
-                                class="size-btn"
-                                data-size="L"
-                            >
-                                L
-                            </button>
-
-                            <button
-                                class="size-btn"
-                                data-size="XL"
-                            >
-                                XL
-                            </button>
-
-                            <button
-                                class="size-btn"
-                                data-size="XXL"
-                            >
-                                XXL
-                            </button>
+                            <button class="size-btn" data-size="S">S</button>
+                            <button class="size-btn" data-size="M">M</button>
+                            <button class="size-btn" data-size="L">L</button>
+                            <button class="size-btn" data-size="XL">XL</button>
+                            <button class="size-btn" data-size="XXL">XXL</button>
 
                         </div>
 
                     </div>
 
-
-                    <!-- QUANTITY -->
 
                     <div
                         class="quantity-section"
@@ -2029,12 +1899,10 @@ footer .fmark{
                         Add to Cart
                     </button>
 
-
                     <div
                         class="modal-message"
                         id="modalMessage"
                     ></div>
-
 
                 </div>
 
@@ -2051,7 +1919,6 @@ footer .fmark{
         class="cart-backdrop"
         id="cartBackdrop"
     ></div>
-
 
     <aside
         class="cart-drawer"
@@ -2073,19 +1940,15 @@ footer .fmark{
 
         </div>
 
-
         <div
             class="cart-items"
             id="cartItems"
         ></div>
 
-
         <div class="cart-foot">
 
             <div class="cart-status">
-
                 Checkout is disabled in this test build.
-
             </div>
 
             <button
@@ -2111,7 +1974,6 @@ footer .fmark{
         </div>
 
     </footer>
-
 
 </div>
 
@@ -2166,9 +2028,7 @@ function unlockSite(){
 function showPwPanel(){
 
     enterBtn.style.display="none";
-
     pwPanel.classList.add("open");
-
     pwInput.focus();
 
 }
@@ -2277,32 +2137,6 @@ const PRODUCTS={
         id:"coming002",
 
         name:"Product 02",
-
-        price:null,
-
-        drop:"Drop 001",
-
-        status:"COMING SOON",
-
-        description:
-        "This piece has not been revealed yet.",
-
-        frontImage:"",
-
-        backImage:"",
-
-        available:false,
-
-        previewAvailable:false
-
-    },
-
-
-    coming003:{
-
-        id:"coming003",
-
-        name:"Product 03",
 
         price:null,
 
@@ -2540,8 +2374,6 @@ function openProduct(id){
     "";
 
 
-    /* PRODUCT HAS IMAGES */
-
     if(product.frontImage){
 
         modalProductImage.style.display=
@@ -2567,8 +2399,6 @@ function openProduct(id){
     }
 
 
-    /* PRICE */
-
     if(product.price!==null){
 
         modalProductPrice.textContent=
@@ -2584,8 +2414,6 @@ function openProduct(id){
 
     }
 
-
-    /* COMING SOON */
 
     if(
         product.status===
@@ -2614,8 +2442,6 @@ function openProduct(id){
     }
 
 
-    /* SOLD OUT */
-
     else if(
         product.status===
         "SOLD OUT"
@@ -2638,8 +2464,6 @@ function openProduct(id){
 
     }
 
-
-    /* AVAILABLE */
 
     else{
 
@@ -3118,7 +2942,7 @@ cartBackdrop.addEventListener(
 );
 
 
-/* CART BUTTONS */
+/* CART CONTROLS */
 
 cartItems.addEventListener(
     "click",
@@ -3198,7 +3022,7 @@ cartItems.addEventListener(
 );
 
 
-/* CLEAR */
+/* CLEAR CART */
 
 clearCart.addEventListener(
     "click",
@@ -3214,7 +3038,7 @@ clearCart.addEventListener(
 );
 
 
-/* ESC */
+/* ESCAPE */
 
 document.addEventListener(
     "keydown",
