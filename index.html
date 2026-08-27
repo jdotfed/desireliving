@@ -47,30 +47,28 @@ body{
     background:var(--void);
     color:var(--bone);
     font-family:'Archivo',sans-serif;
-    overflow-x:hidden;
     min-height:100vh;
+    overflow-x:hidden;
 }
 
 body.no-scroll{
     overflow:hidden;
 }
 
-@media (prefers-reduced-motion:reduce){
+button{
+    font-family:inherit;
+}
+
+@media(prefers-reduced-motion:reduce){
     *{
         animation-duration:.01ms !important;
         transition-duration:.01ms !important;
     }
 }
 
-a,
-button{
-    font-family:inherit;
-    color:inherit;
-}
-
 
 /* =========================
-   GRAIN
+   BACKGROUND GRAIN
 ========================= */
 
 .grain{
@@ -81,7 +79,6 @@ button{
     opacity:.05;
     mix-blend-mode:overlay;
 }
-
 
 .chrome-text{
     background:var(--chrome-grad);
@@ -132,7 +129,6 @@ button{
     pointer-events:none;
 }
 
-
 .gate-line{
     position:absolute;
     left:0;
@@ -156,7 +152,6 @@ button{
     bottom:12%;
 }
 
-
 .gate-eyebrow{
     font-family:'JetBrains Mono',monospace;
     font-size:11px;
@@ -170,17 +165,13 @@ button{
     color:var(--ice);
 }
 
-
 .gate-logo{
     width:clamp(140px,20vw,240px);
     height:auto;
 
     filter:
-        drop-shadow(
-            0 0 30px rgba(200,210,220,.12)
-        );
+        drop-shadow(0 0 30px rgba(200,210,220,.12));
 }
-
 
 .gate-sub{
     font-family:'JetBrains Mono',monospace;
@@ -190,11 +181,6 @@ button{
     color:var(--steel-dim);
     margin-top:20px;
 }
-
-
-/* =========================
-   UNLOCK BUTTON
-========================= */
 
 .enter-btn{
     margin-top:52px;
@@ -216,31 +202,22 @@ button{
         background .25s ease,
         color .25s ease,
         transform .25s ease,
-        border-color .25s ease,
         box-shadow .25s ease;
 }
 
 .enter-btn:hover{
     background:var(--chrome-grad);
-    border-color:var(--bone);
     color:var(--void);
     transform:translateY(-2px);
-
-    box-shadow:
-        0 10px 26px rgba(200,210,220,.15);
-}
-
-.enter-btn:active{
-    transform:translateY(1px);
+    box-shadow:0 10px 26px rgba(200,210,220,.15);
 }
 
 
-/* =========================
-   PASSWORD PANEL
-========================= */
+/* PASSWORD PANEL */
 
 .pw-panel{
     margin-top:52px;
+
     display:flex;
     flex-direction:column;
     align-items:center;
@@ -259,43 +236,23 @@ button{
     max-height:220px;
 }
 
-
 .pw-row{
     display:flex;
     border:1px solid var(--steel);
 }
-
 
 .pw-row.shake{
     animation:shake .4s ease;
     border-color:#c0392b;
 }
 
-
 @keyframes shake{
-
-    0%,100%{
-        transform:translateX(0);
-    }
-
-    20%{
-        transform:translateX(-6px);
-    }
-
-    40%{
-        transform:translateX(6px);
-    }
-
-    60%{
-        transform:translateX(-4px);
-    }
-
-    80%{
-        transform:translateX(4px);
-    }
-
+    0%,100%{transform:translateX(0);}
+    20%{transform:translateX(-6px);}
+    40%{transform:translateX(6px);}
+    60%{transform:translateX(-4px);}
+    80%{transform:translateX(4px);}
 }
-
 
 .pw-input{
     background:var(--void-2);
@@ -315,7 +272,6 @@ button{
     color:var(--steel-dim);
 }
 
-
 .pw-submit{
     background:var(--chrome-grad);
     border:none;
@@ -331,9 +287,9 @@ button{
     cursor:pointer;
 }
 
-
 .pw-error{
     margin-top:14px;
+    height:14px;
 
     font-family:'JetBrains Mono',monospace;
     font-size:10px;
@@ -341,9 +297,7 @@ button{
     text-transform:uppercase;
 
     color:#c0392b;
-    height:14px;
 }
-
 
 .pw-back{
     margin-top:16px;
@@ -370,7 +324,6 @@ button{
     min-height:100vh;
 }
 
-
 .chrome-strip{
     height:3px;
     background:var(--chrome-grad);
@@ -378,7 +331,7 @@ button{
 
 
 /* =========================
-   TOPBAR
+   TOP BAR
 ========================= */
 
 .topbar{
@@ -390,24 +343,18 @@ button{
     align-items:center;
     justify-content:space-between;
 
-    padding:
-        20px clamp(20px,4vw,48px);
+    padding:20px clamp(20px,4vw,48px);
 
-    background:
-        rgba(10,10,10,.88);
+    background:rgba(10,10,10,.9);
+    backdrop-filter:blur(8px);
 
-    backdrop-filter:blur(6px);
-
-    border-bottom:
-        1px solid var(--line);
+    border-bottom:1px solid var(--line);
 }
-
 
 .brand-mark{
     display:flex;
     align-items:center;
 }
-
 
 .brand-mark img{
     display:block;
@@ -416,7 +363,6 @@ button{
     max-width:min(240px,48vw);
     object-fit:contain;
 }
-
 
 .topbar-right{
     display:flex;
@@ -427,15 +373,13 @@ button{
     font-size:11px;
     letter-spacing:.15em;
     text-transform:uppercase;
+
     color:var(--steel-dim);
 }
-
 
 .cart-btn{
     background:none;
     border:0;
-    padding:10px 0;
-
     color:var(--steel-dim);
 
     font:inherit;
@@ -443,9 +387,6 @@ button{
     text-transform:inherit;
 
     cursor:pointer;
-
-    transition:
-        color .2s ease;
 }
 
 .cart-btn:hover{
@@ -454,12 +395,11 @@ button{
 
 
 /* =========================
-   COLLECTION HEADER
+   SHOP HEADER
 ========================= */
 
 .shop-head{
-    padding:
-        56px clamp(20px,4vw,48px) 28px;
+    padding:56px clamp(20px,4vw,48px) 34px;
 
     display:flex;
     flex-wrap:wrap;
@@ -468,19 +408,27 @@ button{
 
     gap:20px;
 
-    border-bottom:
-        1px solid var(--line);
+    border-bottom:1px solid var(--line);
 }
-
 
 .shop-head h1{
     font-family:'Metal Mania',cursive;
-    font-size:clamp(34px,5.5vw,64px);
+    font-size:clamp(38px,6vw,68px);
     text-transform:uppercase;
     line-height:.95;
     font-weight:400;
 }
 
+.shop-sub{
+    margin-top:10px;
+
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+
+    color:var(--steel-dim);
+}
 
 .drop-tag{
     font-family:'JetBrains Mono',monospace;
@@ -488,16 +436,11 @@ button{
     letter-spacing:.2em;
     text-transform:uppercase;
 
-    border:
-        1px solid var(--line);
-
+    border:1px solid var(--line);
     padding:8px 14px;
 
     color:var(--steel-dim);
-
-    white-space:nowrap;
 }
-
 
 .drop-tag b{
     color:var(--ice);
@@ -505,214 +448,211 @@ button{
 
 
 /* =========================
-   PRODUCT
+   PRODUCT GRID
 ========================= */
 
-.feature{
-    border-bottom:
-        1px solid var(--line);
+.products-section{
+    padding:
+        clamp(30px,5vw,64px)
+        clamp(20px,4vw,48px)
+        clamp(50px,7vw,90px);
+}
+
+.product-grid{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:22px;
+    max-width:1400px;
+    margin:0 auto;
+}
+
+
+/* =========================
+   PRODUCT CARD
+========================= */
+
+.product-card{
+    position:relative;
+    min-width:0;
+
+    background:var(--void-2);
+    border:1px solid var(--line);
+
+    border-radius:18px;
+    overflow:hidden;
+
+    cursor:pointer;
+
+    transition:
+        transform .25s ease,
+        border-color .25s ease,
+        background .25s ease;
+}
+
+.product-card:hover{
+    transform:translateY(-4px);
+    border-color:rgba(236,238,240,.32);
+    background:#171717;
+}
+
+.product-card-image{
+    position:relative;
+
+    aspect-ratio:1 / 1.08;
 
     display:flex;
     align-items:center;
     justify-content:center;
 
-    background:var(--void-2);
+    padding:20px;
 
-    padding:
-        clamp(24px,5vw,64px);
-}
-
-
-/* clickable product */
-
-.product-image-btn{
-    display:block;
-    width:100%;
-    max-width:1100px;
-
-    padding:0;
-
-    border:none;
-    background:none;
-
-    cursor:pointer;
-}
-
-
-.product-image-btn img{
-    display:block;
-
-    width:100%;
-    height:auto;
-
-    object-fit:contain;
-
-    filter:
-        contrast(1.04)
-        saturate(.96);
-
-    transition:
-        transform .3s ease,
-        filter .3s ease;
-}
-
-
-.product-image-btn:hover img{
-    transform:scale(1.018);
-
-    filter:
-        contrast(1.07)
-        brightness(1.05);
-}
-
-
-/* =========================
-   PRODUCT INFORMATION
-========================= */
-
-.product-actions{
-    padding:
-        24px clamp(20px,4vw,48px) 38px;
-
-    border-bottom:
-        1px solid var(--line);
-
-    display:flex;
-    flex-wrap:wrap;
-    gap:18px;
-
-    align-items:center;
-    justify-content:space-between;
-
-    background:var(--void);
-}
-
-
-.product-meta h2{
-    font-family:'Metal Mania',cursive;
-    font-size:30px;
-    font-weight:400;
-    text-transform:uppercase;
-}
-
-
-.product-meta p{
-    margin-top:6px;
-
-    color:var(--steel-dim);
-
-    font-family:'JetBrains Mono',monospace;
-    font-size:11px;
-    letter-spacing:.08em;
-    text-transform:uppercase;
-}
-
-
-.view-hint{
-    display:block;
-
-    margin-top:10px;
-
-    color:var(--steel);
-
-    font-family:'JetBrains Mono',monospace;
-
-    font-size:9px;
-
-    letter-spacing:.15em;
-
-    text-transform:uppercase;
-}
-
-
-/* =========================
-   ADD CART BUTTON
-========================= */
-
-.add-cart-btn{
-    min-height:46px;
-
-    padding:
-        13px 28px;
-
-    border:
-        1px solid var(--steel);
+    overflow:hidden;
 
     background:
-        var(--chrome-grad);
+        radial-gradient(
+            circle at center,
+            #202020,
+            #111 70%
+        );
+}
 
-    color:var(--void);
-
-    cursor:pointer;
-
-    font-family:
-        'JetBrains Mono',monospace;
-
-    font-weight:700;
-
-    font-size:12px;
-
-    letter-spacing:.18em;
-
-    text-transform:uppercase;
+.product-card-image img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
 
     transition:
-        transform .2s ease,
-        filter .2s ease;
+        transform .3s ease;
 }
 
-
-.add-cart-btn:hover{
-    filter:
-        brightness(1.08);
-
-    transform:
-        translateY(-1px);
+.product-card:hover .product-card-image img{
+    transform:scale(1.035);
 }
 
+.product-card-info{
+    padding:18px;
+    border-top:1px solid var(--line);
+}
 
-.add-cart-btn:active{
-    transform:
-        translateY(1px);
+.product-card-top{
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    align-items:flex-start;
+}
+
+.product-card h3{
+    font-size:15px;
+    font-weight:600;
+    letter-spacing:.02em;
+    text-transform:uppercase;
+}
+
+.product-price{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;
+
+    color:var(--bone);
+}
+
+.product-card-meta{
+    margin-top:8px;
+
+    font-family:'JetBrains Mono',monospace;
+    font-size:9px;
+    letter-spacing:.13em;
+    text-transform:uppercase;
+
+    color:var(--steel-dim);
+}
+
+.product-view{
+    margin-top:16px;
+
+    font-family:'JetBrains Mono',monospace;
+    font-size:9px;
+    letter-spacing:.15em;
+    text-transform:uppercase;
+
+    color:var(--steel);
 }
 
 
 /* =========================
-   PRODUCT IMAGE POPUP
+   COMING SOON CARDS
+========================= */
+
+.product-card.coming-soon{
+    cursor:pointer;
+}
+
+.coming-placeholder{
+    width:100%;
+    height:100%;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    border:1px dashed rgba(236,238,240,.15);
+    border-radius:12px;
+
+    color:var(--steel-dim);
+}
+
+.coming-placeholder strong{
+    font-family:'Metal Mania',cursive;
+    font-size:34px;
+    font-weight:400;
+    text-transform:uppercase;
+
+    color:var(--steel);
+}
+
+.coming-placeholder span{
+    margin-top:8px;
+
+    font-family:'JetBrains Mono',monospace;
+    font-size:9px;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+}
+
+
+/* =========================
+   PRODUCT MODAL BACKDROP
 ========================= */
 
 .product-modal-backdrop{
     position:fixed;
     inset:0;
-
     z-index:150;
 
-    background:
-        rgba(0,0,0,.82);
-
-    backdrop-filter:
-        blur(9px);
+    background:rgba(0,0,0,.84);
+    backdrop-filter:blur(9px);
 
     opacity:0;
-
     pointer-events:none;
 
-    transition:
-        opacity .3s ease;
+    transition:opacity .3s ease;
 }
-
 
 .product-modal-backdrop.open{
     opacity:1;
-
     pointer-events:auto;
 }
 
 
+/* =========================
+   PRODUCT POPUP
+========================= */
+
 .product-modal{
     position:fixed;
     inset:0;
-
     z-index:151;
 
     display:flex;
@@ -722,142 +662,311 @@ button{
     padding:24px;
 
     opacity:0;
-
     pointer-events:none;
 
-    transform:
-        scale(.94);
+    transform:scale(.95);
 
     transition:
         opacity .3s ease,
         transform .35s cubic-bezier(.16,1,.3,1);
 }
 
-
 .product-modal.open{
     opacity:1;
-
     pointer-events:auto;
-
-    transform:
-        scale(1);
+    transform:scale(1);
 }
-
 
 .product-modal-box{
     position:relative;
 
-    width:
-        min(950px,94vw);
+    width:min(1050px,95vw);
+    max-height:92vh;
 
-    max-height:
-        90vh;
+    background:#101010;
 
-    background:
-        #101010;
-
-    padding:18px;
-
-    border:
-        1px solid rgba(255,255,255,.13);
-
-    border-radius:
-        30px;
+    border:1px solid rgba(255,255,255,.13);
+    border-radius:30px;
 
     overflow:hidden;
 
     box-shadow:
-        0 30px 100px rgba(0,0,0,.8);
+        0 30px 100px rgba(0,0,0,.82);
+}
+
+.product-modal-content{
+    display:grid;
+    grid-template-columns:minmax(0,1.15fr) minmax(320px,.85fr);
+    min-height:500px;
 }
 
 
-.product-modal-box::before{
-    content:"";
+/* MODAL IMAGE */
 
-    position:absolute;
+.modal-image-side{
+    min-width:0;
 
-    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-    pointer-events:none;
-
-    border-radius:
-        inherit;
+    padding:28px;
 
     background:
-        linear-gradient(
-            135deg,
-            rgba(255,255,255,.05),
-            transparent 35%
+        radial-gradient(
+            circle at center,
+            #202020,
+            #111 72%
         );
 }
 
-
-.product-modal-image-wrap{
+.modal-image-side img{
     width:100%;
-
-    border-radius:
-        21px;
-
-    overflow:hidden;
-
-    background:
-        var(--void-2);
-}
-
-
-.product-modal-image-wrap img{
-    display:block;
-
-    width:100%;
-
-    max-height:
-        80vh;
-
+    max-height:74vh;
     object-fit:contain;
 
-    border-radius:
-        21px;
+    border-radius:20px;
 }
 
 
-/* ROUND CLOSE BUTTON */
+/* MODAL DETAILS */
+
+.modal-info-side{
+    min-width:0;
+
+    display:flex;
+    flex-direction:column;
+
+    padding:38px 34px;
+
+    border-left:1px solid var(--line);
+
+    background:#111;
+}
+
+.modal-drop{
+    font-family:'JetBrains Mono',monospace;
+    font-size:10px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+
+    color:var(--steel-dim);
+}
+
+.modal-title{
+    margin-top:10px;
+
+    font-family:'Metal Mania',cursive;
+    font-size:40px;
+    font-weight:400;
+    text-transform:uppercase;
+}
+
+.modal-price{
+    margin-top:8px;
+
+    font-family:'JetBrains Mono',monospace;
+    font-size:14px;
+
+    color:var(--bone);
+}
+
+.modal-description{
+    margin-top:20px;
+
+    font-size:13px;
+    line-height:1.7;
+
+    color:var(--steel);
+}
+
+.option-label{
+    display:block;
+
+    margin-bottom:10px;
+
+    font-family:'JetBrains Mono',monospace;
+    font-size:9px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+
+    color:var(--steel-dim);
+}
+
+
+/* =========================
+   SIZE BUTTONS
+========================= */
+
+.size-section{
+    margin-top:28px;
+}
+
+.size-options{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:8px;
+}
+
+.size-btn{
+    min-height:44px;
+
+    background:var(--void-2);
+
+    border:1px solid var(--line);
+    border-radius:8px;
+
+    color:var(--bone);
+
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+
+    cursor:pointer;
+
+    transition:
+        border-color .2s ease,
+        background .2s ease,
+        color .2s ease;
+}
+
+.size-btn:hover{
+    border-color:var(--steel);
+}
+
+.size-btn.selected{
+    background:var(--chrome-grad);
+    border-color:var(--bone);
+    color:var(--void);
+    font-weight:700;
+}
+
+
+/* =========================
+   QUANTITY
+========================= */
+
+.quantity-section{
+    margin-top:24px;
+}
+
+.quantity-control{
+    display:inline-flex;
+    align-items:center;
+
+    border:1px solid var(--line);
+    border-radius:9px;
+
+    overflow:hidden;
+}
+
+.modal-qty-btn{
+    width:44px;
+    height:44px;
+
+    border:none;
+    background:var(--void-2);
+    color:var(--bone);
+
+    font-size:18px;
+
+    cursor:pointer;
+}
+
+.modal-qty-btn:hover{
+    background:var(--void-3);
+}
+
+.modal-qty-value{
+    min-width:46px;
+
+    text-align:center;
+
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;
+}
+
+
+/* =========================
+   ADD TO CART
+========================= */
+
+.modal-add-cart{
+    width:100%;
+    min-height:50px;
+
+    margin-top:30px;
+
+    border:1px solid var(--steel);
+
+    border-radius:10px;
+
+    background:var(--chrome-grad);
+
+    color:var(--void);
+
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+
+    cursor:pointer;
+
+    transition:
+        transform .2s ease,
+        filter .2s ease;
+}
+
+.modal-add-cart:hover{
+    filter:brightness(1.08);
+    transform:translateY(-1px);
+}
+
+.modal-add-cart:disabled{
+    opacity:.4;
+    cursor:not-allowed;
+    filter:none;
+    transform:none;
+}
+
+.modal-message{
+    min-height:18px;
+
+    margin-top:12px;
+
+    font-family:'JetBrains Mono',monospace;
+    font-size:9px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+
+    color:var(--steel);
+}
+
+
+/* CLOSE POPUP */
 
 .product-modal-close{
     position:absolute;
-
-    top:28px;
-
-    right:28px;
-
-    z-index:5;
+    top:18px;
+    right:18px;
+    z-index:10;
 
     width:46px;
-
     height:46px;
 
     display:flex;
-
     align-items:center;
-
     justify-content:center;
 
-    border:
-        1px solid rgba(255,255,255,.22);
+    border:1px solid rgba(255,255,255,.2);
+    border-radius:50%;
 
-    border-radius:
-        50%;
+    background:rgba(8,8,8,.84);
+    backdrop-filter:blur(8px);
 
-    background:
-        rgba(6,6,6,.82);
-
-    backdrop-filter:
-        blur(10px);
-
-    color:
-        var(--bone);
+    color:var(--bone);
 
     font-size:26px;
-
     line-height:1;
 
     cursor:pointer;
@@ -868,16 +977,10 @@ button{
         transform .2s ease;
 }
 
-
 .product-modal-close:hover{
-    background:
-        var(--bone);
-
-    color:
-        var(--void);
-
-    transform:
-        rotate(90deg);
+    background:var(--bone);
+    color:var(--void);
+    transform:rotate(90deg);
 }
 
 
@@ -887,26 +990,19 @@ button{
 
 .cart-backdrop{
     position:fixed;
-
     inset:0;
-
     z-index:79;
 
-    background:
-        rgba(0,0,0,.64);
+    background:rgba(0,0,0,.68);
 
     opacity:0;
-
     pointer-events:none;
 
-    transition:
-        opacity .28s ease;
+    transition:opacity .28s ease;
 }
-
 
 .cart-backdrop.open{
     opacity:1;
-
     pointer-events:auto;
 }
 
@@ -917,259 +1013,172 @@ button{
 
 .cart-drawer{
     position:fixed;
-
     top:0;
-
     right:0;
-
     bottom:0;
-
     z-index:80;
 
-    width:
-        min(430px,100%);
+    width:min(430px,100%);
 
-    background:
-        var(--void);
+    background:var(--void);
 
-    border-left:
-        1px solid var(--line);
+    border-left:1px solid var(--line);
 
-    transform:
-        translateX(100%);
+    transform:translateX(100%);
 
     transition:
         transform .34s cubic-bezier(.76,0,.24,1);
 
     display:flex;
-
     flex-direction:column;
 }
 
-
 .cart-drawer.open{
-    transform:
-        translateX(0);
+    transform:translateX(0);
 }
-
-
-/* =========================
-   CART HEADER
-========================= */
 
 .cart-head{
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
-
-    gap:16px;
 
     padding:24px;
 
-    border-bottom:
-        1px solid var(--line);
+    border-bottom:1px solid var(--line);
 }
 
-
 .cart-head h2{
-    font-family:
-        'Metal Mania',cursive;
-
+    font-family:'Metal Mania',cursive;
     font-size:34px;
-
     font-weight:400;
-
     text-transform:uppercase;
 }
 
-
 .cart-close{
     width:44px;
-
     height:44px;
 
-    border:
-        1px solid var(--line);
-
+    border:1px solid var(--line);
     border-radius:50%;
 
-    background:
-        var(--void-2);
-
-    color:
-        var(--bone);
+    background:var(--void-2);
+    color:var(--bone);
 
     font-size:22px;
-
     cursor:pointer;
 }
 
 
-/* =========================
-   CART PRODUCTS
-========================= */
+/* CART ITEMS */
 
 .cart-items{
-    padding:
-        20px 24px;
-
+    padding:20px 24px;
     overflow:auto;
-
     flex:1;
 }
 
-
 .cart-empty{
-    padding:
-        42px 0;
-
-    color:
-        var(--steel-dim);
-
-    font-family:
-        'JetBrains Mono',monospace;
-
-    font-size:11px;
-
-    line-height:1.8;
-
-    letter-spacing:.12em;
-
-    text-transform:uppercase;
+    padding:42px 0;
 
     text-align:center;
-}
 
+    color:var(--steel-dim);
+
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    line-height:1.8;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+}
 
 .cart-item{
     display:grid;
-
-    grid-template-columns:
-        82px 1fr;
-
+    grid-template-columns:82px 1fr;
     gap:16px;
 
-    padding:
-        16px 0;
+    padding:16px 0;
 
-    border-bottom:
-        1px solid var(--line);
+    border-bottom:1px solid var(--line);
 }
-
 
 .cart-thumb{
     width:82px;
-
     height:82px;
 
     object-fit:cover;
 
-    background:
-        var(--void-2);
-
-    border:
-        1px solid var(--line);
-
+    border:1px solid var(--line);
     border-radius:10px;
-}
 
+    background:var(--void-2);
+}
 
 .cart-item h3{
     font-size:14px;
-
     text-transform:uppercase;
 }
-
 
 .cart-item-note{
     margin-top:5px;
 
-    color:
-        var(--steel-dim);
-
-    font-family:
-        'JetBrains Mono',monospace;
-
-    font-size:10px;
-
+    font-family:'JetBrains Mono',monospace;
+    font-size:9px;
     letter-spacing:.08em;
-
     text-transform:uppercase;
+
+    color:var(--steel-dim);
 }
 
+.cart-price{
+    margin-top:7px;
 
-/* =========================
-   QUANTITY
-========================= */
+    font-family:'JetBrains Mono',monospace;
+    font-size:10px;
+
+    color:var(--steel);
+}
 
 .qty-row{
     display:flex;
-
     align-items:center;
-
     flex-wrap:wrap;
-
     gap:8px;
 
     margin-top:13px;
 }
 
-
 .qty-btn{
     width:32px;
-
     height:32px;
 
-    border:
-        1px solid var(--line);
+    border:1px solid var(--line);
 
-    background:
-        var(--void-2);
-
-    color:
-        var(--bone);
+    background:var(--void-2);
+    color:var(--bone);
 
     cursor:pointer;
 }
-
-
-.qty-btn:hover{
-    border-color:
-        var(--steel);
-}
-
 
 .qty-value{
     min-width:24px;
 
     text-align:center;
 
-    font-family:
-        'JetBrains Mono',monospace;
-
+    font-family:'JetBrains Mono',monospace;
     font-size:12px;
 }
-
 
 .remove-btn{
     margin-left:auto;
 
     border:0;
-
     background:none;
 
-    color:
-        var(--steel-dim);
+    color:var(--steel-dim);
 
-    font-family:
-        'JetBrains Mono',monospace;
-
+    font-family:'JetBrains Mono',monospace;
     font-size:9px;
-
     letter-spacing:.08em;
-
     text-transform:uppercase;
 
     text-decoration:underline;
@@ -1178,62 +1187,41 @@ button{
 }
 
 
-/* =========================
-   CART FOOTER
-========================= */
+/* CART FOOT */
 
 .cart-foot{
-    padding:
-        20px 24px 28px;
+    padding:20px 24px 28px;
 
-    border-top:
-        1px solid var(--line);
+    border-top:1px solid var(--line);
 
-    background:
-        var(--void-2);
+    background:var(--void-2);
 }
-
 
 .cart-status{
-    font-family:
-        'JetBrains Mono',monospace;
+    margin-bottom:16px;
 
-    font-size:10px;
-
+    font-family:'JetBrains Mono',monospace;
+    font-size:9px;
     line-height:1.6;
-
     letter-spacing:.07em;
-
     text-transform:uppercase;
 
-    color:
-        var(--steel-dim);
-
-    margin-bottom:16px;
+    color:var(--steel-dim);
 }
-
 
 .clear-cart{
     width:100%;
-
     min-height:44px;
 
-    background:
-        transparent;
+    background:transparent;
 
-    border:
-        1px solid var(--steel-dim);
+    border:1px solid var(--steel-dim);
 
-    color:
-        var(--steel);
+    color:var(--steel);
 
-    font-family:
-        'JetBrains Mono',monospace;
-
+    font-family:'JetBrains Mono',monospace;
     font-size:10px;
-
     letter-spacing:.15em;
-
     text-transform:uppercase;
 
     cursor:pointer;
@@ -1245,32 +1233,53 @@ button{
 ========================= */
 
 footer{
-    padding:
-        40px clamp(20px,4vw,48px) 60px;
+    padding:40px clamp(20px,4vw,48px) 60px;
 
     display:flex;
-
     flex-wrap:wrap;
-
     justify-content:space-between;
 
     gap:20px;
 
-    font-family:
-        'JetBrains Mono',monospace;
+    border-top:1px solid var(--line);
 
+    font-family:'JetBrains Mono',monospace;
     font-size:11px;
-
     letter-spacing:.1em;
 
-    color:
-        var(--steel-dim);
+    color:var(--steel-dim);
+}
+
+footer .fmark{
+    color:var(--steel);
 }
 
 
-footer .fmark{
-    color:
-        var(--steel);
+/* =========================
+   TABLET
+========================= */
+
+@media(max-width:900px){
+
+    .product-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+
+    .product-modal-content{
+        grid-template-columns:1fr;
+        overflow:auto;
+        max-height:90vh;
+    }
+
+    .modal-image-side{
+        min-height:370px;
+    }
+
+    .modal-info-side{
+        border-left:none;
+        border-top:1px solid var(--line);
+    }
+
 }
 
 
@@ -1281,65 +1290,66 @@ footer .fmark{
 @media(max-width:600px){
 
     .topbar{
-        padding:
-            15px 18px;
+        padding:15px 18px;
     }
 
     .brand-mark img{
         height:34px;
-
-        max-width:155px;
+        max-width:150px;
     }
 
     .topbar-right{
         font-size:9px;
-
         letter-spacing:.08em;
     }
 
     .shop-head{
-        padding:
-            40px 18px 24px;
+        padding:40px 18px 25px;
     }
 
-    .feature{
-        padding:20px;
+    .products-section{
+        padding:24px 18px 55px;
     }
 
-    .product-actions{
-        padding:
-            22px 18px 30px;
+    .product-grid{
+        grid-template-columns:1fr;
+        gap:18px;
     }
 
-    .add-cart-btn{
-        width:100%;
+    .product-card{
+        border-radius:16px;
+    }
+
+    .product-card-image{
+        aspect-ratio:1 / .95;
     }
 
     .product-modal{
-        padding:12px;
+        padding:10px;
     }
 
     .product-modal-box{
-        padding:9px;
-
-        border-radius:23px;
+        border-radius:22px;
     }
 
-    .product-modal-image-wrap{
-        border-radius:16px;
+    .modal-image-side{
+        min-height:310px;
+        padding:20px 14px;
     }
 
-    .product-modal-image-wrap img{
-        border-radius:16px;
+    .modal-info-side{
+        padding:28px 20px 25px;
+    }
+
+    .modal-title{
+        font-size:34px;
     }
 
     .product-modal-close{
-        top:20px;
-
-        right:20px;
+        top:14px;
+        right:14px;
 
         width:42px;
-
         height:42px;
     }
 
@@ -1348,13 +1358,10 @@ footer .fmark{
 </style>
 </head>
 
-
 <body>
 
 
-<!-- =========================
-     GRAIN
-========================= -->
+<!-- GRAIN -->
 
 <svg class="grain" xmlns="http://www.w3.org/2000/svg">
 
@@ -1390,49 +1397,30 @@ footer .fmark{
 
 <div id="gate">
 
-
     <div class="gate-line top"></div>
 
-
     <div class="gate-eyebrow">
-
         Restricted Access
-
         <span>/</span>
-
         02K Grunge Collection
-
     </div>
-
-
 
     <img
         class="gate-logo"
-
         src="https://cdn.discordapp.com/attachments/1540060798947164190/1542290704301035530/D53DD88E-5A89-4D1A-8225-D3BD94DD5FA9.png?ex=6a90b1a6&is=6a8f6026&hm=8084c4041f204a8dc029877b8d843496387d27aeef511ac88b9172debac74b56&"
-
         alt="Desire Living"
     >
 
-
-
     <div class="gate-sub">
-
         Made to Desire
-
     </div>
-
-
 
     <button
         class="enter-btn"
         id="enterBtn"
     >
-
         unlock →
-
     </button>
-
 
 
     <div
@@ -1440,12 +1428,10 @@ footer .fmark{
         id="pwPanel"
     >
 
-
         <div
             class="pw-row"
             id="pwRow"
         >
-
 
             <input
                 class="pw-input"
@@ -1455,63 +1441,48 @@ footer .fmark{
                 autocomplete="off"
             >
 
-
             <button
                 class="pw-submit"
                 id="pwSubmit"
             >
-
                 Go
-
             </button>
 
-
         </div>
-
-
 
         <div
             class="pw-error"
             id="pwError"
         ></div>
 
-
-
         <button
             class="pw-back"
             id="pwBack"
         >
-
             back
-
         </button>
-
 
     </div>
 
 
     <div class="gate-line bottom"></div>
 
-
 </div>
 
 
 
 <!-- =========================
-     STORE
+     SHOP
 ========================= -->
 
 <div id="shop">
 
-
     <div class="chrome-strip"></div>
-
 
 
     <!-- TOP BAR -->
 
     <div class="topbar">
-
 
         <div class="brand-mark">
 
@@ -1523,10 +1494,11 @@ footer .fmark{
         </div>
 
 
-
         <div class="topbar-right">
 
-            <span>Lot 001 —</span>
+            <span>
+                Lot 001 —
+            </span>
 
             <button
                 class="cart-btn"
@@ -1534,31 +1506,32 @@ footer .fmark{
             >
 
                 Cart (
-
                 <span id="cartCount">0</span>
-
                 )
 
             </button>
 
         </div>
 
-
     </div>
 
 
 
-    <!-- DROP TITLE -->
+    <!-- SHOP HEADER -->
 
-    <div class="shop-head">
+    <section class="shop-head">
 
+        <div>
 
-        <h1 class="chrome-text">
+            <h1 class="chrome-text">
+                Drop 001
+            </h1>
 
-            Sample
+            <div class="shop-sub">
+                02K Grunge Collection
+            </div>
 
-        </h1>
-
+        </div>
 
 
         <div class="drop-tag">
@@ -1567,92 +1540,188 @@ footer .fmark{
 
             <b>001</b>
 
-            — 01 pc
+            — 03 pcs
 
         </div>
 
-
-    </div>
+    </section>
 
 
 
     <!-- =========================
-         CLICKABLE PRODUCT IMAGE
+         PRODUCT GRID
     ========================= -->
 
-    <div class="feature">
+    <section class="products-section">
+
+        <div class="product-grid">
 
 
-        <button
-            class="product-image-btn"
-            id="productImageBtn"
-            aria-label="View product image"
-        >
+            <!-- =====================
+                 PRODUCT 1
+            ====================== -->
 
-
-            <img
-                src="https://media.discordapp.net/attachments/1540060830291202158/1540063981006360586/CE4F7360-402B-416A-A9F7-CF2C27CF24E0.png?ex=6a9080da&is=6a8f2f5a&hm=99bb9f4ff38de5bc8a597ef31fd95afab80467a3dbdc90b96a0ec4f5a4b3df8c&=&format=webp&quality=lossless&width=1280&height=1024"
-
-                alt="Desire Living oversized graphic tee"
+            <article
+                class="product-card"
+                data-product="tee001"
+                tabindex="0"
             >
 
+                <div class="product-card-image">
 
-        </button>
+                    <img
+                        src="https://media.discordapp.net/attachments/1540060830291202158/1540063981006360586/CE4F7360-402B-416A-A9F7-CF2C27CF24E0.png?ex=6a9080da&is=6a8f2f5a&hm=99bb9f4ff38de5bc8a597ef31fd95afab80467a3dbdc90b96a0ec4f5a4b3df8c&=&format=webp&quality=lossless&width=1280&height=1024"
+                        alt="Desire Living oversized graphic tee"
+                    >
 
-
-    </div>
-
-
-
-    <!-- PRODUCT INFO -->
-
-    <div class="product-actions">
+                </div>
 
 
-        <div class="product-meta">
+                <div class="product-card-info">
+
+                    <div class="product-card-top">
+
+                        <h3>
+                            Sample Tee
+                        </h3>
+
+                        <div class="product-price">
+                            $45
+                        </div>
+
+                    </div>
+
+                    <div class="product-card-meta">
+                        Oversized Fit · Drop 001
+                    </div>
+
+                    <div class="product-view">
+                        View Product →
+                    </div>
+
+                </div>
+
+            </article>
 
 
-            <h2>
 
-                Sample Tee
+            <!-- =====================
+                 PRODUCT 2
+            ====================== -->
 
-            </h2>
+            <article
+                class="product-card coming-soon"
+                data-product="coming002"
+                tabindex="0"
+            >
+
+                <div class="product-card-image">
+
+                    <div class="coming-placeholder">
+
+                        <strong>
+                            02
+                        </strong>
+
+                        <span>
+                            Coming Soon
+                        </span>
+
+                    </div>
+
+                </div>
 
 
-            <p>
+                <div class="product-card-info">
 
-                Drop 001 · Price & sizes added at launch
+                    <div class="product-card-top">
 
-            </p>
+                        <h3>
+                            Product 02
+                        </h3>
+
+                        <div class="product-price">
+                            —
+                        </div>
+
+                    </div>
+
+                    <div class="product-card-meta">
+                        Drop 001 · Coming Soon
+                    </div>
+
+                    <div class="product-view">
+                        Preview →
+                    </div>
+
+                </div>
+
+            </article>
 
 
-            <span class="view-hint">
 
-                Click image to enlarge
+            <!-- =====================
+                 PRODUCT 3
+            ====================== -->
 
-            </span>
+            <article
+                class="product-card coming-soon"
+                data-product="coming003"
+                tabindex="0"
+            >
+
+                <div class="product-card-image">
+
+                    <div class="coming-placeholder">
+
+                        <strong>
+                            03
+                        </strong>
+
+                        <span>
+                            Coming Soon
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="product-card-info">
+
+                    <div class="product-card-top">
+
+                        <h3>
+                            Product 03
+                        </h3>
+
+                        <div class="product-price">
+                            —
+                        </div>
+
+                    </div>
+
+                    <div class="product-card-meta">
+                        Drop 001 · Coming Soon
+                    </div>
+
+                    <div class="product-view">
+                        Preview →
+                    </div>
+
+                </div>
+
+            </article>
 
 
         </div>
 
-
-
-        <button
-            class="add-cart-btn"
-            id="addCartBtn"
-        >
-
-            Add to Cart
-
-        </button>
-
-
-    </div>
+    </section>
 
 
 
     <!-- =========================
-         IMAGE POPUP BACKGROUND
+         PRODUCT POPUP BACKDROP
     ========================= -->
 
     <div
@@ -1663,7 +1732,7 @@ footer .fmark{
 
 
     <!-- =========================
-         IMAGE POPUP
+         PRODUCT POPUP
     ========================= -->
 
     <div
@@ -1672,46 +1741,198 @@ footer .fmark{
         aria-hidden="true"
     >
 
-
         <div class="product-modal-box">
 
 
             <button
                 class="product-modal-close"
                 id="productModalClose"
-                aria-label="Close product image"
+                aria-label="Close product"
             >
-
                 ×
-
             </button>
 
 
 
-            <div class="product-modal-image-wrap">
+            <div class="product-modal-content">
 
 
-                <img
+                <!-- IMAGE -->
 
-                    src="https://media.discordapp.net/attachments/1540060830291202158/1540063981006360586/CE4F7360-402B-416A-A9F7-CF2C27CF24E0.png?ex=6a9080da&is=6a8f2f5a&hm=99bb9f4ff38de5bc8a597ef31fd95afab80467a3dbdc90b96a0ec4f5a4b3df8c&=&format=webp&quality=lossless&width=1280&height=1024"
+                <div class="modal-image-side">
 
-                    alt="Desire Living oversized graphic tee enlarged"
+                    <img
+                        id="modalProductImage"
+                        src=""
+                        alt=""
+                    >
 
-                >
+                </div>
 
+
+
+                <!-- PRODUCT INFO -->
+
+                <div class="modal-info-side">
+
+
+                    <div
+                        class="modal-drop"
+                        id="modalProductDrop"
+                    >
+                        Drop 001
+                    </div>
+
+
+
+                    <h2
+                        class="modal-title"
+                        id="modalProductTitle"
+                    >
+                        Product
+                    </h2>
+
+
+
+                    <div
+                        class="modal-price"
+                        id="modalProductPrice"
+                    >
+                        $0
+                    </div>
+
+
+
+                    <p
+                        class="modal-description"
+                        id="modalProductDescription"
+                    >
+                    </p>
+
+
+
+                    <!-- SIZES -->
+
+                    <div
+                        class="size-section"
+                        id="sizeSection"
+                    >
+
+                        <span class="option-label">
+                            Select Size
+                        </span>
+
+                        <div class="size-options">
+
+                            <button
+                                class="size-btn"
+                                data-size="S"
+                            >
+                                S
+                            </button>
+
+                            <button
+                                class="size-btn"
+                                data-size="M"
+                            >
+                                M
+                            </button>
+
+                            <button
+                                class="size-btn"
+                                data-size="L"
+                            >
+                                L
+                            </button>
+
+                            <button
+                                class="size-btn"
+                                data-size="XL"
+                            >
+                                XL
+                            </button>
+
+                            <button
+                                class="size-btn"
+                                data-size="XXL"
+                            >
+                                XXL
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- QUANTITY -->
+
+                    <div
+                        class="quantity-section"
+                        id="quantitySection"
+                    >
+
+                        <span class="option-label">
+                            Quantity
+                        </span>
+
+                        <div class="quantity-control">
+
+                            <button
+                                class="modal-qty-btn"
+                                id="modalQtyMinus"
+                            >
+                                −
+                            </button>
+
+                            <span
+                                class="modal-qty-value"
+                                id="modalQtyValue"
+                            >
+                                1
+                            </span>
+
+                            <button
+                                class="modal-qty-btn"
+                                id="modalQtyPlus"
+                            >
+                                +
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- ADD CART -->
+
+                    <button
+                        class="modal-add-cart"
+                        id="modalAddCart"
+                    >
+                        Add to Cart
+                    </button>
+
+
+                    <div
+                        class="modal-message"
+                        id="modalMessage"
+                    ></div>
+
+
+                </div>
 
             </div>
 
-
         </div>
-
 
     </div>
 
 
 
     <!-- =========================
-         CART BACKGROUND
+         CART BACKDROP
     ========================= -->
 
     <div
@@ -1722,7 +1943,7 @@ footer .fmark{
 
 
     <!-- =========================
-         CART
+         CART DRAWER
     ========================= -->
 
     <aside
@@ -1731,31 +1952,21 @@ footer .fmark{
         aria-hidden="true"
     >
 
-
         <div class="cart-head">
 
-
             <h2>
-
                 Your Cart
-
             </h2>
-
-
 
             <button
                 class="cart-close"
                 id="cartClose"
                 aria-label="Close cart"
             >
-
                 ×
-
             </button>
 
-
         </div>
-
 
 
         <div
@@ -1764,33 +1975,21 @@ footer .fmark{
         ></div>
 
 
-
         <div class="cart-foot">
 
-
             <div class="cart-status">
-
                 Checkout is disabled in this test build.
-
-                Prices, sizing, inventory and payments
-                can be connected when the store launches.
-
+                Payment processing can be connected when the store launches.
             </div>
-
-
 
             <button
                 class="clear-cart"
                 id="clearCart"
             >
-
                 Clear Cart
-
             </button>
 
-
         </div>
-
 
     </aside>
 
@@ -1800,21 +1999,13 @@ footer .fmark{
 
     <footer>
 
-
         <div class="fmark">
-
             DESIRE LIVING — TEST BUILD
-
         </div>
-
-
 
         <div>
-
             Made to Desire.
-
         </div>
-
 
     </footer>
 
@@ -1830,41 +2021,31 @@ footer .fmark{
    PASSWORD GATE
 ========================= */
 
-
 const SITE_PASSWORD="desire";
-
 
 const gate=
 document.getElementById("gate");
 
-
 const enterBtn=
 document.getElementById("enterBtn");
-
 
 const pwPanel=
 document.getElementById("pwPanel");
 
-
 const pwRow=
 document.getElementById("pwRow");
-
 
 const pwInput=
 document.getElementById("pwInput");
 
-
 const pwSubmit=
 document.getElementById("pwSubmit");
-
 
 const pwError=
 document.getElementById("pwError");
 
-
 const pwBack=
 document.getElementById("pwBack");
-
 
 
 function unlockSite(){
@@ -1878,7 +2059,6 @@ function unlockSite(){
     },950);
 
 }
-
 
 
 function showPwPanel(){
@@ -1896,7 +2076,6 @@ function showPwPanel(){
 }
 
 
-
 function hidePwPanel(){
 
     pwPanel.classList.remove("open");
@@ -1908,7 +2087,6 @@ function hidePwPanel(){
     enterBtn.style.display="inline-block";
 
 }
-
 
 
 function checkPassword(){
@@ -1943,24 +2121,20 @@ function checkPassword(){
 }
 
 
-
 enterBtn.addEventListener(
     "click",
     showPwPanel
 );
-
 
 pwSubmit.addEventListener(
     "click",
     checkPassword
 );
 
-
 pwBack.addEventListener(
     "click",
     hidePwPanel
 );
-
 
 pwInput.addEventListener(
     "keydown",
@@ -1978,49 +2152,312 @@ pwInput.addEventListener(
 
 
 /* =========================
-   PRODUCT IMAGE POPUP
+   PRODUCTS
 ========================= */
 
+const PRODUCTS={
 
-const productImageBtn=
-document.getElementById(
-    "productImageBtn"
-);
+    tee001:{
 
+        id:"tee001",
+
+        name:"Sample Tee",
+
+        price:45,
+
+        drop:"Drop 001",
+
+        description:
+        "Oversized graphic tee from the Desire Living 02K Grunge Collection.",
+
+        image:
+        "https://media.discordapp.net/attachments/1540060830291202158/1540063981006360586/CE4F7360-402B-416A-A9F7-CF2C27CF24E0.png?ex=6a9080da&is=6a8f2f5a&hm=99bb9f4ff38de5bc8a597ef31fd95afab80467a3dbdc90b96a0ec4f5a4b3df8c&=&format=webp&quality=lossless&width=1280&height=1024",
+
+        available:true
+
+    },
+
+
+    coming002:{
+
+        id:"coming002",
+
+        name:"Product 02",
+
+        price:null,
+
+        drop:"Drop 001",
+
+        description:
+        "This piece has not been revealed yet.",
+
+        image:"",
+
+        available:false
+
+    },
+
+
+    coming003:{
+
+        id:"coming003",
+
+        name:"Product 03",
+
+        price:null,
+
+        drop:"Drop 001",
+
+        description:
+        "This piece has not been revealed yet.",
+
+        image:"",
+
+        available:false
+
+    }
+
+};
+
+
+
+/* =========================
+   PRODUCT MODAL
+========================= */
+
+const productCards=
+document.querySelectorAll(".product-card");
 
 const productModal=
-document.getElementById(
-    "productModal"
-);
-
+document.getElementById("productModal");
 
 const productModalBackdrop=
 document.getElementById(
     "productModalBackdrop"
 );
 
-
 const productModalClose=
 document.getElementById(
     "productModalClose"
 );
 
+const modalProductImage=
+document.getElementById(
+    "modalProductImage"
+);
+
+const modalProductDrop=
+document.getElementById(
+    "modalProductDrop"
+);
+
+const modalProductTitle=
+document.getElementById(
+    "modalProductTitle"
+);
+
+const modalProductPrice=
+document.getElementById(
+    "modalProductPrice"
+);
+
+const modalProductDescription=
+document.getElementById(
+    "modalProductDescription"
+);
+
+const modalAddCart=
+document.getElementById(
+    "modalAddCart"
+);
+
+const modalMessage=
+document.getElementById(
+    "modalMessage"
+);
+
+const sizeSection=
+document.getElementById(
+    "sizeSection"
+);
+
+const quantitySection=
+document.getElementById(
+    "quantitySection"
+);
+
+const sizeButtons=
+document.querySelectorAll(
+    ".size-btn"
+);
+
+const modalQtyMinus=
+document.getElementById(
+    "modalQtyMinus"
+);
+
+const modalQtyPlus=
+document.getElementById(
+    "modalQtyPlus"
+);
+
+const modalQtyValue=
+document.getElementById(
+    "modalQtyValue"
+);
 
 
-function openProductModal(){
+let activeProduct=null;
+
+let selectedSize=null;
+
+let modalQuantity=1;
+
+
+
+function openProduct(productId){
+
+    const product=
+    PRODUCTS[productId];
+
+
+    if(!product){
+
+        return;
+
+    }
+
+
+    activeProduct=product;
+
+    selectedSize=null;
+
+    modalQuantity=1;
+
+
+    modalQtyValue.textContent=
+    modalQuantity;
+
+
+    sizeButtons.forEach(function(button){
+
+        button.classList.remove(
+            "selected"
+        );
+
+    });
+
+
+    modalProductDrop.textContent=
+    product.drop;
+
+
+    modalProductTitle.textContent=
+    product.name;
+
+
+    modalProductDescription.textContent=
+    product.description;
+
+
+    modalMessage.textContent="";
+
+
+
+    /*
+    PRODUCT AVAILABLE
+    */
+
+    if(product.available){
+
+        modalProductImage.src=
+        product.image;
+
+        modalProductImage.alt=
+        product.name;
+
+        modalProductImage.style.display=
+        "block";
+
+
+        modalProductPrice.textContent=
+        "$"+product.price.toFixed(2);
+
+
+        sizeSection.style.display=
+        "block";
+
+
+        quantitySection.style.display=
+        "block";
+
+
+        modalAddCart.style.display=
+        "block";
+
+
+        modalAddCart.disabled=
+        false;
+
+
+        modalAddCart.textContent=
+        "Add to Cart";
+
+    }
+
+
+    /*
+    COMING SOON
+    */
+
+    else{
+
+        modalProductImage.style.display=
+        "none";
+
+
+        modalProductPrice.textContent=
+        "Coming Soon";
+
+
+        sizeSection.style.display=
+        "none";
+
+
+        quantitySection.style.display=
+        "none";
+
+
+        modalAddCart.style.display=
+        "block";
+
+
+        modalAddCart.disabled=
+        true;
+
+
+        modalAddCart.textContent=
+        "Coming Soon";
+
+    }
+
+
 
     productModal.classList.add(
         "open"
     );
 
+
     productModalBackdrop.classList.add(
         "open"
     );
+
 
     productModal.setAttribute(
         "aria-hidden",
         "false"
     );
+
 
     document.body.classList.add(
         "no-scroll"
@@ -2030,20 +2467,23 @@ function openProductModal(){
 
 
 
-function closeProductModal(){
+function closeProduct(){
 
     productModal.classList.remove(
         "open"
     );
 
+
     productModalBackdrop.classList.remove(
         "open"
     );
+
 
     productModal.setAttribute(
         "aria-hidden",
         "true"
     );
+
 
     document.body.classList.remove(
         "no-scroll"
@@ -2053,85 +2493,189 @@ function closeProductModal(){
 
 
 
-productImageBtn.addEventListener(
-    "click",
-    openProductModal
-);
+/* CLICK PRODUCT CARDS */
+
+productCards.forEach(function(card){
+
+    card.addEventListener(
+        "click",
+        function(){
+
+            openProduct(
+                card.dataset.product
+            );
+
+        }
+    );
+
+
+    card.addEventListener(
+        "keydown",
+        function(event){
+
+            if(
+                event.key==="Enter"
+                ||
+                event.key===" "
+            ){
+
+                event.preventDefault();
+
+                openProduct(
+                    card.dataset.product
+                );
+
+            }
+
+        }
+    );
+
+});
 
 
 productModalClose.addEventListener(
     "click",
-    closeProductModal
+    closeProduct
 );
 
 
 productModalBackdrop.addEventListener(
     "click",
-    closeProductModal
+    closeProduct
 );
 
 
 
 /* =========================
-   CART
+   SIZE SELECTION
 ========================= */
 
+sizeButtons.forEach(function(button){
+
+    button.addEventListener(
+        "click",
+        function(){
+
+            sizeButtons.forEach(
+                function(item){
+
+                    item.classList.remove(
+                        "selected"
+                    );
+
+                }
+            );
+
+
+            button.classList.add(
+                "selected"
+            );
+
+
+            selectedSize=
+            button.dataset.size;
+
+
+            modalMessage.textContent=
+            "Size "+selectedSize+" selected";
+
+        }
+    );
+
+});
+
+
+
+/* =========================
+   PRODUCT QUANTITY
+========================= */
+
+modalQtyMinus.addEventListener(
+    "click",
+    function(){
+
+        modalQuantity=
+        Math.max(
+            1,
+            modalQuantity-1
+        );
+
+
+        modalQtyValue.textContent=
+        modalQuantity;
+
+    }
+);
+
+
+modalQtyPlus.addEventListener(
+    "click",
+    function(){
+
+        modalQuantity=
+        Math.min(
+            10,
+            modalQuantity+1
+        );
+
+
+        modalQtyValue.textContent=
+        modalQuantity;
+
+    }
+);
+
+
+
+/* =========================
+   SHOPPING CART
+========================= */
 
 const CART_KEY=
 "desireLivingCart";
 
 
-
-const PRODUCT={
-
-    id:
-    "drop-001-sample-tee",
-
-    name:
-    "Sample Tee",
-
-    image:
-    "https://media.discordapp.net/attachments/1540060830291202158/1540063981006360586/CE4F7360-402B-416A-A9F7-CF2C27CF24E0.png?ex=6a9080da&is=6a8f2f5a&hm=99bb9f4ff38de5bc8a597ef31fd95afab80467a3dbdc90b96a0ec4f5a4b3df8c&=&format=webp&quality=lossless&width=1280&height=1024"
-
-};
-
-
-
 const cartBtn=
-document.getElementById("cartBtn");
-
+document.getElementById(
+    "cartBtn"
+);
 
 const cartCount=
-document.getElementById("cartCount");
-
-
-const addCartBtn=
-document.getElementById("addCartBtn");
-
+document.getElementById(
+    "cartCount"
+);
 
 const cartDrawer=
-document.getElementById("cartDrawer");
-
+document.getElementById(
+    "cartDrawer"
+);
 
 const cartBackdrop=
-document.getElementById("cartBackdrop");
-
+document.getElementById(
+    "cartBackdrop"
+);
 
 const cartClose=
-document.getElementById("cartClose");
-
+document.getElementById(
+    "cartClose"
+);
 
 const cartItems=
-document.getElementById("cartItems");
-
+document.getElementById(
+    "cartItems"
+);
 
 const clearCart=
-document.getElementById("clearCart");
-
+document.getElementById(
+    "clearCart"
+);
 
 
 let cart=[];
 
+
+
+/* LOAD CART */
 
 try{
 
@@ -2160,10 +2704,7 @@ catch(error){
 
 
 
-/* =========================
-   SAVE CART
-========================= */
-
+/* SAVE CART */
 
 function saveCart(){
 
@@ -2188,10 +2729,7 @@ function saveCart(){
 
 
 
-/* =========================
-   TOTAL ITEMS
-========================= */
-
+/* CART TOTAL */
 
 function totalItems(){
 
@@ -2215,13 +2753,10 @@ function totalItems(){
    RENDER CART
 ========================= */
 
-
 function renderCart(){
-
 
     cartCount.textContent=
     totalItems();
-
 
 
     clearCart.disabled=
@@ -2231,10 +2766,9 @@ function renderCart(){
     clearCart.style.opacity=
     cart.length===0
     ?
-    ".45"
+    ".4"
     :
     "1";
-
 
 
     if(cart.length===0){
@@ -2249,7 +2783,7 @@ function renderCart(){
 
             <br>
 
-            Add Drop 001 when you're ready.
+            Choose a piece from Drop 001.
 
         </div>
 
@@ -2269,9 +2803,8 @@ function renderCart(){
 
         <div
             class="cart-item"
-            data-id="${item.id}"
+            data-key="${item.key}"
         >
-
 
             <img
                 class="cart-thumb"
@@ -2280,37 +2813,39 @@ function renderCart(){
             >
 
 
-
             <div>
 
-
                 <h3>
-
                     ${item.name}
-
                 </h3>
 
 
                 <div class="cart-item-note">
 
-                    Drop 001 · price set at launch
+                    Size ${item.size}
+
+                    ·
+
+                    Drop 001
 
                 </div>
 
 
+                <div class="cart-price">
+
+                    $${item.price.toFixed(2)}
+
+                </div>
+
 
                 <div class="qty-row">
-
 
                     <button
                         class="qty-btn"
                         data-action="decrease"
                     >
-
                         −
-
                     </button>
-
 
 
                     <span class="qty-value">
@@ -2320,33 +2855,24 @@ function renderCart(){
                     </span>
 
 
-
                     <button
                         class="qty-btn"
                         data-action="increase"
                     >
-
                         +
-
                     </button>
-
 
 
                     <button
                         class="remove-btn"
                         data-action="remove"
                     >
-
                         Remove
-
                     </button>
-
 
                 </div>
 
-
             </div>
-
 
         </div>
 
@@ -2359,26 +2885,128 @@ function renderCart(){
 
 
 /* =========================
+   ADD PRODUCT TO CART
+========================= */
+
+modalAddCart.addEventListener(
+    "click",
+    function(){
+
+        if(
+            !activeProduct
+            ||
+            !activeProduct.available
+        ){
+
+            return;
+
+        }
+
+
+        if(!selectedSize){
+
+            modalMessage.textContent=
+            "Select a size first";
+
+            return;
+
+        }
+
+
+
+        const cartKey=
+        activeProduct.id
+        +
+        "-"
+        +
+        selectedSize;
+
+
+
+        const existing=
+        cart.find(
+            function(item){
+
+                return item.key
+                ===
+                cartKey;
+
+            }
+        );
+
+
+
+        if(existing){
+
+            existing.qty+=
+            modalQuantity;
+
+        }
+
+        else{
+
+            cart.push({
+
+                key:cartKey,
+
+                id:
+                activeProduct.id,
+
+                name:
+                activeProduct.name,
+
+                price:
+                activeProduct.price,
+
+                image:
+                activeProduct.image,
+
+                size:
+                selectedSize,
+
+                qty:
+                modalQuantity
+
+            });
+
+        }
+
+
+
+        saveCart();
+
+        renderCart();
+
+        closeProduct();
+
+        openCart();
+
+    }
+);
+
+
+
+/* =========================
    OPEN CART
 ========================= */
 
-
 function openCart(){
-
-    closeProductModal();
 
     cartDrawer.classList.add(
         "open"
     );
 
+
     cartBackdrop.classList.add(
         "open"
     );
+
 
     cartDrawer.setAttribute(
         "aria-hidden",
         "false"
     );
+
 
     document.body.classList.add(
         "no-scroll"
@@ -2392,21 +3020,23 @@ function openCart(){
    CLOSE CART
 ========================= */
 
-
 function closeCart(){
 
     cartDrawer.classList.remove(
         "open"
     );
 
+
     cartBackdrop.classList.remove(
         "open"
     );
+
 
     cartDrawer.setAttribute(
         "aria-hidden",
         "true"
     );
+
 
     document.body.classList.remove(
         "no-scroll"
@@ -2414,63 +3044,6 @@ function closeCart(){
 
 }
 
-
-
-/* =========================
-   ADD PRODUCT
-========================= */
-
-
-function addProduct(){
-
-    const existing=
-    cart.find(
-        function(item){
-
-            return item.id===PRODUCT.id;
-
-        }
-    );
-
-
-    if(existing){
-
-        existing.qty+=1;
-
-    }
-
-    else{
-
-        cart.push({
-
-            ...PRODUCT,
-
-            qty:1
-
-        });
-
-    }
-
-
-    saveCart();
-
-    renderCart();
-
-    openCart();
-
-}
-
-
-
-/* =========================
-   CART EVENTS
-========================= */
-
-
-addCartBtn.addEventListener(
-    "click",
-    addProduct
-);
 
 
 cartBtn.addEventListener(
@@ -2493,34 +3066,12 @@ cartBackdrop.addEventListener(
 
 
 /* =========================
-   CLEAR CART
+   CART QUANTITY BUTTONS
 ========================= */
-
-
-clearCart.addEventListener(
-    "click",
-    function(){
-
-        cart=[];
-
-        saveCart();
-
-        renderCart();
-
-    }
-);
-
-
-
-/* =========================
-   QUANTITY BUTTONS
-========================= */
-
 
 cartItems.addEventListener(
     "click",
     function(event){
-
 
         const button=
         event.target.closest(
@@ -2552,9 +3103,9 @@ cartItems.addEventListener(
         cart.find(
             function(entry){
 
-                return entry.id
+                return entry.key
                 ===
-                itemElement.dataset.id;
+                itemElement.dataset.key;
 
             }
         );
@@ -2604,15 +3155,14 @@ cartItems.addEventListener(
             cart.filter(
                 function(entry){
 
-                    return entry.id
+                    return entry.key
                     !==
-                    item.id;
+                    item.key;
 
                 }
             );
 
         }
-
 
 
         saveCart();
@@ -2625,14 +3175,31 @@ cartItems.addEventListener(
 
 
 /* =========================
-   ESC KEY
+   CLEAR CART
 ========================= */
 
+clearCart.addEventListener(
+    "click",
+    function(){
+
+        cart=[];
+
+        saveCart();
+
+        renderCart();
+
+    }
+);
+
+
+
+/* =========================
+   ESCAPE KEY
+========================= */
 
 document.addEventListener(
     "keydown",
     function(event){
-
 
         if(event.key!=="Escape"){
 
@@ -2647,7 +3214,7 @@ document.addEventListener(
             )
         ){
 
-            closeProductModal();
+            closeProduct();
 
             return;
 
@@ -2670,15 +3237,13 @@ document.addEventListener(
 
 
 /* =========================
-   START CART
+   INITIAL CART
 ========================= */
-
 
 renderCart();
 
 
 </script>
-
 
 </body>
 </html>
