@@ -1322,6 +1322,71 @@ button{
 
 
 /* =========================
+   CONTACT
+========================= */
+
+.contact-section{
+    padding:64px clamp(20px,4vw,48px) 48px;
+
+    border-top:1px solid var(--line);
+
+    text-align:center;
+}
+
+.contact-section h2{
+    font-family:'Metal Mania',cursive;
+    font-size:clamp(28px,4vw,44px);
+    font-weight:400;
+    text-transform:uppercase;
+}
+
+.contact-section p{
+    margin-top:14px;
+
+    color:var(--steel);
+
+    font-family:'JetBrains Mono',monospace;
+    font-size:13px;
+    line-height:1.7;
+
+    max-width:480px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.contact-links{
+    margin-top:24px;
+
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:14px;
+}
+
+.contact-links a{
+    padding:12px 22px;
+
+    border:1px solid var(--steel);
+    color:var(--bone);
+    text-decoration:none;
+
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+
+    transition:
+        background .25s ease,
+        color .25s ease;
+}
+
+.contact-links a:hover{
+    background:var(--chrome-grad);
+    color:var(--void);
+}
+
+
+/* =========================
    FOOTER
 ========================= */
 
@@ -1929,6 +1994,34 @@ footer .fmark{
         </div>
 
     </aside>
+
+
+    <section class="contact-section">
+
+        <h2 class="chrome-text">
+            Contact
+        </h2>
+
+        <p>
+            For any question or enquiries please contact us via
+
+            Instagram - @desireliving
+            Email-desireliving@protonmail.com
+        </p>
+
+        <div class="contact-links">
+
+            <a href="mailto:contact@desireliving.com">
+                contact@desireliving.com
+            </a>
+
+            <a href="https://instagram.com/desireliving" target="_blank" rel="noopener">
+                @desireliving
+            </a>
+
+        </div>
+
+    </section>
 
 
     <footer>
