@@ -25,7 +25,7 @@
     --steel-dim:#57595c;
     --bone:#eceef0;
     --ice:#c7d3de;
-    --line:rgba(236,238,240,0.14);
+    --line:rgba(236,238,240,.14);
 
     --chrome-grad:
     linear-gradient(
@@ -66,30 +66,37 @@ button{
 }
 
 @media(prefers-reduced-motion:reduce){
+
     *{
         animation-duration:.01ms !important;
         transition-duration:.01ms !important;
     }
+
 }
 
 
-/* =========================
-   BACKGROUND GRAIN
-========================= */
+/* ==================================================
+   GRAIN
+================================================== */
 
 .grain{
     position:fixed;
     inset:0;
+
     z-index:999;
+
     pointer-events:none;
+
     opacity:.05;
     mix-blend-mode:overlay;
 }
 
 .chrome-text{
     background:var(--chrome-grad);
+
     -webkit-background-clip:text;
     background-clip:text;
+
     color:transparent;
 
     filter:
@@ -98,9 +105,9 @@ button{
 }
 
 
-/* =========================
+/* ==================================================
    PASSWORD GATE
-========================= */
+================================================== */
 
 #gate{
     position:fixed;
@@ -115,9 +122,9 @@ button{
     background:
         linear-gradient(
             180deg,
-            rgba(6,6,7,.72) 0%,
-            rgba(8,8,8,.55) 45%,
-            rgba(6,6,7,.82) 100%
+            rgba(6,6,7,.72),
+            rgba(8,8,8,.55),
+            rgba(6,6,7,.82)
         ),
         url('a7645233ebafcb23c2f3de9b538788d5.gif')
         center center / cover no-repeat;
@@ -139,13 +146,14 @@ button{
     position:absolute;
     left:0;
     right:0;
+
     height:1px;
 
     background:
         linear-gradient(
             90deg,
             transparent,
-            var(--steel) 50%,
+            var(--steel),
             transparent
         );
 }
@@ -160,10 +168,14 @@ button{
 
 .gate-eyebrow{
     font-family:'JetBrains Mono',monospace;
+
     font-size:11px;
     letter-spacing:.35em;
+
     text-transform:uppercase;
+
     color:var(--steel-dim);
+
     margin-bottom:22px;
 }
 
@@ -180,26 +192,40 @@ button{
 }
 
 .gate-sub{
+    margin-top:20px;
+
     font-family:'JetBrains Mono',monospace;
+
     font-size:12px;
     letter-spacing:.25em;
+
     text-transform:uppercase;
+
     color:var(--steel-dim);
-    margin-top:20px;
 }
+
+
+/* UNLOCK */
 
 .enter-btn{
     margin-top:52px;
+
     padding:16px 46px;
 
     background:var(--void-2);
+
     border:1px solid var(--steel);
+
     color:var(--bone);
 
     font-family:'JetBrains Mono',monospace;
+
     font-weight:700;
+
     font-size:14px;
+
     letter-spacing:.3em;
+
     text-transform:uppercase;
 
     cursor:pointer;
@@ -207,23 +233,18 @@ button{
     transition:
         background .25s ease,
         color .25s ease,
-        transform .25s ease,
-        box-shadow .25s ease;
+        transform .25s ease;
 }
 
 .enter-btn:hover{
     background:var(--chrome-grad);
     color:var(--void);
-    transform:translateY(-2px);
 
-    box-shadow:
-        0 10px 26px rgba(200,210,220,.15);
+    transform:translateY(-2px);
 }
 
 
-/* =========================
-   PASSWORD PANEL
-========================= */
+/* PASSWORD */
 
 .pw-panel{
     margin-top:52px;
@@ -233,6 +254,7 @@ button{
     align-items:center;
 
     opacity:0;
+
     max-height:0;
     overflow:hidden;
 
@@ -248,33 +270,42 @@ button{
 
 .pw-row{
     display:flex;
+
     border:1px solid var(--steel);
 }
 
 .pw-row.shake{
     animation:shake .4s ease;
+
     border-color:#c0392b;
 }
 
 @keyframes shake{
+
     0%,100%{transform:translateX(0);}
     20%{transform:translateX(-6px);}
     40%{transform:translateX(6px);}
     60%{transform:translateX(-4px);}
     80%{transform:translateX(4px);}
+
 }
 
 .pw-input{
     background:var(--void-2);
-    border:none;
-    outline:none;
+
+    border:0;
+    outline:0;
+
     color:var(--bone);
 
     font-family:'JetBrains Mono',monospace;
+
     font-size:13px;
+
     letter-spacing:.2em;
 
     padding:14px 16px;
+
     width:200px;
 }
 
@@ -284,51 +315,66 @@ button{
 
 .pw-submit{
     background:var(--chrome-grad);
+
     border:none;
+
     color:var(--void);
 
+    padding:0 20px;
+
     font-family:'JetBrains Mono',monospace;
+
     font-weight:700;
+
     font-size:12px;
+
     letter-spacing:.2em;
+
     text-transform:uppercase;
 
-    padding:0 20px;
     cursor:pointer;
 }
 
 .pw-error{
     margin-top:14px;
+
     height:14px;
 
-    font-family:'JetBrains Mono',monospace;
-    font-size:10px;
-    letter-spacing:.15em;
-    text-transform:uppercase;
-
     color:#c0392b;
+
+    font-family:'JetBrains Mono',monospace;
+
+    font-size:10px;
+
+    text-transform:uppercase;
 }
 
 .pw-back{
     margin-top:16px;
 
     background:none;
+
     border:none;
+
     color:var(--steel-dim);
 
     font-family:'JetBrains Mono',monospace;
+
     font-size:10px;
+
     letter-spacing:.15em;
+
     text-transform:uppercase;
 
-    cursor:pointer;
     text-decoration:underline;
+
+    cursor:pointer;
 }
 
 
-/* =========================
+/* ==================================================
    SHOP
-========================= */
+================================================== */
 
 #shop{
     min-height:100vh;
@@ -336,69 +382,76 @@ button{
 
 .chrome-strip{
     height:3px;
+
     background:var(--chrome-grad);
 }
 
 
-/* =========================
+/* ==================================================
    TOP BAR
-========================= */
+================================================== */
 
 .topbar{
     position:sticky;
+
     top:0;
+
     z-index:50;
 
     display:flex;
-    align-items:center;
+
     justify-content:space-between;
+    align-items:center;
 
     padding:20px clamp(20px,4vw,48px);
 
     background:rgba(10,10,10,.9);
+
     backdrop-filter:blur(8px);
 
     border-bottom:1px solid var(--line);
 }
 
-.brand-mark{
-    display:flex;
-    align-items:center;
-}
-
 .brand-mark img{
     display:block;
-    width:auto;
+
     height:42px;
+
+    width:auto;
+
     max-width:min(240px,48vw);
+
     object-fit:contain;
 }
 
 .topbar-right{
     display:flex;
+
     align-items:center;
+
     gap:6px;
 
-    font-family:'JetBrains Mono',monospace;
-    font-size:11px;
-    letter-spacing:.15em;
-    text-transform:uppercase;
-
     color:var(--steel-dim);
+
+    font-family:'JetBrains Mono',monospace;
+
+    font-size:11px;
+
+    letter-spacing:.15em;
+
+    text-transform:uppercase;
 }
 
 .cart-btn{
-    background:none;
-    border:0;
-    color:var(--steel-dim);
+    border:none;
 
-    font:inherit;
-    letter-spacing:inherit;
-    text-transform:inherit;
+    background:none;
+
+    color:inherit;
 
     cursor:pointer;
 
-    transition:color .2s ease;
+    font:inherit;
 }
 
 .cart-btn:hover{
@@ -406,52 +459,66 @@ button{
 }
 
 
-/* =========================
-   SHOP HEADER
-========================= */
+/* ==================================================
+   DROP HEADER
+================================================== */
 
 .shop-head{
-    padding:56px clamp(20px,4vw,48px) 34px;
-
     display:flex;
+
     flex-wrap:wrap;
+
     align-items:flex-end;
+
     justify-content:space-between;
 
     gap:20px;
+
+    padding:56px clamp(20px,4vw,48px) 34px;
 
     border-bottom:1px solid var(--line);
 }
 
 .shop-head h1{
     font-family:'Metal Mania',cursive;
+
     font-size:clamp(38px,6vw,68px);
-    text-transform:uppercase;
-    line-height:.95;
+
     font-weight:400;
+
+    line-height:.95;
+
+    text-transform:uppercase;
 }
 
 .shop-sub{
     margin-top:10px;
 
-    font-family:'JetBrains Mono',monospace;
-    font-size:11px;
-    letter-spacing:.12em;
-    text-transform:uppercase;
-
     color:var(--steel-dim);
+
+    font-family:'JetBrains Mono',monospace;
+
+    font-size:11px;
+
+    letter-spacing:.12em;
+
+    text-transform:uppercase;
 }
 
 .drop-tag{
-    font-family:'JetBrains Mono',monospace;
-    font-size:12px;
-    letter-spacing:.2em;
-    text-transform:uppercase;
-
     border:1px solid var(--line);
+
     padding:8px 14px;
 
     color:var(--steel-dim);
+
+    font-family:'JetBrains Mono',monospace;
+
+    font-size:12px;
+
+    letter-spacing:.2em;
+
+    text-transform:uppercase;
 }
 
 .drop-tag b{
@@ -459,9 +526,9 @@ button{
 }
 
 
-/* =========================
+/* ==================================================
    PRODUCT GRID
-========================= */
+================================================== */
 
 .products-section{
     padding:
@@ -472,34 +539,40 @@ button{
 
 .product-grid{
     display:grid;
-    grid-template-columns:repeat(3,minmax(0,1fr));
+
+    grid-template-columns:
+        repeat(3,minmax(0,1fr));
+
     gap:22px;
 
     max-width:1400px;
+
     margin:0 auto;
 }
 
 
-/* =========================
-   PRODUCT CARD
-========================= */
+/* ==================================================
+   PRODUCT CARDS
+================================================== */
 
 .product-card{
     position:relative;
+
     min-width:0;
 
+    overflow:hidden;
+
     background:var(--void-2);
+
     border:1px solid var(--line);
 
     border-radius:18px;
-    overflow:hidden;
 
     cursor:pointer;
 
     transition:
         transform .3s ease,
         border-color .3s ease,
-        background .3s ease,
         box-shadow .3s ease;
 }
 
@@ -508,16 +581,12 @@ button{
 
     border-color:rgba(236,238,240,.35);
 
-    background:#171717;
-
     box-shadow:
-        0 18px 40px rgba(0,0,0,.28);
+        0 18px 40px rgba(0,0,0,.3);
 }
 
 
-/* =========================
-   PRODUCT IMAGE
-========================= */
+/* IMAGE AREA */
 
 .product-card-image{
     position:relative;
@@ -525,6 +594,7 @@ button{
     aspect-ratio:1 / 1.08;
 
     display:flex;
+
     align-items:center;
     justify-content:center;
 
@@ -541,14 +611,18 @@ button{
 }
 
 
-/* FRONT + BACK */
+/* ==================================================
+   FRONT / BACK HOVER
+================================================== */
 
-.product-card-image .front-image,
-.product-card-image .back-image{
+.front-image,
+.back-image{
     position:absolute;
+
     inset:20px;
 
     width:calc(100% - 40px);
+
     height:calc(100% - 40px);
 
     object-fit:contain;
@@ -559,72 +633,190 @@ button{
         filter .4s ease;
 }
 
-.product-card-image .front-image{
+.front-image{
     opacity:1;
     z-index:1;
 }
 
-.product-card-image .back-image{
+.back-image{
     opacity:0;
     z-index:2;
 }
 
-.product-card:hover .front-image{
+
+/* ==================================================
+   HOVER STATUS EFFECT
+================================================== */
+
+.product-status-overlay{
+    position:absolute;
+
+    inset:0;
+
+    z-index:8;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+
+    text-align:center;
+
     opacity:0;
-    transform:scale(1.04);
+
+    pointer-events:none;
+
+    background:
+        rgba(5,5,5,.42);
+
+    backdrop-filter:
+        blur(0px);
+
+    transition:
+        opacity .3s ease,
+        backdrop-filter .35s ease;
 }
 
-.product-card:hover .back-image{
-    opacity:1;
-    transform:scale(1.04);
+.product-status-overlay span{
+    transform:
+        translateY(8px);
 
-    filter:
-        brightness(1.04);
+    opacity:0;
+
+    font-family:
+        'JetBrains Mono',monospace;
+
+    font-size:
+        clamp(15px,2vw,24px);
+
+    font-weight:700;
+
+    letter-spacing:.25em;
+
+    text-transform:uppercase;
+
+    color:#fff;
+
+    text-shadow:
+        0 3px 18px rgba(0,0,0,.9);
+
+    transition:
+        opacity .3s ease,
+        transform .3s ease;
+}
+
+.product-status-overlay small{
+    margin-top:10px;
+
+    transform:
+        translateY(8px);
+
+    opacity:0;
+
+    font-family:
+        'JetBrains Mono',monospace;
+
+    font-size:8px;
+
+    letter-spacing:.18em;
+
+    text-transform:uppercase;
+
+    color:#c9c9c9;
+
+    transition:
+        opacity .3s ease .04s,
+        transform .3s ease .04s;
 }
 
 
-/* =========================
-   PRODUCT BADGE
-========================= */
+@media (hover:hover) and (pointer:fine){
+
+    .product-card:hover .product-status-overlay{
+        opacity:1;
+
+        backdrop-filter:
+            blur(8px);
+    }
+
+    .product-card:hover .product-status-overlay span,
+    .product-card:hover .product-status-overlay small{
+        opacity:1;
+
+        transform:
+            translateY(0);
+    }
+
+    .product-card:hover .front-image{
+        opacity:0;
+
+        transform:scale(1.04);
+    }
+
+    .product-card:hover .back-image{
+        opacity:1;
+
+        transform:scale(1.04);
+    }
+
+}
+
+
+/* ==================================================
+   STATUS BADGE
+================================================== */
 
 .product-badge{
     position:absolute;
+
     top:14px;
+
     left:14px;
-    z-index:5;
+
+    z-index:10;
 
     padding:7px 11px;
 
     border:1px solid rgba(255,255,255,.2);
+
     border-radius:999px;
 
-    background:rgba(8,8,8,.75);
+    background:rgba(8,8,8,.8);
+
     backdrop-filter:blur(8px);
 
     font-family:'JetBrains Mono',monospace;
+
     font-size:8px;
+
     font-weight:700;
+
     letter-spacing:.16em;
+
     text-transform:uppercase;
 
     color:var(--bone);
 }
 
 
-/* optional status types */
+/* SOLD OUT */
 
-.product-badge.low-stock{
-    border-color:rgba(255,255,255,.35);
+.product-card.sold-out .front-image,
+.product-card.sold-out .back-image{
+    filter:
+        grayscale(.25)
+        brightness(.78);
 }
 
-.product-badge.sold-out{
-    opacity:.65;
-}
 
-
-/* =========================
+/* ==================================================
    PRODUCT INFO
-========================= */
+================================================== */
 
 .product-card-info{
     padding:18px;
@@ -634,34 +826,37 @@ button{
 
 .product-card-top{
     display:flex;
-    justify-content:space-between;
-    gap:15px;
+
     align-items:flex-start;
+
+    justify-content:space-between;
+
+    gap:15px;
 }
 
 .product-card h3{
     position:relative;
+
     display:inline-block;
 
     padding-bottom:6px;
 
     font-size:15px;
-    font-weight:600;
-    letter-spacing:.02em;
+
     text-transform:uppercase;
 }
-
-
-/* CHROME UNDERLINE */
 
 .product-card h3::after{
     content:"";
 
     position:absolute;
+
     left:0;
+
     bottom:0;
 
     width:0;
+
     height:2px;
 
     background:var(--chrome-grad);
@@ -676,59 +871,57 @@ button{
 
 .product-price{
     font-family:'JetBrains Mono',monospace;
-    font-size:12px;
 
-    color:var(--bone);
+    font-size:12px;
 }
 
 .product-card-meta{
     margin-top:8px;
 
-    font-family:'JetBrains Mono',monospace;
-    font-size:9px;
-    letter-spacing:.13em;
-    text-transform:uppercase;
-
     color:var(--steel-dim);
+
+    font-family:'JetBrains Mono',monospace;
+
+    font-size:9px;
+
+    letter-spacing:.13em;
+
+    text-transform:uppercase;
 }
 
 .product-view{
     margin-top:16px;
 
-    font-family:'JetBrains Mono',monospace;
-    font-size:9px;
-    letter-spacing:.15em;
-    text-transform:uppercase;
-
     color:var(--steel);
 
-    transition:
-        color .2s ease,
-        letter-spacing .25s ease;
+    font-family:'JetBrains Mono',monospace;
+
+    font-size:9px;
+
+    letter-spacing:.15em;
+
+    text-transform:uppercase;
 }
 
-.product-card:hover .product-view{
-    color:var(--bone);
-    letter-spacing:.2em;
-}
 
-
-/* =========================
+/* ==================================================
    COMING SOON
-========================= */
+================================================== */
 
 .coming-placeholder{
     width:100%;
     height:100%;
 
     display:flex;
+
     flex-direction:column;
+
     align-items:center;
+
     justify-content:center;
 
-    text-align:center;
-
     border:1px dashed rgba(236,238,240,.15);
+
     border-radius:12px;
 
     color:var(--steel-dim);
@@ -736,9 +929,8 @@ button{
 
 .coming-placeholder strong{
     font-family:'Metal Mania',cursive;
+
     font-size:34px;
-    font-weight:400;
-    text-transform:uppercase;
 
     color:var(--steel);
 }
@@ -747,19 +939,24 @@ button{
     margin-top:8px;
 
     font-family:'JetBrains Mono',monospace;
+
     font-size:9px;
+
     letter-spacing:.2em;
+
     text-transform:uppercase;
 }
 
 
-/* =========================
-   PRODUCT POPUP BACKDROP
-========================= */
+/* ==================================================
+   PRODUCT POPUP
+================================================== */
 
 .product-modal-backdrop{
     position:fixed;
+
     inset:0;
+
     z-index:150;
 
     background:rgba(0,0,0,.84);
@@ -767,6 +964,7 @@ button{
     backdrop-filter:blur(9px);
 
     opacity:0;
+
     pointer-events:none;
 
     transition:opacity .3s ease;
@@ -777,23 +975,22 @@ button{
     pointer-events:auto;
 }
 
-
-/* =========================
-   PRODUCT POPUP
-========================= */
-
 .product-modal{
     position:fixed;
+
     inset:0;
+
     z-index:151;
 
     display:flex;
+
     align-items:center;
     justify-content:center;
 
     padding:24px;
 
     opacity:0;
+
     pointer-events:none;
 
     transform:scale(.95);
@@ -806,6 +1003,7 @@ button{
 .product-modal.open{
     opacity:1;
     pointer-events:auto;
+
     transform:scale(1);
 }
 
@@ -813,14 +1011,16 @@ button{
     position:relative;
 
     width:min(1050px,95vw);
+
     max-height:92vh;
+
+    overflow:hidden;
 
     background:#101010;
 
     border:1px solid rgba(255,255,255,.13);
-    border-radius:30px;
 
-    overflow:hidden;
+    border-radius:30px;
 
     box-shadow:
         0 30px 100px rgba(0,0,0,.82);
@@ -837,16 +1037,15 @@ button{
 }
 
 
-/* =========================
-   MODAL IMAGE
-========================= */
+/* MODAL IMAGE */
 
 .modal-image-side{
-    min-width:0;
-
     display:flex;
+
     flex-direction:column;
+
     align-items:center;
+
     justify-content:center;
 
     gap:16px;
@@ -863,19 +1062,14 @@ button{
 
 .modal-image-side img{
     width:100%;
+
     max-height:66vh;
 
     object-fit:contain;
-
-    border-radius:20px;
-
-    transition:
-        opacity .2s ease,
-        transform .25s ease;
 }
 
 
-/* FRONT / BACK SWITCH */
+/* FRONT BACK SWITCH */
 
 .image-switcher{
     display:flex;
@@ -885,6 +1079,7 @@ button{
     padding:5px;
 
     border:1px solid var(--line);
+
     border-radius:999px;
 
     background:rgba(8,8,8,.7);
@@ -892,11 +1087,11 @@ button{
 
 .image-switch-btn{
     min-width:90px;
+
     min-height:38px;
 
-    padding:0 18px;
-
     border:none;
+
     border-radius:999px;
 
     background:transparent;
@@ -906,49 +1101,47 @@ button{
     font-family:'JetBrains Mono',monospace;
 
     font-size:9px;
+
     font-weight:700;
 
     letter-spacing:.16em;
+
     text-transform:uppercase;
 
     cursor:pointer;
-
-    transition:
-        background .2s ease,
-        color .2s ease;
 }
 
 .image-switch-btn.active{
     background:var(--chrome-grad);
+
     color:var(--void);
 }
 
 
-/* =========================
-   MODAL INFO
-========================= */
+/* MODAL INFO */
 
 .modal-info-side{
-    min-width:0;
-
     display:flex;
+
     flex-direction:column;
 
     padding:38px 34px;
 
-    border-left:1px solid var(--line);
-
     background:#111;
+
+    border-left:1px solid var(--line);
 }
 
 .modal-drop{
+    color:var(--steel-dim);
+
     font-family:'JetBrains Mono',monospace;
 
     font-size:10px;
-    letter-spacing:.22em;
-    text-transform:uppercase;
 
-    color:var(--steel-dim);
+    letter-spacing:.22em;
+
+    text-transform:uppercase;
 }
 
 .modal-status{
@@ -961,17 +1154,20 @@ button{
     padding:6px 10px;
 
     border:1px solid var(--line);
+
     border-radius:999px;
+
+    color:var(--steel);
 
     font-family:'JetBrains Mono',monospace;
 
     font-size:8px;
+
     font-weight:700;
 
     letter-spacing:.16em;
-    text-transform:uppercase;
 
-    color:var(--steel);
+    text-transform:uppercase;
 }
 
 .modal-title{
@@ -980,6 +1176,7 @@ button{
     font-family:'Metal Mania',cursive;
 
     font-size:40px;
+
     font-weight:400;
 
     text-transform:uppercase;
@@ -991,17 +1188,16 @@ button{
     font-family:'JetBrains Mono',monospace;
 
     font-size:14px;
-
-    color:var(--bone);
 }
 
 .modal-description{
     margin-top:20px;
 
-    font-size:13px;
-    line-height:1.7;
-
     color:var(--steel);
+
+    font-size:13px;
+
+    line-height:1.7;
 }
 
 .option-label{
@@ -1009,19 +1205,19 @@ button{
 
     margin-bottom:10px;
 
+    color:var(--steel-dim);
+
     font-family:'JetBrains Mono',monospace;
 
     font-size:9px;
-    letter-spacing:.18em;
-    text-transform:uppercase;
 
-    color:var(--steel-dim);
+    letter-spacing:.18em;
+
+    text-transform:uppercase;
 }
 
 
-/* =========================
-   SIZE BUTTONS
-========================= */
+/* SIZES */
 
 .size-section{
     margin-top:28px;
@@ -1029,49 +1225,35 @@ button{
 
 .size-options{
     display:grid;
-    grid-template-columns:repeat(5,1fr);
+
+    grid-template-columns:
+        repeat(5,1fr);
+
     gap:8px;
 }
 
 .size-btn{
     min-height:44px;
 
-    background:var(--void-2);
-
     border:1px solid var(--line);
+
     border-radius:8px;
+
+    background:var(--void-2);
 
     color:var(--bone);
 
-    font-family:'JetBrains Mono',monospace;
-    font-size:11px;
-
     cursor:pointer;
-
-    transition:
-        border-color .2s ease,
-        background .2s ease,
-        color .2s ease,
-        transform .2s ease;
-}
-
-.size-btn:hover{
-    border-color:var(--steel);
-    transform:translateY(-1px);
 }
 
 .size-btn.selected{
     background:var(--chrome-grad);
-    border-color:var(--bone);
-    color:var(--void);
 
-    font-weight:700;
+    color:var(--void);
 }
 
 
-/* =========================
-   QUANTITY
-========================= */
+/* QUANTITY */
 
 .quantity-section{
     margin-top:24px;
@@ -1079,21 +1261,25 @@ button{
 
 .quantity-control{
     display:inline-flex;
+
     align-items:center;
 
-    border:1px solid var(--line);
-    border-radius:9px;
-
     overflow:hidden;
+
+    border:1px solid var(--line);
+
+    border-radius:9px;
 }
 
 .modal-qty-btn{
     width:44px;
+
     height:44px;
 
     border:none;
 
     background:var(--void-2);
+
     color:var(--bone);
 
     font-size:18px;
@@ -1101,32 +1287,24 @@ button{
     cursor:pointer;
 }
 
-.modal-qty-btn:hover{
-    background:var(--void-3);
-}
-
 .modal-qty-value{
     min-width:46px;
 
     text-align:center;
-
-    font-family:'JetBrains Mono',monospace;
-
-    font-size:12px;
 }
 
 
-/* =========================
-   ADD CART BUTTON
-========================= */
+/* CART BUTTON */
 
 .modal-add-cart{
     width:100%;
+
     min-height:50px;
 
     margin-top:30px;
 
     border:1px solid var(--steel);
+
     border-radius:10px;
 
     background:var(--chrome-grad);
@@ -1135,37 +1313,21 @@ button{
 
     font-family:'JetBrains Mono',monospace;
 
-    font-size:11px;
     font-weight:700;
 
     letter-spacing:.18em;
+
     text-transform:uppercase;
 
     cursor:pointer;
-
-    transition:
-        transform .2s ease,
-        filter .2s ease,
-        box-shadow .2s ease;
-}
-
-.modal-add-cart:hover{
-    filter:brightness(1.08);
-
-    transform:translateY(-1px);
-
-    box-shadow:
-        0 10px 26px rgba(200,210,220,.12);
 }
 
 .modal-add-cart:disabled{
-    opacity:.4;
+    opacity:.35;
 
     cursor:not-allowed;
 
-    filter:none;
-    transform:none;
-    box-shadow:none;
+    filter:grayscale(1);
 }
 
 .modal-message{
@@ -1173,36 +1335,30 @@ button{
 
     margin-top:12px;
 
+    color:var(--steel);
+
     font-family:'JetBrains Mono',monospace;
 
     font-size:9px;
 
-    letter-spacing:.08em;
     text-transform:uppercase;
-
-    color:var(--steel);
 }
 
 
-/* =========================
-   POPUP CLOSE
-========================= */
+/* CLOSE */
 
 .product-modal-close{
     position:absolute;
 
     top:18px;
+
     right:18px;
 
     z-index:10;
 
     width:46px;
+
     height:46px;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
 
     border:1px solid rgba(255,255,255,.2);
 
@@ -1210,32 +1366,17 @@ button{
 
     background:rgba(8,8,8,.84);
 
-    backdrop-filter:blur(8px);
-
     color:var(--bone);
 
     font-size:26px;
-    line-height:1;
 
     cursor:pointer;
-
-    transition:
-        background .2s ease,
-        color .2s ease,
-        transform .2s ease;
-}
-
-.product-modal-close:hover{
-    background:var(--bone);
-    color:var(--void);
-
-    transform:rotate(90deg);
 }
 
 
-/* =========================
-   CART BACKDROP
-========================= */
+/* ==================================================
+   CART
+================================================== */
 
 .cart-backdrop{
     position:fixed;
@@ -1255,24 +1396,26 @@ button{
 
 .cart-backdrop.open{
     opacity:1;
+
     pointer-events:auto;
 }
-
-
-/* =========================
-   CART DRAWER
-========================= */
 
 .cart-drawer{
     position:fixed;
 
     top:0;
+
     right:0;
+
     bottom:0;
 
     z-index:80;
 
     width:min(430px,100%);
+
+    display:flex;
+
+    flex-direction:column;
 
     background:var(--void);
 
@@ -1282,9 +1425,6 @@ button{
 
     transition:
         transform .34s cubic-bezier(.76,0,.24,1);
-
-    display:flex;
-    flex-direction:column;
 }
 
 .cart-drawer.open{
@@ -1294,8 +1434,9 @@ button{
 .cart-head{
     display:flex;
 
-    align-items:center;
     justify-content:space-between;
+
+    align-items:center;
 
     padding:24px;
 
@@ -1306,6 +1447,7 @@ button{
     font-family:'Metal Mania',cursive;
 
     font-size:34px;
+
     font-weight:400;
 
     text-transform:uppercase;
@@ -1313,12 +1455,15 @@ button{
 
 .cart-close{
     width:44px;
+
     height:44px;
 
     border:1px solid var(--line);
+
     border-radius:50%;
 
     background:var(--void-2);
+
     color:var(--bone);
 
     font-size:22px;
@@ -1326,17 +1471,12 @@ button{
     cursor:pointer;
 }
 
-
-/* =========================
-   CART ITEMS
-========================= */
-
 .cart-items{
-    padding:20px 24px;
+    flex:1;
 
     overflow:auto;
 
-    flex:1;
+    padding:20px 24px;
 }
 
 .cart-empty{
@@ -1349,9 +1489,9 @@ button{
     font-family:'JetBrains Mono',monospace;
 
     font-size:11px;
+
     line-height:1.8;
 
-    letter-spacing:.12em;
     text-transform:uppercase;
 }
 
@@ -1369,52 +1509,50 @@ button{
 
 .cart-thumb{
     width:82px;
+
     height:82px;
 
     object-fit:contain;
 
-    border:1px solid var(--line);
-    border-radius:10px;
-
     background:var(--void-2);
+
+    border:1px solid var(--line);
+
+    border-radius:10px;
 }
 
 .cart-item h3{
     font-size:14px;
+
     text-transform:uppercase;
 }
 
 .cart-item-note{
     margin-top:5px;
 
+    color:var(--steel-dim);
+
     font-family:'JetBrains Mono',monospace;
 
     font-size:9px;
 
-    letter-spacing:.08em;
     text-transform:uppercase;
-
-    color:var(--steel-dim);
 }
 
 .cart-price{
     margin-top:7px;
 
+    color:var(--steel);
+
     font-family:'JetBrains Mono',monospace;
 
     font-size:10px;
-
-    color:var(--steel);
 }
-
-
-/* CART QUANTITY */
 
 .qty-row{
     display:flex;
 
     align-items:center;
-    flex-wrap:wrap;
 
     gap:8px;
 
@@ -1423,11 +1561,13 @@ button{
 
 .qty-btn{
     width:32px;
+
     height:32px;
 
     border:1px solid var(--line);
 
     background:var(--void-2);
+
     color:var(--bone);
 
     cursor:pointer;
@@ -1437,10 +1577,6 @@ button{
     min-width:24px;
 
     text-align:center;
-
-    font-family:'JetBrains Mono',monospace;
-
-    font-size:12px;
 }
 
 .remove-btn{
@@ -1452,22 +1588,10 @@ button{
 
     color:var(--steel-dim);
 
-    font-family:'JetBrains Mono',monospace;
-
-    font-size:9px;
-
-    letter-spacing:.08em;
-    text-transform:uppercase;
-
     text-decoration:underline;
 
     cursor:pointer;
 }
-
-
-/* =========================
-   CART FOOT
-========================= */
 
 .cart-foot{
     padding:20px 24px 28px;
@@ -1480,62 +1604,54 @@ button{
 .cart-status{
     margin-bottom:16px;
 
+    color:var(--steel-dim);
+
     font-family:'JetBrains Mono',monospace;
 
     font-size:9px;
 
     line-height:1.6;
-    letter-spacing:.07em;
 
     text-transform:uppercase;
-
-    color:var(--steel-dim);
 }
 
 .clear-cart{
     width:100%;
-    min-height:44px;
 
-    background:transparent;
+    min-height:44px;
 
     border:1px solid var(--steel-dim);
 
+    background:transparent;
+
     color:var(--steel);
-
-    font-family:'JetBrains Mono',monospace;
-
-    font-size:10px;
-
-    letter-spacing:.15em;
-    text-transform:uppercase;
 
     cursor:pointer;
 }
 
 
-/* =========================
+/* ==================================================
    FOOTER
-========================= */
+================================================== */
 
 footer{
-    padding:40px clamp(20px,4vw,48px) 60px;
-
     display:flex;
-
-    flex-wrap:wrap;
 
     justify-content:space-between;
 
+    flex-wrap:wrap;
+
     gap:20px;
 
+    padding:40px clamp(20px,4vw,48px) 60px;
+
     border-top:1px solid var(--line);
+
+    color:var(--steel-dim);
 
     font-family:'JetBrains Mono',monospace;
 
     font-size:11px;
-    letter-spacing:.1em;
-
-    color:var(--steel-dim);
 }
 
 footer .fmark{
@@ -1543,9 +1659,9 @@ footer .fmark{
 }
 
 
-/* =========================
-   TABLET
-========================= */
+/* ==================================================
+   RESPONSIVE
+================================================== */
 
 @media(max-width:900px){
 
@@ -1562,10 +1678,6 @@ footer .fmark{
         max-height:90vh;
     }
 
-    .modal-image-side{
-        min-height:370px;
-    }
-
     .modal-info-side{
         border-left:none;
 
@@ -1573,11 +1685,6 @@ footer .fmark{
     }
 
 }
-
-
-/* =========================
-   MOBILE
-========================= */
 
 @media(max-width:600px){
 
@@ -1592,11 +1699,6 @@ footer .fmark{
 
     .topbar-right{
         font-size:9px;
-        letter-spacing:.08em;
-    }
-
-    .shop-head{
-        padding:40px 18px 25px;
     }
 
     .products-section{
@@ -1605,15 +1707,6 @@ footer .fmark{
 
     .product-grid{
         grid-template-columns:1fr;
-        gap:18px;
-    }
-
-    .product-card{
-        border-radius:16px;
-    }
-
-    .product-card-image{
-        aspect-ratio:1 / .95;
     }
 
     .product-modal{
@@ -1624,30 +1717,8 @@ footer .fmark{
         border-radius:22px;
     }
 
-    .modal-image-side{
-        min-height:310px;
-
-        padding:20px 14px;
-    }
-
     .modal-info-side{
-        padding:28px 20px 25px;
-    }
-
-    .modal-title{
-        font-size:34px;
-    }
-
-    .product-modal-close{
-        top:14px;
-        right:14px;
-
-        width:42px;
-        height:42px;
-    }
-
-    .image-switch-btn{
-        min-width:80px;
+        padding:28px 20px;
     }
 
 }
@@ -1659,675 +1730,659 @@ footer .fmark{
 <body>
 
 
-<!-- =========================
-     GRAIN
-========================= -->
+<!-- GRAIN -->
 
-<svg
-    class="grain"
-    xmlns="http://www.w3.org/2000/svg"
->
+<svg class="grain" xmlns="http://www.w3.org/2000/svg">
 
-    <filter id="noiseFilter">
+<filter id="noiseFilter">
 
-        <feTurbulence
-            type="fractalNoise"
-            baseFrequency="0.9"
-            numOctaves="2"
-            stitchTiles="stitch"
-        />
+<feTurbulence
+type="fractalNoise"
+baseFrequency=".9"
+numOctaves="2"
+/>
 
-        <feColorMatrix
-            type="saturate"
-            values="0"
-        />
+</filter>
 
-    </filter>
-
-    <rect
-        width="100%"
-        height="100%"
-        filter="url(#noiseFilter)"
-    />
+<rect
+width="100%"
+height="100%"
+filter="url(#noiseFilter)"
+/>
 
 </svg>
 
 
-<!-- =========================
-     PASSWORD GATE
-========================= -->
+<!-- PASSWORD GATE -->
 
 <div id="gate">
 
-    <div class="gate-line top"></div>
+<div class="gate-line top"></div>
 
-    <div class="gate-eyebrow">
+<div class="gate-eyebrow">
+Restricted Access <span>/</span> 02K Grunge Collection
+</div>
 
-        Restricted Access
+<img
+class="gate-logo"
+src="desire-living-logo.png"
+alt="Desire Living"
+/>
 
-        <span>/</span>
+<div class="gate-sub">
+Made to Desire
+</div>
 
-        02K Grunge Collection
+<button
+class="enter-btn"
+id="enterBtn"
+>
+unlock →
+</button>
 
-    </div>
+<div
+class="pw-panel"
+id="pwPanel"
+>
 
-    <img
-        class="gate-logo"
-        src="desire-living-logo.png"
-        alt="Desire Living"
-    >
+<div
+class="pw-row"
+id="pwRow"
+>
 
-    <div class="gate-sub">
-        Made to Desire
-    </div>
+<input
+class="pw-input"
+id="pwInput"
+type="password"
+placeholder="password"
+/>
 
-    <button
-        class="enter-btn"
-        id="enterBtn"
-    >
-        unlock →
-    </button>
+<button
+class="pw-submit"
+id="pwSubmit"
+>
+Go
+</button>
 
-    <div
-        class="pw-panel"
-        id="pwPanel"
-    >
+</div>
 
-        <div
-            class="pw-row"
-            id="pwRow"
-        >
+<div
+class="pw-error"
+id="pwError"
+></div>
 
-            <input
-                class="pw-input"
-                id="pwInput"
-                type="password"
-                placeholder="password"
-                autocomplete="off"
-            >
+<button
+class="pw-back"
+id="pwBack"
+>
+back
+</button>
 
-            <button
-                class="pw-submit"
-                id="pwSubmit"
-            >
-                Go
-            </button>
+</div>
 
-        </div>
-
-        <div
-            class="pw-error"
-            id="pwError"
-        ></div>
-
-        <button
-            class="pw-back"
-            id="pwBack"
-        >
-            back
-        </button>
-
-    </div>
-
-    <div class="gate-line bottom"></div>
+<div class="gate-line bottom"></div>
 
 </div>
 
 
-<!-- =========================
-     STORE
-========================= -->
+<!-- SHOP -->
 
 <div id="shop">
 
-    <div class="chrome-strip"></div>
 
+<div class="chrome-strip"></div>
 
-    <!-- TOP BAR -->
 
-    <div class="topbar">
+<!-- NAV -->
 
-        <div class="brand-mark">
+<div class="topbar">
 
-            <img
-                src="desire-living-logo.png"
-                alt="Desire Living"
-            >
+<div class="brand-mark">
 
-        </div>
+<img
+src="desire-living-logo.png"
+alt="Desire Living"
+/>
 
-        <div class="topbar-right">
+</div>
 
-            <span>
-                Lot 001 —
-            </span>
 
-            <button
-                class="cart-btn"
-                id="cartBtn"
-            >
+<div class="topbar-right">
 
-                Cart (
+Lot 001 —
 
-                <span id="cartCount">
-                    0
-                </span>
+<button
+class="cart-btn"
+id="cartBtn"
+>
 
-                )
+Cart (
+<span id="cartCount">0</span>
+)
 
-            </button>
+</button>
 
-        </div>
+</div>
 
-    </div>
+</div>
 
 
-    <!-- COLLECTION HEADER -->
+<!-- HEADER -->
 
-    <section class="shop-head">
+<section class="shop-head">
 
-        <div>
+<div>
 
-            <h1 class="chrome-text">
-                Drop 001
-            </h1>
+<h1 class="chrome-text">
+Drop 001
+</h1>
 
-            <div class="shop-sub">
-                02K Grunge Collection
-            </div>
+<div class="shop-sub">
+02K Grunge Collection
+</div>
 
-        </div>
+</div>
 
-        <div class="drop-tag">
 
-            Drop
+<div class="drop-tag">
 
-            <b>001</b>
+Drop <b>001</b> — 03 pcs
 
-            — 03 pcs
+</div>
 
-        </div>
+</section>
 
-    </section>
 
+<!-- PRODUCTS -->
 
-    <!-- =========================
-         PRODUCT GRID
-    ========================= -->
+<section class="products-section">
 
-    <section class="products-section">
+<div class="product-grid">
 
-        <div class="product-grid">
 
+<!-- PRODUCT 1 -->
 
-            <!-- =====================
-                 PRODUCT 01
-            ====================== -->
+<article
+class="product-card sold-out"
+data-product="tee001"
+tabindex="0"
+>
 
-            <article
-                class="product-card"
-                data-product="tee001"
-                tabindex="0"
-            >
+<div class="product-card-image">
 
-                <div class="product-card-image">
 
-                    <div
-                        class="product-badge"
-                        id="tee001Badge"
-                    >
-                        New
-                    </div>
+<div class="product-badge">
+SOLD OUT
+</div>
 
-                    <img
-                        class="front-image"
-                        src="desirefront.png"
-                        alt="Desire Living tee front"
-                    >
 
-                    <img
-                        class="back-image"
-                        src="desireback3.png"
-                        alt="Desire Living tee back"
-                    >
+<img
+class="front-image"
+src="desirefront.png"
+alt="Desire Living tee front"
+/>
 
-                </div>
 
-                <div class="product-card-info">
+<img
+class="back-image"
+src="desireback3.png"
+alt="Desire Living tee back"
+/>
 
-                    <div class="product-card-top">
 
-                        <h3>
-                            Sample Tee
-                        </h3>
+<div class="product-status-overlay">
 
-                        <div class="product-price">
-                            $45
-                        </div>
+<span>
+SOLD OUT
+</span>
 
-                    </div>
+<small>
+View Product
+</small>
 
-                    <div class="product-card-meta">
-                        Oversized Fit · Drop 001
-                    </div>
+</div>
 
-                    <div class="product-view">
-                        View Product →
-                    </div>
 
-                </div>
+</div>
 
-            </article>
 
+<div class="product-card-info">
 
-            <!-- PRODUCT 02 -->
+<div class="product-card-top">
 
-            <article
-                class="product-card coming-soon"
-                data-product="coming002"
-                tabindex="0"
-            >
+<h3>
+Sample Tee
+</h3>
 
-                <div class="product-card-image">
+<div class="product-price">
+$45
+</div>
 
-                    <div class="coming-placeholder">
+</div>
 
-                        <strong>
-                            02
-                        </strong>
 
-                        <span>
-                            Coming Soon
-                        </span>
+<div class="product-card-meta">
 
-                    </div>
+Oversized Fit · Drop 001
 
-                </div>
+</div>
 
-                <div class="product-card-info">
 
-                    <div class="product-card-top">
+<div class="product-view">
 
-                        <h3>
-                            Product 02
-                        </h3>
+View Product →
 
-                        <div class="product-price">
-                            —
-                        </div>
+</div>
 
-                    </div>
+</div>
 
-                    <div class="product-card-meta">
-                        Drop 001 · Coming Soon
-                    </div>
+</article>
 
-                    <div class="product-view">
-                        Preview →
-                    </div>
 
-                </div>
 
-            </article>
+<!-- PRODUCT 2 -->
 
+<article
+class="product-card"
+data-product="coming002"
+tabindex="0"
+>
 
-            <!-- PRODUCT 03 -->
+<div class="product-card-image">
 
-            <article
-                class="product-card coming-soon"
-                data-product="coming003"
-                tabindex="0"
-            >
+<div class="coming-placeholder">
 
-                <div class="product-card-image">
+<strong>
+02
+</strong>
 
-                    <div class="coming-placeholder">
+<span>
+Coming Soon
+</span>
 
-                        <strong>
-                            03
-                        </strong>
+</div>
 
-                        <span>
-                            Coming Soon
-                        </span>
 
-                    </div>
+<div class="product-status-overlay">
 
-                </div>
+<span>
+COMING SOON
+</span>
 
-                <div class="product-card-info">
+<small>
+Drop 001
+</small>
 
-                    <div class="product-card-top">
+</div>
 
-                        <h3>
-                            Product 03
-                        </h3>
+</div>
 
-                        <div class="product-price">
-                            —
-                        </div>
 
-                    </div>
+<div class="product-card-info">
 
-                    <div class="product-card-meta">
-                        Drop 001 · Coming Soon
-                    </div>
+<div class="product-card-top">
 
-                    <div class="product-view">
-                        Preview →
-                    </div>
+<h3>
+Product 02
+</h3>
 
-                </div>
+<div class="product-price">
+—
+</div>
 
-            </article>
+</div>
 
-        </div>
+<div class="product-card-meta">
 
-    </section>
+Drop 001 · Coming Soon
 
+</div>
 
-    <!-- =========================
-         PRODUCT POPUP BACKDROP
-    ========================= -->
+<div class="product-view">
 
-    <div
-        class="product-modal-backdrop"
-        id="productModalBackdrop"
-    ></div>
+Preview →
 
+</div>
 
-    <!-- =========================
-         PRODUCT POPUP
-    ========================= -->
+</div>
 
-    <div
-        class="product-modal"
-        id="productModal"
-        aria-hidden="true"
-    >
+</article>
 
-        <div class="product-modal-box">
 
-            <button
-                class="product-modal-close"
-                id="productModalClose"
-                aria-label="Close product"
-            >
-                ×
-            </button>
 
+<!-- PRODUCT 3 -->
 
-            <div class="product-modal-content">
+<article
+class="product-card"
+data-product="coming003"
+tabindex="0"
+>
 
+<div class="product-card-image">
 
-                <!-- IMAGE AREA -->
+<div class="coming-placeholder">
 
-                <div class="modal-image-side">
+<strong>
+03
+</strong>
 
-                    <img
-                        id="modalProductImage"
-                        src=""
-                        alt=""
-                    >
+<span>
+Coming Soon
+</span>
 
+</div>
 
-                    <div
-                        class="image-switcher"
-                        id="imageSwitcher"
-                    >
 
-                        <button
-                            class="image-switch-btn active"
-                            id="frontImageBtn"
-                            type="button"
-                        >
-                            Front
-                        </button>
+<div class="product-status-overlay">
 
-                        <button
-                            class="image-switch-btn"
-                            id="backImageBtn"
-                            type="button"
-                        >
-                            Back
-                        </button>
+<span>
+COMING SOON
+</span>
 
-                    </div>
+<small>
+Drop 001
+</small>
 
-                </div>
+</div>
 
+</div>
 
-                <!-- PRODUCT DETAILS -->
 
-                <div class="modal-info-side">
+<div class="product-card-info">
 
-                    <div
-                        class="modal-drop"
-                        id="modalProductDrop"
-                    >
-                        Drop 001
-                    </div>
+<div class="product-card-top">
 
-                    <div
-                        class="modal-status"
-                        id="modalProductStatus"
-                    >
-                        New
-                    </div>
+<h3>
+Product 03
+</h3>
 
-                    <h2
-                        class="modal-title"
-                        id="modalProductTitle"
-                    >
-                        Product
-                    </h2>
+<div class="product-price">
+—
+</div>
 
-                    <div
-                        class="modal-price"
-                        id="modalProductPrice"
-                    >
-                        $0
-                    </div>
+</div>
 
-                    <p
-                        class="modal-description"
-                        id="modalProductDescription"
-                    ></p>
+<div class="product-card-meta">
 
+Drop 001 · Coming Soon
 
-                    <!-- SIZE -->
+</div>
 
-                    <div
-                        class="size-section"
-                        id="sizeSection"
-                    >
+<div class="product-view">
 
-                        <span class="option-label">
-                            Select Size
-                        </span>
+Preview →
 
-                        <div class="size-options">
+</div>
 
-                            <button
-                                class="size-btn"
-                                data-size="S"
-                            >
-                                S
-                            </button>
+</div>
 
-                            <button
-                                class="size-btn"
-                                data-size="M"
-                            >
-                                M
-                            </button>
+</article>
 
-                            <button
-                                class="size-btn"
-                                data-size="L"
-                            >
-                                L
-                            </button>
 
-                            <button
-                                class="size-btn"
-                                data-size="XL"
-                            >
-                                XL
-                            </button>
+</div>
 
-                            <button
-                                class="size-btn"
-                                data-size="XXL"
-                            >
-                                XXL
-                            </button>
+</section>
 
-                        </div>
 
-                    </div>
+<!-- PRODUCT MODAL -->
 
+<div
+class="product-modal-backdrop"
+id="productModalBackdrop"
+></div>
 
-                    <!-- QUANTITY -->
 
-                    <div
-                        class="quantity-section"
-                        id="quantitySection"
-                    >
+<div
+class="product-modal"
+id="productModal"
+>
 
-                        <span class="option-label">
-                            Quantity
-                        </span>
+<div class="product-modal-box">
 
-                        <div class="quantity-control">
 
-                            <button
-                                class="modal-qty-btn"
-                                id="modalQtyMinus"
-                            >
-                                −
-                            </button>
+<button
+class="product-modal-close"
+id="productModalClose"
+>
+×
+</button>
 
-                            <span
-                                class="modal-qty-value"
-                                id="modalQtyValue"
-                            >
-                                1
-                            </span>
 
-                            <button
-                                class="modal-qty-btn"
-                                id="modalQtyPlus"
-                            >
-                                +
-                            </button>
+<div class="product-modal-content">
 
-                        </div>
 
-                    </div>
+<div class="modal-image-side">
 
 
-                    <!-- ADD TO CART -->
+<img
+id="modalProductImage"
+src=""
+alt=""
+/>
 
-                    <button
-                        class="modal-add-cart"
-                        id="modalAddCart"
-                    >
-                        Add to Cart
-                    </button>
 
-                    <div
-                        class="modal-message"
-                        id="modalMessage"
-                    ></div>
+<div
+class="image-switcher"
+id="imageSwitcher"
+>
 
-                </div>
+<button
+class="image-switch-btn active"
+id="frontImageBtn"
+>
+Front
+</button>
 
-            </div>
+<button
+class="image-switch-btn"
+id="backImageBtn"
+>
+Back
+</button>
 
-        </div>
+</div>
 
-    </div>
 
+</div>
 
-    <!-- =========================
-         CART BACKDROP
-    ========================= -->
 
-    <div
-        class="cart-backdrop"
-        id="cartBackdrop"
-    ></div>
+<div class="modal-info-side">
 
 
-    <!-- =========================
-         CART
-    ========================= -->
+<div
+class="modal-drop"
+id="modalProductDrop"
+></div>
 
-    <aside
-        class="cart-drawer"
-        id="cartDrawer"
-        aria-hidden="true"
-    >
 
-        <div class="cart-head">
+<div
+class="modal-status"
+id="modalProductStatus"
+></div>
 
-            <h2>
-                Your Cart
-            </h2>
 
-            <button
-                class="cart-close"
-                id="cartClose"
-                aria-label="Close cart"
-            >
-                ×
-            </button>
+<h2
+class="modal-title"
+id="modalProductTitle"
+></h2>
 
-        </div>
 
+<div
+class="modal-price"
+id="modalProductPrice"
+></div>
 
-        <div
-            class="cart-items"
-            id="cartItems"
-        ></div>
 
+<p
+class="modal-description"
+id="modalProductDescription"
+></p>
 
-        <div class="cart-foot">
 
-            <div class="cart-status">
+<div
+class="size-section"
+id="sizeSection"
+>
 
-                Checkout is disabled in this test build.
+<span class="option-label">
+Select Size
+</span>
 
-                Payment processing can be connected when the store launches.
+<div class="size-options">
 
-            </div>
+<button
+class="size-btn"
+data-size="S"
+>S</button>
 
-            <button
-                class="clear-cart"
-                id="clearCart"
-            >
-                Clear Cart
-            </button>
+<button
+class="size-btn"
+data-size="M"
+>M</button>
 
-        </div>
+<button
+class="size-btn"
+data-size="L"
+>L</button>
 
-    </aside>
+<button
+class="size-btn"
+data-size="XL"
+>XL</button>
 
+<button
+class="size-btn"
+data-size="XXL"
+>XXL</button>
 
-    <!-- FOOTER -->
+</div>
 
-    <footer>
+</div>
 
-        <div class="fmark">
-            DESIRE LIVING — TEST BUILD
-        </div>
 
-        <div>
-            Made to Desire.
-        </div>
+<div
+class="quantity-section"
+id="quantitySection"
+>
 
-    </footer>
+<span class="option-label">
+Quantity
+</span>
+
+<div class="quantity-control">
+
+<button
+class="modal-qty-btn"
+id="modalQtyMinus"
+>−</button>
+
+<span
+class="modal-qty-value"
+id="modalQtyValue"
+>
+1
+</span>
+
+<button
+class="modal-qty-btn"
+id="modalQtyPlus"
+>+</button>
+
+</div>
+
+</div>
+
+
+<button
+class="modal-add-cart"
+id="modalAddCart"
+>
+Add to Cart
+</button>
+
+
+<div
+class="modal-message"
+id="modalMessage"
+></div>
+
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- CART -->
+
+<div
+class="cart-backdrop"
+id="cartBackdrop"
+></div>
+
+
+<aside
+class="cart-drawer"
+id="cartDrawer"
+>
+
+<div class="cart-head">
+
+<h2>
+Your Cart
+</h2>
+
+<button
+class="cart-close"
+id="cartClose"
+>
+×
+</button>
+
+</div>
+
+
+<div
+class="cart-items"
+id="cartItems"
+></div>
+
+
+<div class="cart-foot">
+
+<div class="cart-status">
+
+Checkout is disabled in this test build.
+
+</div>
+
+<button
+class="clear-cart"
+id="clearCart"
+>
+Clear Cart
+</button>
+
+</div>
+
+</aside>
+
+
+<footer>
+
+<div class="fmark">
+DESIRE LIVING — TEST BUILD
+</div>
+
+<div>
+Made to Desire.
+</div>
+
+</footer>
+
 
 </div>
 
@@ -2335,11 +2390,13 @@ footer .fmark{
 <script>
 
 
-/* =========================
+/* ==================================================
    PASSWORD
-========================= */
+================================================== */
 
-const SITE_PASSWORD = "desire";
+const SITE_PASSWORD =
+"desire";
+
 
 const gate =
 document.getElementById("gate");
@@ -2368,1265 +2425,1140 @@ document.getElementById("pwBack");
 
 function unlockSite(){
 
-    gate.classList.add("torn");
+gate.classList.add("torn");
 
-    setTimeout(
-        function(){
-
-            gate.style.display =
-            "none";
-
-        },
-        950
-    );
+setTimeout(
+()=>gate.style.display="none",
+950
+);
 
 }
 
 
 function showPwPanel(){
 
-    enterBtn.style.display =
-    "none";
+enterBtn.style.display="none";
 
-    pwPanel.classList.add(
-        "open"
-    );
+pwPanel.classList.add("open");
 
-    setTimeout(
-        function(){
-
-            pwInput.focus();
-
-        },
-        150
-    );
-
-}
-
-
-function hidePwPanel(){
-
-    pwPanel.classList.remove(
-        "open"
-    );
-
-    pwError.textContent =
-    "";
-
-    pwInput.value =
-    "";
-
-    enterBtn.style.display =
-    "inline-block";
+pwInput.focus();
 
 }
 
 
 function checkPassword(){
 
-    if(
-        pwInput.value.trim().toLowerCase()
-        ===
-        SITE_PASSWORD.toLowerCase()
-    ){
+if(
+pwInput.value.trim().toLowerCase()
+===
+SITE_PASSWORD.toLowerCase()
+){
 
-        unlockSite();
+unlockSite();
 
-    }
+}else{
 
-    else{
+pwError.textContent=
+"incorrect password";
 
-        pwError.textContent =
-        "incorrect password";
+pwRow.classList.remove("shake");
 
-        pwRow.classList.remove(
-            "shake"
-        );
+void pwRow.offsetWidth;
 
-        void pwRow.offsetWidth;
+pwRow.classList.add("shake");
 
-        pwRow.classList.add(
-            "shake"
-        );
-
-        pwInput.value =
-        "";
-
-        pwInput.focus();
-
-    }
+}
 
 }
 
 
 enterBtn.addEventListener(
-    "click",
-    showPwPanel
+"click",
+showPwPanel
 );
+
 
 pwSubmit.addEventListener(
-    "click",
-    checkPassword
+"click",
+checkPassword
 );
+
 
 pwBack.addEventListener(
-    "click",
-    hidePwPanel
+"click",
+()=>{
+
+pwPanel.classList.remove("open");
+
+enterBtn.style.display=
+"inline-block";
+
+}
 );
+
 
 pwInput.addEventListener(
-    "keydown",
-    function(event){
+"keydown",
+event=>{
 
-        if(event.key==="Enter"){
-            checkPassword();
-        }
+if(event.key==="Enter"){
+checkPassword();
+}
 
-    }
+}
 );
 
 
-/* =========================
-   PRODUCT DATABASE
-========================= */
-
-/*
-
-STATUS OPTIONS:
-
-"NEW"
-"LOW STOCK"
-"SOLD OUT"
-
-When we change inventory later,
-we can update the status here.
-
-*/
-
-const PRODUCTS = {
-
-    tee001:{
-
-        id:"tee001",
-
-        name:"Sample Tee",
-
-        price:45,
-
-        drop:"Drop 001",
-
-        status:"NEW",
-
-        description:
-        "Oversized graphic tee from the Desire Living 02K Grunge Collection.",
-
-        frontImage:"desirefront.png",
-
-        backImage:"desireback3.png",
-
-        available:true
-
-    },
+/* ==================================================
+   PRODUCTS
+================================================== */
 
 
-    coming002:{
-
-        id:"coming002",
-
-        name:"Product 02",
-
-        price:null,
-
-        drop:"Drop 001",
-
-        status:"COMING SOON",
-
-        description:
-        "This piece has not been revealed yet.",
-
-        frontImage:"",
-
-        backImage:"",
-
-        available:false
-
-    },
+const PRODUCTS={
 
 
-    coming003:{
+tee001:{
 
-        id:"coming003",
+id:"tee001",
 
-        name:"Product 03",
+name:"Sample Tee",
 
-        price:null,
+price:45,
 
-        drop:"Drop 001",
+drop:"Drop 001",
 
-        status:"COMING SOON",
+status:"SOLD OUT",
 
-        description:
-        "This piece has not been revealed yet.",
+description:
+"Oversized graphic tee from the Desire Living 02K Grunge Collection.",
 
-        frontImage:"",
+frontImage:"desirefront.png",
 
-        backImage:"",
+backImage:"desireback3.png",
 
-        available:false
+available:false
 
-    }
+},
+
+
+coming002:{
+
+id:"coming002",
+
+name:"Product 02",
+
+price:null,
+
+drop:"Drop 001",
+
+status:"COMING SOON",
+
+description:
+"This piece has not been revealed yet.",
+
+frontImage:"",
+
+backImage:"",
+
+available:false
+
+},
+
+
+coming003:{
+
+id:"coming003",
+
+name:"Product 03",
+
+price:null,
+
+drop:"Drop 001",
+
+status:"COMING SOON",
+
+description:
+"This piece has not been revealed yet.",
+
+frontImage:"",
+
+backImage:"",
+
+available:false
+
+}
 
 };
 
 
-/* =========================
-   PRODUCT POPUP
-========================= */
+/* ==================================================
+   PRODUCT MODAL
+================================================== */
+
 
 const productCards =
 document.querySelectorAll(
-    ".product-card"
+".product-card"
 );
+
 
 const productModal =
 document.getElementById(
-    "productModal"
+"productModal"
 );
+
 
 const productModalBackdrop =
 document.getElementById(
-    "productModalBackdrop"
+"productModalBackdrop"
 );
+
 
 const productModalClose =
 document.getElementById(
-    "productModalClose"
+"productModalClose"
 );
+
 
 const modalProductImage =
 document.getElementById(
-    "modalProductImage"
+"modalProductImage"
 );
+
 
 const modalProductDrop =
 document.getElementById(
-    "modalProductDrop"
+"modalProductDrop"
 );
+
 
 const modalProductStatus =
 document.getElementById(
-    "modalProductStatus"
+"modalProductStatus"
 );
+
 
 const modalProductTitle =
 document.getElementById(
-    "modalProductTitle"
+"modalProductTitle"
 );
+
 
 const modalProductPrice =
 document.getElementById(
-    "modalProductPrice"
+"modalProductPrice"
 );
+
 
 const modalProductDescription =
 document.getElementById(
-    "modalProductDescription"
+"modalProductDescription"
 );
+
 
 const modalAddCart =
 document.getElementById(
-    "modalAddCart"
+"modalAddCart"
 );
+
 
 const modalMessage =
 document.getElementById(
-    "modalMessage"
+"modalMessage"
 );
+
 
 const sizeSection =
 document.getElementById(
-    "sizeSection"
+"sizeSection"
 );
+
 
 const quantitySection =
 document.getElementById(
-    "quantitySection"
+"quantitySection"
 );
+
 
 const sizeButtons =
 document.querySelectorAll(
-    ".size-btn"
+".size-btn"
 );
+
 
 const modalQtyMinus =
 document.getElementById(
-    "modalQtyMinus"
+"modalQtyMinus"
 );
+
 
 const modalQtyPlus =
 document.getElementById(
-    "modalQtyPlus"
+"modalQtyPlus"
 );
+
 
 const modalQtyValue =
 document.getElementById(
-    "modalQtyValue"
+"modalQtyValue"
 );
+
 
 const imageSwitcher =
 document.getElementById(
-    "imageSwitcher"
+"imageSwitcher"
 );
+
 
 const frontImageBtn =
 document.getElementById(
-    "frontImageBtn"
+"frontImageBtn"
 );
+
 
 const backImageBtn =
 document.getElementById(
-    "backImageBtn"
+"backImageBtn"
 );
 
 
-let activeProduct =
-null;
+let activeProduct=null;
 
-let selectedSize =
-null;
+let selectedSize=null;
 
-let modalQuantity =
-1;
-
-let modalImageView =
-"front";
+let modalQuantity=1;
 
 
-/* =========================
-   SET POPUP IMAGE
-========================= */
+/* IMAGE SWITCH */
 
 function setModalImage(view){
 
-    if(!activeProduct){
-        return;
-    }
-
-    modalImageView =
-    view;
-
-    if(view==="back"){
-
-        modalProductImage.src =
-        activeProduct.backImage;
-
-        modalProductImage.alt =
-        activeProduct.name +
-        " back";
-
-        frontImageBtn.classList.remove(
-            "active"
-        );
-
-        backImageBtn.classList.add(
-            "active"
-        );
-
-    }
-
-    else{
-
-        modalProductImage.src =
-        activeProduct.frontImage;
-
-        modalProductImage.alt =
-        activeProduct.name +
-        " front";
-
-        backImageBtn.classList.remove(
-            "active"
-        );
-
-        frontImageBtn.classList.add(
-            "active"
-        );
-
-    }
-
+if(!activeProduct){
+return;
 }
 
 
-/* FRONT BUTTON */
+if(view==="back"){
+
+modalProductImage.src=
+activeProduct.backImage;
+
+frontImageBtn.classList.remove(
+"active"
+);
+
+backImageBtn.classList.add(
+"active"
+);
+
+}else{
+
+modalProductImage.src=
+activeProduct.frontImage;
+
+backImageBtn.classList.remove(
+"active"
+);
+
+frontImageBtn.classList.add(
+"active"
+);
+
+}
+
+}
+
 
 frontImageBtn.addEventListener(
-    "click",
-    function(){
-
-        setModalImage(
-            "front"
-        );
-
-    }
+"click",
+()=>setModalImage("front")
 );
 
-
-/* BACK BUTTON */
 
 backImageBtn.addEventListener(
-    "click",
-    function(){
-
-        setModalImage(
-            "back"
-        );
-
-    }
+"click",
+()=>setModalImage("back")
 );
 
 
-/* =========================
-   OPEN PRODUCT
-========================= */
+/* OPEN PRODUCT */
 
-function openProduct(productId){
+function openProduct(id){
 
-    const product =
-    PRODUCTS[productId];
-
-    if(!product){
-        return;
-    }
-
-    activeProduct =
-    product;
-
-    selectedSize =
-    null;
-
-    modalQuantity =
-    1;
-
-    modalQtyValue.textContent =
-    modalQuantity;
-
-    sizeButtons.forEach(
-        function(button){
-
-            button.classList.remove(
-                "selected"
-            );
-
-        }
-    );
-
-    modalProductDrop.textContent =
-    product.drop;
-
-    modalProductStatus.textContent =
-    product.status;
-
-    modalProductTitle.textContent =
-    product.name;
-
-    modalProductDescription.textContent =
-    product.description;
-
-    modalMessage.textContent =
-    "";
+const product=
+PRODUCTS[id];
 
 
-    if(product.available){
+if(!product){
+return;
+}
 
-        modalProductImage.style.display =
-        "block";
 
-        imageSwitcher.style.display =
-        "flex";
+activeProduct=
+product;
 
-        setModalImage(
-            "front"
-        );
 
-        modalProductPrice.textContent =
-        "$" +
-        product.price.toFixed(2);
+selectedSize=
+null;
 
-        sizeSection.style.display =
-        "block";
 
-        quantitySection.style.display =
-        "block";
+modalQuantity=
+1;
 
-        modalAddCart.style.display =
-        "block";
 
-        modalAddCart.disabled =
-        false;
+modalQtyValue.textContent=
+"1";
 
-        modalAddCart.textContent =
-        "Add to Cart";
 
-    }
+sizeButtons.forEach(
+button=>
+button.classList.remove(
+"selected"
+)
+);
 
-    else{
 
-        modalProductImage.style.display =
-        "none";
+modalProductDrop.textContent=
+product.drop;
 
-        imageSwitcher.style.display =
-        "none";
 
-        modalProductPrice.textContent =
-        "Coming Soon";
+modalProductStatus.textContent=
+product.status;
 
-        sizeSection.style.display =
-        "none";
 
-        quantitySection.style.display =
-        "none";
+modalProductTitle.textContent=
+product.name;
 
-        modalAddCart.style.display =
-        "block";
 
-        modalAddCart.disabled =
-        true;
+modalProductDescription.textContent=
+product.description;
 
-        modalAddCart.textContent =
-        "Coming Soon";
 
-    }
+modalMessage.textContent=
+"";
 
-    productModal.classList.add(
-        "open"
-    );
 
-    productModalBackdrop.classList.add(
-        "open"
-    );
+/* REAL PRODUCT */
 
-    productModal.setAttribute(
-        "aria-hidden",
-        "false"
-    );
+if(product.frontImage){
 
-    document.body.classList.add(
-        "no-scroll"
-    );
+modalProductImage.style.display=
+"block";
+
+
+imageSwitcher.style.display=
+"flex";
+
+
+setModalImage(
+"front"
+);
+
+
+}else{
+
+modalProductImage.style.display=
+"none";
+
+
+imageSwitcher.style.display=
+"none";
 
 }
 
 
-/* =========================
-   CLOSE PRODUCT
-========================= */
+/* PRICE */
+
+modalProductPrice.textContent=
+product.price
+?
+"$"+product.price.toFixed(2)
+:
+"Coming Soon";
+
+
+/* COMING SOON */
+
+if(
+product.status===
+"COMING SOON"
+){
+
+sizeSection.style.display=
+"none";
+
+quantitySection.style.display=
+"none";
+
+modalAddCart.disabled=
+true;
+
+modalAddCart.textContent=
+"COMING SOON";
+
+}
+
+
+/* SOLD OUT */
+
+else if(
+product.status===
+"SOLD OUT"
+){
+
+sizeSection.style.display=
+"block";
+
+quantitySection.style.display=
+"none";
+
+modalAddCart.disabled=
+true;
+
+modalAddCart.textContent=
+"SOLD OUT";
+
+modalMessage.textContent=
+"This item is currently unavailable";
+
+}
+
+
+/* AVAILABLE */
+
+else{
+
+sizeSection.style.display=
+"block";
+
+quantitySection.style.display=
+"block";
+
+modalAddCart.disabled=
+false;
+
+modalAddCart.textContent=
+"ADD TO CART";
+
+}
+
+
+productModal.classList.add(
+"open"
+);
+
+
+productModalBackdrop.classList.add(
+"open"
+);
+
+
+document.body.classList.add(
+"no-scroll"
+);
+
+}
+
+
+/* CARDS */
+
+productCards.forEach(
+card=>{
+
+card.addEventListener(
+"click",
+()=>openProduct(
+card.dataset.product
+)
+);
+
+}
+);
+
+
+/* CLOSE */
 
 function closeProduct(){
 
-    productModal.classList.remove(
-        "open"
-    );
+productModal.classList.remove(
+"open"
+);
 
-    productModalBackdrop.classList.remove(
-        "open"
-    );
 
-    productModal.setAttribute(
-        "aria-hidden",
-        "true"
-    );
+productModalBackdrop.classList.remove(
+"open"
+);
 
-    document.body.classList.remove(
-        "no-scroll"
-    );
+
+document.body.classList.remove(
+"no-scroll"
+);
 
 }
 
 
-/* PRODUCT CARD EVENTS */
-
-productCards.forEach(
-    function(card){
-
-        card.addEventListener(
-            "click",
-            function(){
-
-                openProduct(
-                    card.dataset.product
-                );
-
-            }
-        );
-
-        card.addEventListener(
-            "keydown",
-            function(event){
-
-                if(
-                    event.key==="Enter"
-                    ||
-                    event.key===" "
-                ){
-
-                    event.preventDefault();
-
-                    openProduct(
-                        card.dataset.product
-                    );
-
-                }
-
-            }
-        );
-
-    }
-);
-
-
 productModalClose.addEventListener(
-    "click",
-    closeProduct
+"click",
+closeProduct
 );
+
 
 productModalBackdrop.addEventListener(
-    "click",
-    closeProduct
+"click",
+closeProduct
 );
 
 
-/* =========================
-   SIZE SELECTOR
-========================= */
+/* SIZES */
 
 sizeButtons.forEach(
-    function(button){
+button=>{
 
-        button.addEventListener(
-            "click",
-            function(){
+button.addEventListener(
+"click",
+()=>{
 
-                sizeButtons.forEach(
-                    function(item){
-
-                        item.classList.remove(
-                            "selected"
-                        );
-
-                    }
-                );
-
-                button.classList.add(
-                    "selected"
-                );
-
-                selectedSize =
-                button.dataset.size;
-
-                modalMessage.textContent =
-                "Size " +
-                selectedSize +
-                " selected";
-
-            }
-        );
-
-    }
+sizeButtons.forEach(
+item=>
+item.classList.remove(
+"selected"
+)
 );
 
 
-/* =========================
-   POPUP QUANTITY
-========================= */
+button.classList.add(
+"selected"
+);
+
+
+selectedSize=
+button.dataset.size;
+
+}
+);
+
+}
+);
+
+
+/* QUANTITY */
 
 modalQtyMinus.addEventListener(
-    "click",
-    function(){
+"click",
+()=>{
 
-        modalQuantity =
-        Math.max(
-            1,
-            modalQuantity-1
-        );
+modalQuantity=
+Math.max(
+1,
+modalQuantity-1
+);
 
-        modalQtyValue.textContent =
-        modalQuantity;
 
-    }
+modalQtyValue.textContent=
+modalQuantity;
+
+}
 );
 
 
 modalQtyPlus.addEventListener(
-    "click",
-    function(){
+"click",
+()=>{
 
-        modalQuantity =
-        Math.min(
-            10,
-            modalQuantity+1
-        );
-
-        modalQtyValue.textContent =
-        modalQuantity;
-
-    }
+modalQuantity=
+Math.min(
+10,
+modalQuantity+1
 );
 
 
-/* =========================
-   CART
-========================= */
+modalQtyValue.textContent=
+modalQuantity;
 
-const CART_KEY =
+}
+);
+
+
+/* ==================================================
+   CART
+================================================== */
+
+
+const CART_KEY=
 "desireLivingCart";
 
-const cartBtn =
+
+const cartBtn=
 document.getElementById(
-    "cartBtn"
+"cartBtn"
 );
 
-const cartCount =
+
+const cartCount=
 document.getElementById(
-    "cartCount"
+"cartCount"
 );
 
-const cartDrawer =
+
+const cartDrawer=
 document.getElementById(
-    "cartDrawer"
+"cartDrawer"
 );
 
-const cartBackdrop =
+
+const cartBackdrop=
 document.getElementById(
-    "cartBackdrop"
+"cartBackdrop"
 );
 
-const cartClose =
+
+const cartClose=
 document.getElementById(
-    "cartClose"
+"cartClose"
 );
 
-const cartItems =
+
+const cartItems=
 document.getElementById(
-    "cartItems"
+"cartItems"
 );
 
-const clearCart =
+
+const clearCart=
 document.getElementById(
-    "clearCart"
+"clearCart"
 );
 
 
 let cart=[];
 
 
-/* LOAD CART */
-
 try{
 
-    const savedCart =
-    JSON.parse(
-        localStorage.getItem(
-            CART_KEY
-        )
-        ||
-        "[]"
-    );
+cart=
+JSON.parse(
+localStorage.getItem(
+CART_KEY
+)
+)
+||
+[];
 
-    cart =
-    Array.isArray(savedCart)
-    ?
-    savedCart
-    :
-    [];
+}catch{
 
-}
-
-catch(error){
-
-    cart=[];
+cart=[];
 
 }
 
 
-/* SAVE CART */
+/* SAVE */
 
 function saveCart(){
 
-    try{
-
-        localStorage.setItem(
-            CART_KEY,
-            JSON.stringify(cart)
-        );
-
-    }
-
-    catch(error){
-
-        console.log(
-            "Cart could not be saved."
-        );
-
-    }
+localStorage.setItem(
+CART_KEY,
+JSON.stringify(cart)
+);
 
 }
 
 
-/* TOTAL ITEMS */
-
-function totalItems(){
-
-    return cart.reduce(
-        function(total,item){
-
-            return total +
-            item.qty;
-
-        },
-        0
-    );
-
-}
-
-
-/* =========================
-   RENDER CART
-========================= */
+/* RENDER */
 
 function renderCart(){
 
-    cartCount.textContent =
-    totalItems();
-
-    clearCart.disabled =
-    cart.length===0;
-
-    clearCart.style.opacity =
-    cart.length===0
-    ?
-    ".4"
-    :
-    "1";
-
-
-    if(cart.length===0){
-
-        cartItems.innerHTML = `
-
-        <div class="cart-empty">
-
-            Your cart is empty.
-
-            <br>
-
-            Choose a piece from Drop 001.
-
-        </div>
-
-        `;
-
-        return;
-
-    }
-
-
-    cartItems.innerHTML =
-
-    cart.map(
-        function(item){
-
-            return `
-
-            <div
-                class="cart-item"
-                data-key="${item.key}"
-            >
-
-                <img
-                    class="cart-thumb"
-                    src="${item.image}"
-                    alt="${item.name}"
-                >
-
-                <div>
-
-                    <h3>
-                        ${item.name}
-                    </h3>
-
-                    <div class="cart-item-note">
-
-                        Size ${item.size}
-
-                        ·
-
-                        Drop 001
-
-                    </div>
-
-                    <div class="cart-price">
-
-                        $${item.price.toFixed(2)}
-
-                    </div>
-
-                    <div class="qty-row">
-
-                        <button
-                            class="qty-btn"
-                            data-action="decrease"
-                        >
-                            −
-                        </button>
-
-                        <span class="qty-value">
-                            ${item.qty}
-                        </span>
-
-                        <button
-                            class="qty-btn"
-                            data-action="increase"
-                        >
-                            +
-                        </button>
-
-                        <button
-                            class="remove-btn"
-                            data-action="remove"
-                        >
-                            Remove
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            `;
-
-        }
-
-    ).join("");
-
-}
-
-
-/* =========================
-   ADD TO CART
-========================= */
-
-modalAddCart.addEventListener(
-    "click",
-    function(){
-
-        if(
-            !activeProduct
-            ||
-            !activeProduct.available
-        ){
-            return;
-        }
-
-        if(!selectedSize){
-
-            modalMessage.textContent =
-            "Select a size first";
-
-            return;
-
-        }
-
-
-        const cartKey =
-        activeProduct.id
-        +
-        "-"
-        +
-        selectedSize;
-
-
-        const existing =
-        cart.find(
-            function(item){
-
-                return item.key
-                ===
-                cartKey;
-
-            }
-        );
-
-
-        if(existing){
-
-            existing.qty +=
-            modalQuantity;
-
-        }
-
-        else{
-
-            cart.push({
-
-                key:
-                cartKey,
-
-                id:
-                activeProduct.id,
-
-                name:
-                activeProduct.name,
-
-                price:
-                activeProduct.price,
-
-                image:
-                activeProduct.frontImage,
-
-                size:
-                selectedSize,
-
-                qty:
-                modalQuantity
-
-            });
-
-        }
-
-        saveCart();
-
-        renderCart();
-
-        closeProduct();
-
-        openCart();
-
-    }
+cartCount.textContent=
+cart.reduce(
+(total,item)=>
+total+item.qty,
+0
 );
 
 
-/* =========================
-   OPEN CART
-========================= */
+if(cart.length===0){
 
-function openCart(){
+cartItems.innerHTML=
 
-    cartDrawer.classList.add(
-        "open"
-    );
+`
 
-    cartBackdrop.classList.add(
-        "open"
-    );
+<div class="cart-empty">
 
-    cartDrawer.setAttribute(
-        "aria-hidden",
-        "false"
-    );
+Your cart is empty.
 
-    document.body.classList.add(
-        "no-scroll"
-    );
+<br>
+
+Choose a piece from Drop 001.
+
+</div>
+
+`;
+
+return;
 
 }
 
 
-/* =========================
-   CLOSE CART
-========================= */
+cartItems.innerHTML=
+
+cart.map(
+item=>
+
+`
+
+<div
+class="cart-item"
+data-key="${item.key}"
+>
+
+<img
+class="cart-thumb"
+src="${item.image}"
+alt="${item.name}"
+/>
+
+<div>
+
+<h3>
+${item.name}
+</h3>
+
+<div class="cart-item-note">
+
+Size ${item.size}
+
+</div>
+
+<div class="cart-price">
+
+$${item.price.toFixed(2)}
+
+</div>
+
+<div class="qty-row">
+
+<button
+class="qty-btn"
+data-action="decrease"
+>
+−
+</button>
+
+<span class="qty-value">
+${item.qty}
+</span>
+
+<button
+class="qty-btn"
+data-action="increase"
+>
++
+</button>
+
+<button
+class="remove-btn"
+data-action="remove"
+>
+Remove
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+`
+
+).join("");
+
+}
+
+
+/* ADD */
+
+modalAddCart.addEventListener(
+"click",
+()=>{
+
+if(
+!activeProduct
+||
+!activeProduct.available
+){
+return;
+}
+
+
+if(!selectedSize){
+
+modalMessage.textContent=
+"Select a size first";
+
+return;
+
+}
+
+
+const key=
+activeProduct.id
++
+"-"
++
+selectedSize;
+
+
+const existing=
+cart.find(
+item=>
+item.key===key
+);
+
+
+if(existing){
+
+existing.qty+=
+modalQuantity;
+
+}else{
+
+cart.push({
+
+key:key,
+
+id:
+activeProduct.id,
+
+name:
+activeProduct.name,
+
+price:
+activeProduct.price,
+
+image:
+activeProduct.frontImage,
+
+size:
+selectedSize,
+
+qty:
+modalQuantity
+
+});
+
+}
+
+
+saveCart();
+
+renderCart();
+
+closeProduct();
+
+openCart();
+
+}
+);
+
+
+/* CART OPEN */
+
+function openCart(){
+
+cartDrawer.classList.add(
+"open"
+);
+
+
+cartBackdrop.classList.add(
+"open"
+);
+
+
+document.body.classList.add(
+"no-scroll"
+);
+
+}
+
+
+/* CLOSE */
 
 function closeCart(){
 
-    cartDrawer.classList.remove(
-        "open"
-    );
+cartDrawer.classList.remove(
+"open"
+);
 
-    cartBackdrop.classList.remove(
-        "open"
-    );
 
-    cartDrawer.setAttribute(
-        "aria-hidden",
-        "true"
-    );
+cartBackdrop.classList.remove(
+"open"
+);
 
-    document.body.classList.remove(
-        "no-scroll"
-    );
+
+document.body.classList.remove(
+"no-scroll"
+);
 
 }
 
 
 cartBtn.addEventListener(
-    "click",
-    openCart
+"click",
+openCart
 );
+
 
 cartClose.addEventListener(
-    "click",
-    closeCart
+"click",
+closeCart
 );
+
 
 cartBackdrop.addEventListener(
-    "click",
-    closeCart
+"click",
+closeCart
 );
 
 
-/* =========================
-   CART QUANTITY BUTTONS
-========================= */
+/* CART CONTROLS */
 
 cartItems.addEventListener(
-    "click",
-    function(event){
+"click",
+event=>{
 
-        const button =
-        event.target.closest(
-            "button[data-action]"
-        );
-
-        if(!button){
-            return;
-        }
-
-        const itemElement =
-        button.closest(
-            ".cart-item"
-        );
-
-        if(!itemElement){
-            return;
-        }
-
-        const item =
-        cart.find(
-            function(entry){
-
-                return entry.key
-                ===
-                itemElement.dataset.key;
-
-            }
-        );
-
-        if(!item){
-            return;
-        }
-
-
-        if(
-            button.dataset.action
-            ===
-            "increase"
-        ){
-
-            item.qty+=1;
-
-        }
-
-
-        if(
-            button.dataset.action
-            ===
-            "decrease"
-        ){
-
-            item.qty-=1;
-
-        }
-
-
-        if(
-            button.dataset.action
-            ===
-            "remove"
-            ||
-            item.qty<=0
-        ){
-
-            cart =
-            cart.filter(
-                function(entry){
-
-                    return entry.key
-                    !==
-                    item.key;
-
-                }
-            );
-
-        }
-
-        saveCart();
-
-        renderCart();
-
-    }
+const button=
+event.target.closest(
+"button[data-action]"
 );
 
 
-/* =========================
-   CLEAR CART
-========================= */
+if(!button){
+return;
+}
 
-clearCart.addEventListener(
-    "click",
-    function(){
 
-        cart=[];
-
-        saveCart();
-
-        renderCart();
-
-    }
+const row=
+button.closest(
+".cart-item"
 );
 
 
-/* =========================
-   ESCAPE KEY
-========================= */
-
-document.addEventListener(
-    "keydown",
-    function(event){
-
-        if(event.key!=="Escape"){
-            return;
-        }
-
-        if(
-            productModal
-            .classList
-            .contains("open")
-        ){
-
-            closeProduct();
-
-            return;
-
-        }
-
-        if(
-            cartDrawer
-            .classList
-            .contains("open")
-        ){
-
-            closeCart();
-
-        }
-
-    }
+const item=
+cart.find(
+entry=>
+entry.key===
+row.dataset.key
 );
 
 
-/* =========================
-   INITIALIZE
-========================= */
+if(!item){
+return;
+}
+
+
+if(
+button.dataset.action===
+"increase"
+){
+
+item.qty++;
+
+}
+
+
+if(
+button.dataset.action===
+"decrease"
+){
+
+item.qty--;
+
+}
+
+
+if(
+button.dataset.action===
+"remove"
+||
+item.qty<=0
+){
+
+cart=
+cart.filter(
+entry=>
+entry.key!==
+item.key
+);
+
+}
+
+
+saveCart();
 
 renderCart();
+
+}
+);
+
+
+/* CLEAR */
+
+clearCart.addEventListener(
+"click",
+()=>{
+
+cart=[];
+
+saveCart();
+
+renderCart();
+
+}
+);
+
+
+/* ESCAPE */
+
+document.addEventListener(
+"keydown",
+event=>{
+
+if(event.key!=="Escape"){
+return;
+}
+
+
+if(
+productModal.classList.contains(
+"open"
+)
+){
+
+closeProduct();
+
+return;
+
+}
+
+
+if(
+cartDrawer.classList.contains(
+"open"
+)
+){
+
+closeCart();
+
+}
+
+}
+);
+
+
+/* START */
+
+renderCart();
+
 
 </script>
 
